@@ -142,7 +142,7 @@
 
     .hero-body {
       font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 300;
       color: var(--txt-2);
       line-height: 2.0;
@@ -231,7 +231,7 @@
     .step-title {
       font-family: 'IBM Plex Sans', sans-serif;
       font-weight: 500;
-      font-size: 15px;
+      font-size: 16px;
       color: var(--txt);
       margin-bottom: 6px;
     }
@@ -239,9 +239,9 @@
     .step-desc {
       font-family: 'IBM Plex Sans', sans-serif;
       font-weight: 300;
-      font-size: 14px;
+      font-size: 16px;
       color: var(--txt-2);
-      line-height: 1.8;
+      line-height: 1.85;
     }
 
     .step-link {
@@ -282,7 +282,6 @@
     .photo-gallery {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
       gap: 6px;
       margin-bottom: 48px;
     }
@@ -294,16 +293,46 @@
       display: block;
     }
 
-    .photo-gallery .photo-main {
+    .photo-main {
       grid-column: 1 / -1;
     }
 
-    .photo-gallery .photo-main img {
-      aspect-ratio: 16/9;
+    .photo-main img {
+      aspect-ratio: 3/2;
+      width: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .photo-gallery .photo-sub img {
+    .photo-sub {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-sub img {
       aspect-ratio: 1/1;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(30%) brightness(0.55);
+    }
+
+    .photo-sub-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .coming-soon-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: #ffffff;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.6);
+      padding: 6px 14px;
     }
 
     /* Custom section */
@@ -354,7 +383,7 @@
 
     .product-desc {
       font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 300;
       color: var(--txt-2);
       line-height: 1.9;
@@ -365,10 +394,10 @@
 
     .feature-list li {
       font-family: 'DM Mono', monospace;
-      font-size: 11px;
+      font-size: 13px;
       letter-spacing: 1px;
       color: var(--txt-2);
-      padding: 11px 0;
+      padding: 12px 0;
       border-top: 1px solid var(--border-in);
     }
     .feature-list li:last-child { border-bottom: 1px solid var(--border-in); }
@@ -411,7 +440,7 @@
 
     .pricing-note {
       font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 300;
       color: #888;
       line-height: 1.7;
@@ -1005,13 +1034,19 @@
 
       <div class="photo-gallery">
         <div class="photo-main">
-          <img src="casio-watch.png" alt="Casio F-91W with Fitbit Air retrofit — front view" />
+          <img src="f91-watch.png" alt="Casio F-91W with Fitbit Air retrofit" />
         </div>
         <div class="photo-sub">
-          <img src="f91-watch.png" alt="Casio F-91W retrofit — side profile" />
+          <img src="casio-watch.png" alt="Casio calculator watch — coming soon" />
+          <div class="photo-sub-overlay">
+            <span class="coming-soon-label">Coming Soon</span>
+          </div>
         </div>
         <div class="photo-sub">
-          <img src="gshock-watch.png" alt="Casio F-91W retrofit — detail" />
+          <img src="gshock-watch.png" alt="G-Shock — coming soon" />
+          <div class="photo-sub-overlay">
+            <span class="coming-soon-label">Coming Soon</span>
+          </div>
         </div>
       </div>
 
