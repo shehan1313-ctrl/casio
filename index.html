@@ -1443,14 +1443,20 @@
       document.getElementById('confirmAddrNeed').textContent = shortAddr;
       document.getElementById('confirmAddrHave').textContent = shortAddr;
 
+      /* Trigger mailto via hidden link — most reliable cross-browser */
+      const a = document.createElement('a');
+      a.href = mailLink;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
       if (STRIPE_PAYMENT_LINK.includes('PLACEHOLDER')) {
-        /* Dev mode: skip Stripe, show confirmation + open mailto */
-        window.open(mailLink, '_blank');
+        /* Dev mode: skip Stripe, show confirmation */
         const confirmId = currentFlow === 'need' ? 'step3-need' : 'step3-have';
         goToStep(3, confirmId);
       } else {
-        window.open(mailLink, '_blank');
-        window.location.href = STRIPE_PAYMENT_LINK;
+        /* Open Stripe in same tab after short delay so mailto has time to fire */
+        setTimeout(function() { window.location.href = STRIPE_PAYMENT_LINK; }, 300);
       }
     }
 
