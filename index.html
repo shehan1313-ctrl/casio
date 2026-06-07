@@ -687,20 +687,50 @@
     }
     .btn-secondary:hover { background: var(--surface); }
 
-    .confirm-wrap { text-align: center; padding: 24px 0; }
+    /* ─── Checkout flow toggle ───────────────── */
+    .co-flow-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border-bottom: 1.5px solid var(--border);
+    }
 
-    .confirm-order-num {
+    .co-flow-tab {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
+      letter-spacing: 1px;
       color: var(--txt-m);
-      letter-spacing: 2px;
-      margin-bottom: 24px;
+      background: none;
+      border: none;
+      padding: 10px 24px 10px 0;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: color 150ms, border-color 150ms;
+    }
+
+    .co-flow-tab.active { color: var(--txt); border-bottom-color: var(--txt); }
+    .co-flow-tab:hover { color: var(--txt); }
+
+    .form-hint {
+      font-size: 12px;
+      color: var(--txt-m);
+      margin-bottom: 6px;
+      margin-top: -2px;
+    }
+
+    /* ─── Confirmation ───────────────────────── */
+    .confirm-wrap { padding: 8px 0; }
+
+    .confirm-check {
+      font-size: 28px;
+      margin-bottom: 16px;
     }
 
     .confirm-headline {
       font-size: 32px;
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
 
     .confirm-body {
@@ -731,6 +761,49 @@
     .confirm-row:last-child { border-bottom: none; }
     .confirm-key { color: var(--txt-m); }
     .confirm-val { color: var(--txt-2); font-weight: 500; }
+
+    .confirm-next-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--txt-m);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .confirm-device-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 8px;
+    }
+
+    .confirm-address-box {
+      border-left: 3px solid var(--txt);
+      background: var(--surface);
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .confirm-address-box .address-name { font-weight: 500; color: var(--txt); }
+    .confirm-address-box .address-line { color: var(--txt-2); }
+
+    .confirm-address-note {
+      font-size: 13px;
+      color: var(--txt-m);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .confirm-summary {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      border: 1.5px solid var(--border);
+      margin-top: 32px;
+    }
 
     /* ─── Waitlist ────────────────────────────── */
     #waitlist { background: var(--txt); }
@@ -1080,59 +1153,24 @@
       <div class="section-label">Order</div>
       <div class="checkout-wrap">
 
+        <!-- Progress bar -->
         <div class="progress-dots" id="progressDots">
           <div class="dot active" id="dot1"></div>
           <div class="dot" id="dot2"></div>
           <div class="dot" id="dot3"></div>
         </div>
 
-        <!-- Step 1 -->
+        <!-- Step 1: Your details -->
         <div class="checkout-step active" id="step1">
           <div class="step-header">
-            <h2 class="step-title-co">Get your devices</h2>
+            <h2 class="step-title-co">Your details</h2>
             <span class="step-counter mono">Step 1 of 3</span>
           </div>
 
-          <div class="device-cards">
-            <div class="device-card">
-              <div class="device-name">Casio F-91W</div>
-              <div class="device-price mono">~$25</div>
-              <div class="device-footer">
-                <a href="https://amazon.com/Casio-F91W-1-Classic-Resin-Digital/dp/B000GAWSDG"
-                   target="_blank" rel="noopener" class="btn-amazon">Buy on Amazon →</a>
-                <label class="device-check">
-                  <input type="checkbox" id="checkCasio" />
-                  <span class="device-check-label">I've ordered my Casio F-91W</span>
-                </label>
-              </div>
-            </div>
-
-            <div class="device-card">
-              <div class="device-name">Google Fitbit Air</div>
-              <div class="device-price mono">~$100</div>
-              <div class="device-footer">
-                <a href="https://amazon.com/Google-Fitbit-Air-Screenless-Personalized/dp/B0GTMTZF3V"
-                   target="_blank" rel="noopener" class="btn-amazon">Buy on Amazon →</a>
-                <label class="device-check">
-                  <input type="checkbox" id="checkFitbit" />
-                  <span class="device-check-label">I've ordered my Fitbit Air</span>
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="notice-box">
-            Already own both devices? Just check both boxes and continue.
-          </div>
-
-          <button class="btn-cta" id="step1Btn" disabled onclick="goToStep(2)">Continue</button>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="checkout-step" id="step2">
-          <div class="step-header">
-            <h2 class="step-title-co">Your details</h2>
-            <span class="step-counter mono">Step 2 of 3</span>
+          <!-- Flow toggle -->
+          <div class="co-flow-tabs">
+            <button class="co-flow-tab active" id="co-tab-need" onclick="setFlow('need')">I need devices</button>
+            <button class="co-flow-tab" id="co-tab-have" onclick="setFlow('have')">I already have them</button>
           </div>
 
           <form id="detailsForm" novalidate>
@@ -1149,25 +1187,26 @@
             </div>
 
             <div class="form-group" id="fg-address">
-              <label class="form-label" for="shippingAddr">Shipping Address</label>
-              <textarea id="shippingAddr" class="form-textarea" autocomplete="street-address" placeholder="Street, City, State, ZIP, Country"></textarea>
-              <div class="form-error mono">Please enter your shipping address.</div>
+              <label class="form-label" for="returnAddr">Return Shipping Address</label>
+              <div class="form-hint">Where should we send your retrofitted watch?</div>
+              <textarea id="returnAddr" class="form-textarea" autocomplete="street-address" placeholder="Street, City, State, ZIP, Country"></textarea>
+              <div class="form-error mono">Please enter your return shipping address.</div>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="orderNotes">Order Notes</label>
+              <label class="form-label" for="orderNotes">Order Notes <span style="color:var(--txt-m);font-weight:300">(optional)</span></label>
               <textarea id="orderNotes" class="form-textarea" placeholder="Anything we should know?"></textarea>
             </div>
 
-            <button type="button" class="btn-cta" onclick="validateAndGoStep3()">Continue</button>
+            <button type="button" class="btn-cta" onclick="validateStep1()">Continue</button>
           </form>
         </div>
 
-        <!-- Step 3 -->
-        <div class="checkout-step" id="step3">
+        <!-- Step 2: Pay -->
+        <div class="checkout-step" id="step2">
           <div class="step-header">
             <h2 class="step-title-co">Complete your order</h2>
-            <span class="step-counter mono">Step 3 of 3</span>
+            <span class="step-counter mono">Step 2 of 3</span>
           </div>
 
           <div class="order-summary">
@@ -1187,6 +1226,10 @@
               <span class="summary-label">Return shipping</span>
               <span class="summary-val">Included</span>
             </div>
+            <div class="summary-row">
+              <span class="summary-label">Ships back to</span>
+              <span class="summary-val" id="summaryReturnAddr">—</span>
+            </div>
             <div class="summary-row summary-total">
               <span class="summary-label">Total</span>
               <span class="summary-val">$170</span>
@@ -1194,34 +1237,79 @@
           </div>
 
           <div class="secure-note mono">Payment secured by Stripe</div>
-          <button class="btn-cta" id="payBtn" onclick="handlePayment()">Pay $170 →</button>
-          <p class="pay-note">Your card will be charged $170. Devices are purchased separately on Amazon.</p>
+          <button class="btn-cta" onclick="handlePayment()">Pay $170 →</button>
+          <p class="pay-note">Your card will be charged $170. Devices are purchased separately.</p>
         </div>
 
-        <!-- Step 4 -->
-        <div class="checkout-step" id="step4">
+        <!-- Step 3: Confirmation — Flow A (need devices) -->
+        <div class="checkout-step" id="step3-need">
           <div class="confirm-wrap">
-            <div class="confirm-order-num mono">PIV-2026-001</div>
-            <h2 class="confirm-headline">You're all set.</h2>
-            <p class="confirm-body">
-              Once your devices arrive from Amazon, pack them together and ship to:<br><br>
-              <span style="font-family:'DM Mono',monospace; font-size:13px; color:var(--txt);">
-                PIV HQ · 123 Placeholder Street · San Francisco, CA 94103
-              </span><br><br>
-              Include your order number on the outside. We'll handle the rest.
-            </p>
-            <div class="confirm-summary" id="confirmSummary">
+            <div class="confirm-check">✓</div>
+            <h2 class="confirm-headline">Payment received.</h2>
+            <p class="confirm-body">Check your email for your order confirmation. Now buy your devices and ship them straight to us.</p>
+
+            <div class="confirm-next-label mono">Next: buy your devices</div>
+            <div class="confirm-device-links">
+              <a href="https://amazon.com/Casio-F91W-1-Classic-Resin-Digital/dp/B000GAWSDG"
+                 target="_blank" rel="noopener" class="btn-cta" style="margin-bottom:10px">Casio F-91W on Amazon →</a>
+              <a href="https://amazon.com/Google-Fitbit-Air-Screenless-Personalized/dp/B0GTMTZF3V"
+                 target="_blank" rel="noopener" class="btn-cta">Fitbit Air on Amazon →</a>
+            </div>
+
+            <div class="confirm-next-label mono" style="margin-top:32px">Ship to this address</div>
+            <div class="confirm-address-box">
+              <div class="address-name">PIV HQ</div>
+              <div class="address-line">123 Placeholder Street</div>
+              <div class="address-line">San Francisco, CA 94103</div>
+              <div class="address-line">United States</div>
+            </div>
+            <p class="confirm-address-note">Use this address when checking out on Amazon — they'll ship directly to us.</p>
+
+            <div class="confirm-summary">
               <div class="confirm-row">
                 <span class="confirm-key">Paid</span>
                 <span class="confirm-val">$170</span>
               </div>
               <div class="confirm-row">
                 <span class="confirm-key">Turnaround</span>
-                <span class="confirm-val">7–10 days after devices received</span>
+                <span class="confirm-val">7–10 days after we receive devices</span>
               </div>
-              <div class="confirm-row" id="confirmAddress">
+              <div class="confirm-row">
                 <span class="confirm-key">Ships back to</span>
-                <span class="confirm-val" id="confirmAddressVal">—</span>
+                <span class="confirm-val" id="confirmAddrNeed">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Confirmation — Flow B (have devices) -->
+        <div class="checkout-step" id="step3-have">
+          <div class="confirm-wrap">
+            <div class="confirm-check">✓</div>
+            <h2 class="confirm-headline">Payment received.</h2>
+            <p class="confirm-body">Check your email for your order confirmation. Now pack your devices and ship them to us.</p>
+
+            <div class="confirm-next-label mono">Mail your devices to</div>
+            <div class="confirm-address-box">
+              <div class="address-name">PIV HQ</div>
+              <div class="address-line">123 Placeholder Street</div>
+              <div class="address-line">San Francisco, CA 94103</div>
+              <div class="address-line">United States</div>
+            </div>
+            <p class="confirm-address-note">Pack your Casio F-91W and Fitbit Air together. We'll email you when we receive them.</p>
+
+            <div class="confirm-summary">
+              <div class="confirm-row">
+                <span class="confirm-key">Paid</span>
+                <span class="confirm-val">$170</span>
+              </div>
+              <div class="confirm-row">
+                <span class="confirm-key">Turnaround</span>
+                <span class="confirm-val">7–10 days after we receive devices</span>
+              </div>
+              <div class="confirm-row">
+                <span class="confirm-key">Ships back to</span>
+                <span class="confirm-val" id="confirmAddrHave">—</span>
               </div>
             </div>
           </div>
@@ -1267,24 +1355,24 @@
 
     const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/PLACEHOLDER';
     const WAITLIST_FORM_URL   = 'https://docs.google.com/forms/PLACEHOLDER';
+    const ORDER_EMAIL         = 'hello@pivhq.com';
 
     let currentStep = 1;
+    let currentFlow = 'need'; // 'need' or 'have'
 
-    const checkCasio  = document.getElementById('checkCasio');
-    const checkFitbit = document.getElementById('checkFitbit');
-    const step1Btn    = document.getElementById('step1Btn');
-
-    function updateStep1Btn() {
-      step1Btn.disabled = !(checkCasio.checked && checkFitbit.checked);
+    /* ── Flow toggle ─────────────────────────────────────────── */
+    function setFlow(flow) {
+      currentFlow = flow;
+      document.getElementById('co-tab-need').classList.toggle('active', flow === 'need');
+      document.getElementById('co-tab-have').classList.toggle('active', flow === 'have');
     }
 
-    checkCasio.addEventListener('change', updateStep1Btn);
-    checkFitbit.addEventListener('change', updateStep1Btn);
-
-    function goToStep(n) {
-      document.getElementById('step' + currentStep).classList.remove('active');
+    /* ── Step navigation ─────────────────────────────────────── */
+    function goToStep(n, stepId) {
+      document.querySelector('.checkout-step.active').classList.remove('active');
+      const el = stepId ? document.getElementById(stepId) : document.getElementById('step' + n);
+      el.classList.add('active');
       currentStep = n;
-      document.getElementById('step' + n).classList.add('active');
       updateDots(n);
       document.getElementById('checkout').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -1293,15 +1381,16 @@
       for (let i = 1; i <= 3; i++) {
         const dot = document.getElementById('dot' + i);
         dot.className = 'dot';
-        if (i < active)       dot.classList.add('done');
+        if (i < active)        dot.classList.add('done');
         else if (i === active) dot.classList.add('active');
       }
     }
 
-    function validateAndGoStep3() {
+    /* ── Step 1: validate + proceed to pay ──────────────────── */
+    function validateStep1() {
       const name    = document.getElementById('fullName').value.trim();
       const email   = document.getElementById('emailAddr').value.trim();
-      const address = document.getElementById('shippingAddr').value.trim();
+      const address = document.getElementById('returnAddr').value.trim();
       let valid = true;
 
       const fgName = document.getElementById('fg-name');
@@ -1318,17 +1407,50 @@
       else            fgAddr.classList.remove('has-error');
 
       if (valid) {
-        document.getElementById('confirmAddressVal').textContent =
-          address.split('\n')[0] + (address.includes('\n') ? '…' : '');
-        goToStep(3);
+        const shortAddr = address.split('\n')[0] + (address.includes('\n') ? '…' : '');
+        document.getElementById('summaryReturnAddr').textContent = shortAddr;
+        goToStep(2, 'step2');
       }
     }
 
+    /* ── Step 2: payment ─────────────────────────────────────── */
     function handlePayment() {
+      const name    = document.getElementById('fullName').value.trim();
+      const email   = document.getElementById('emailAddr').value.trim();
+      const address = document.getElementById('returnAddr').value.trim();
+      const notes   = document.getElementById('orderNotes').value.trim();
+      const flowLabel = currentFlow === 'need' ? 'Needs devices (Amazon direct ship)' : 'Already has devices (mailing in)';
+
+      /* Email yourself the order details */
+      const subject = 'New PIV order — ' + name;
+      const body = [
+        'Name: ' + name,
+        'Email: ' + email,
+        'Flow: ' + flowLabel,
+        'Return address: ' + address,
+        notes ? 'Notes: ' + notes : '',
+        '',
+        'Amount: $170'
+      ].filter(Boolean).join('\n');
+
+      /* Fire mailto to capture order details before Stripe redirect */
+      const mailLink = 'mailto:' + ORDER_EMAIL
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body='    + encodeURIComponent(body);
+
+      /* Populate confirmation addresses */
+      const shortAddr = address.split('\n')[0] + (address.includes('\n') ? '…' : '');
+      document.getElementById('confirmAddrNeed').textContent = shortAddr;
+      document.getElementById('confirmAddrHave').textContent = shortAddr;
+
       if (STRIPE_PAYMENT_LINK.includes('PLACEHOLDER')) {
-        goToStep(4);
+        /* Dev mode: skip Stripe, show confirmation + open mailto */
+        window.open(mailLink, '_blank');
+        const confirmId = currentFlow === 'need' ? 'step3-need' : 'step3-have';
+        goToStep(3, confirmId);
       } else {
-        window.open(STRIPE_PAYMENT_LINK, '_blank');
+        window.open(mailLink, '_blank');
+        window.location.href = STRIPE_PAYMENT_LINK;
       }
     }
 
