@@ -966,6 +966,54 @@
       text-align: center;
     }
 
+    /* ─── Waitlist inline form ───────────────── */
+    .waitlist-inline-form {
+      display: flex;
+      gap: 0;
+      margin-top: 4px;
+    }
+
+    .waitlist-inline-input {
+      flex: 1;
+      border: 1.5px solid var(--border);
+      border-right: none;
+      padding: 14px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--txt);
+      background: var(--bg);
+      outline: none;
+      min-height: 52px;
+    }
+    .waitlist-inline-input:focus { border-color: var(--txt); }
+
+    .waitlist-inline-btn {
+      background: var(--cta-bg);
+      color: var(--cta-fg);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 14px 22px;
+      border: 1.5px solid var(--cta-bg);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 150ms;
+    }
+    .waitlist-inline-btn:hover { opacity: 0.85; }
+
+    .waitlist-inline-note {
+      font-size: 12px;
+      color: var(--txt-m);
+      margin-top: 8px;
+    }
+
+    .waitlist-inline-confirm {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--txt);
+      margin-top: 12px;
+    }
+
     /* ─── Responsive ──────────────────────────── */
     @media (max-width: 720px) {
       .hero-split { grid-template-columns: 1fr; }
@@ -1012,7 +1060,18 @@
           <div class="hero-feature muted"><div class="feat-dot off"></div>No notifications</div>
           <div class="hero-feature muted"><div class="feat-dot off"></div>No distractions</div>
         </div>
-        <a href="#checkout" class="btn-cta">Order Now — $170</a>
+        <a href="#checkout" class="btn-cta" id="hero-order-btn">Order Now — $170</a>
+
+        <!-- Waitlist form (hidden in live mode) -->
+        <div id="hero-waitlist" style="display:none">
+          <form class="waitlist-inline-form" onsubmit="submitWaitlist(event)">
+            <input type="email" id="waitlistEmail" class="waitlist-inline-input"
+                   placeholder="your@email.com" required autocomplete="email" />
+            <button type="submit" class="waitlist-inline-btn">Join waitlist →</button>
+          </form>
+          <p class="waitlist-inline-note" id="waitlistNote">We'll notify you when Batch 002 opens.</p>
+          <p class="waitlist-inline-confirm" id="waitlistConfirm" style="display:none">You're on the list.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1289,8 +1348,29 @@
       document.getElementById('tab-have').classList.toggle('active', tab === 'have');
     }
 
-    const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/6oU9AT1KC41ybf51w30co00';
-    const ORDER_EMAIL = 'hello@pivhq.com';
+    /* ── Mode: set to 'waitlist' to hide checkout, show email capture ── */
+    const MODE = 'live'; /* 'waitlist' | 'live' */
+
+    const STRIPE_PAYMENT_LINK  = 'https://buy.stripe.com/6oU9AT1KC41ybf51w30co00';
+    const ORDER_EMAIL          = 'hello@pivhq.com';
+    const WAITLIST_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSc1KgZ6tzKXI0pUggTEAeHEca3yoYTLiqNB-YMGIbkWmhoueQ/formResponse';
+    const WAITLIST_ENTRY_ID    = 'entry.1980161552';
+
+    /* ── Apply mode on load ──────────────────────────────────────── */
+    (function applyMode() {
+      if (MODE === 'waitlist') {
+        /* Hide checkout, show waitlist form in hero */
+        const checkout = document.getElementById('checkout');
+        if (checkout) checkout.style.display = 'none';
+        const heroWaitlist = document.getElementById('hero-waitlist');
+        if (heroWaitlist) heroWaitlist.style.display = 'block';
+        /* Swap all Order CTAs to scroll to waitlist form */
+        document.querySelectorAll('a[href="#checkout"], a[href="#checkout"]').forEach(function(el) {
+          el.textContent = 'Join the waitlist →';
+          el.href = '#hero-waitlist';
+        });
+      }
+    })();
 
     let currentStep = 1;
     let currentFlow = 'need'; // 'need' or 'have'
@@ -1332,6 +1412,21 @@
       } else {
         setTimeout(function() { window.location.href = STRIPE_PAYMENT_LINK; }, 300);
       }
+    }
+
+    /* ── Waitlist form submission ────────────────────────────── */
+    function submitWaitlist(e) {
+      e.preventDefault();
+      const email = document.getElementById('waitlistEmail').value.trim();
+      if (!email) return;
+
+      const fd = new FormData();
+      fd.append(WAITLIST_ENTRY_ID, email);
+      fetch(WAITLIST_FORM_ACTION, { method: 'POST', mode: 'no-cors', body: fd });
+
+      document.querySelector('.waitlist-inline-form').style.display = 'none';
+      document.getElementById('waitlistNote').style.display         = 'none';
+      document.getElementById('waitlistConfirm').style.display      = 'block';
     }
 
     function submitCustom(e) {
