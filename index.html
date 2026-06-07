@@ -210,6 +210,57 @@
     }
 
     /* ─── How It Works ───────────────────────────────────────── */
+    .process-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border-in);
+    }
+
+    .process-tab {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--txt-m);
+      background: none;
+      border: none;
+      padding: 12px 24px 12px 0;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 150ms, border-color 150ms;
+    }
+
+    .process-tab.active {
+      color: var(--txt);
+      border-bottom-color: var(--txt);
+    }
+
+    .process-tab:hover { color: var(--txt); }
+
+    .address-box {
+      border: 1px solid var(--border-in);
+      border-left: 2px solid var(--txt);
+      padding: 14px 16px;
+      margin: 16px 0;
+      background: var(--surface);
+    }
+
+    .address-name {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--txt);
+      margin-bottom: 6px;
+    }
+
+    .address-line {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--txt-2);
+      line-height: 1.8;
+    }
+
     .steps { display: flex; flex-direction: column; }
 
     .step {
@@ -976,24 +1027,39 @@
   <section id="how-it-works">
     <div class="container">
       <div class="section-label">The Process</div>
-      <div class="steps">
+
+      <!-- Tab toggle -->
+      <div class="process-tabs">
+        <button class="process-tab active" onclick="switchTab('need')" id="tab-need">I need devices</button>
+        <button class="process-tab" onclick="switchTab('have')" id="tab-have">I already have them</button>
+      </div>
+
+      <!-- Tab 1: I need devices -->
+      <div class="steps" id="steps-need">
 
         <div class="step">
           <div class="step-num mono">01</div>
           <div>
             <div class="step-title">Order</div>
-            <p class="step-desc">Purchase via our links and pay the $170 service fee. Takes 5 minutes.</p>
+            <p class="step-desc">Pay the $170 service fee. Takes 5 minutes.</p>
           </div>
         </div>
 
         <div class="step">
           <div class="step-num mono">02</div>
           <div>
-            <div class="step-title">Buy your devices</div>
+            <div class="step-title">Buy your devices &amp; ship directly to us</div>
             <p class="step-desc">
-              Use our Amazon links to purchase the Casio F-91W (~$25) and Google Fitbit Air (~$100).
-              Ships to you directly.
+              Use the links below to order your Casio F-91W (~$25) and Fitbit Air (~$100) on Amazon.
+              When checking out, enter our address as the shipping address — Amazon ships straight to us.
+              Easiest way to do it.
             </p>
+            <div class="address-box">
+              <div class="address-name mono">PIV HQ</div>
+              <div class="address-line">123 Placeholder Street</div>
+              <div class="address-line">San Francisco, CA 94103</div>
+              <div class="address-line">United States</div>
+            </div>
             <a href="https://amazon.com/Casio-F91W-1-Classic-Resin-Digital/dp/B000GAWSDG"
                target="_blank" rel="noopener" class="step-link">Casio F-91W on Amazon →</a><br>
             <a href="https://amazon.com/Google-Fitbit-Air-Screenless-Personalized/dp/B0GTMTZF3V"
@@ -1004,26 +1070,54 @@
         <div class="step">
           <div class="step-num mono">03</div>
           <div>
-            <div class="step-title">Ship to us</div>
-            <p class="step-desc">
-              Once your devices arrive, pack them together and ship to our address
-              (provided in your confirmation email).
-            </p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-num mono">04</div>
-          <div>
             <div class="step-title">Receive your retrofit</div>
             <p class="step-desc">
-              We install the custom adapter, quality check it, and ship your watch back
-              within 7–10 business days. Return shipping included.
+              We build your retrofit and ship it back within 7–10 business days. Return shipping included.
             </p>
           </div>
         </div>
 
       </div>
+
+      <!-- Tab 2: I already have devices -->
+      <div class="steps" id="steps-have" style="display:none">
+
+        <div class="step">
+          <div class="step-num mono">01</div>
+          <div>
+            <div class="step-title">Order</div>
+            <p class="step-desc">Pay the $170 service fee. Takes 5 minutes.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num mono">02</div>
+          <div>
+            <div class="step-title">Mail your devices to us</div>
+            <p class="step-desc">
+              Pack your Casio F-91W and Fitbit Air together and ship them to our address below.
+            </p>
+            <div class="address-box">
+              <div class="address-name mono">PIV HQ</div>
+              <div class="address-line">123 Placeholder Street</div>
+              <div class="address-line">San Francisco, CA 94103</div>
+              <div class="address-line">United States</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num mono">03</div>
+          <div>
+            <div class="step-title">Receive your retrofit</div>
+            <p class="step-desc">
+              We build your retrofit and ship it back within 7–10 business days. Return shipping included.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </section>
 
@@ -1344,6 +1438,14 @@
     /* ── Config ──────────────────────────────────────────────── */
     const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/PLACEHOLDER';
     const WAITLIST_FORM_URL   = 'https://docs.google.com/forms/PLACEHOLDER';
+
+    /* ── Process tab toggle ─────────────────────────────────── */
+    function switchTab(tab) {
+      document.getElementById('steps-need').style.display = tab === 'need' ? 'flex' : 'none';
+      document.getElementById('steps-have').style.display = tab === 'have' ? 'flex' : 'none';
+      document.getElementById('tab-need').classList.toggle('active', tab === 'need');
+      document.getElementById('tab-have').classList.toggle('active', tab === 'have');
+    }
 
     /* ── Checkout state ──────────────────────────────────────── */
     let currentStep = 1;
