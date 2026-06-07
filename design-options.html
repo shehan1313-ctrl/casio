@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Options — PIV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #e8e4de; font-family: 'Inter', sans-serif; padding: 48px 32px; }
+
+    .section-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .design-block {
+      margin-bottom: 64px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      background: #111;
+      color: #fff;
+      padding: 4px 10px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    /* ═══════════════════════════════════════════
+       DESIGN 1 — Bold & Spacious
+       Big type, generous whitespace, black/white
+    ════════════════════════════════════════════ */
+    .d1 {
+      background: #fff;
+      max-width: 900px;
+    }
+
+    .d1-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .d1-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 4px;
+      border: 1.5px solid #111;
+      padding: 7px 14px;
+    }
+
+    .d1-nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .d1-nav-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #555;
+      text-decoration: none;
+    }
+
+    .d1-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 480px;
+    }
+
+    .d1-hero-left {
+      background: #111;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .d1-hero-left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+
+    .d1-hero-right {
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+    }
+
+    .d1-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: #aaa;
+      text-transform: uppercase;
+    }
+
+    .d1-headline {
+      font-family: 'Inter', sans-serif;
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 1.1;
+      color: #111;
+    }
+
+    .d1-headline span { color: #555; font-weight: 300; }
+
+    .d1-features {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .d1-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #333;
+    }
+
+    .d1-feature-dot {
+      width: 6px;
+      height: 6px;
+      background: #111;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .d1-feature-dot.off { background: #ccc; }
+    .d1-feature.off { color: #999; text-decoration: line-through; }
+
+    .d1-cta {
+      display: inline-block;
+      background: #111;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 16px 32px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      align-self: flex-start;
+    }
+
+    /* ═══════════════════════════════════════════
+       DESIGN 2 — Dark & Cinematic
+       Dark bg, the watch photography shines
+    ════════════════════════════════════════════ */
+    .d2 {
+      background: #0e0e0e;
+      max-width: 900px;
+    }
+
+    .d2-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #1e1e1e;
+    }
+
+    .d2-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 4px;
+      border: 1.5px solid #fff;
+      padding: 7px 14px;
+      color: #fff;
+    }
+
+    .d2-nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .d2-nav-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #666;
+      text-decoration: none;
+    }
+
+    .d2-hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .d2-hero img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.5);
+    }
+
+    .d2-hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 48px 40px;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+    }
+
+    .d2-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 58px;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.0;
+      margin-bottom: 16px;
+    }
+
+    .d2-headline em { font-style: italic; color: #ccc; }
+
+    .d2-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: #aaa;
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+
+    .d2-features-row {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .d2-feat {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #888;
+      text-transform: uppercase;
+    }
+
+    .d2-feat.on { color: #fff; }
+
+    .d2-cta {
+      display: inline-block;
+      background: #fff;
+      color: #000;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      text-decoration: none;
+      align-self: flex-start;
+    }
+
+    /* ═══════════════════════════════════════════
+       DESIGN 3 — Editorial / Magazine
+       Wide type, clean grid, very readable
+    ════════════════════════════════════════════ */
+    .d3 {
+      background: #faf9f6;
+      max-width: 900px;
+    }
+
+    .d3-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      height: 60px;
+      border-bottom: 2px solid #111;
+    }
+
+    .d3-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 4px;
+      border: 1.5px solid #111;
+      padding: 7px 14px;
+      color: #111;
+    }
+
+    .d3-nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .d3-nav-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #111;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 11px;
+    }
+
+    .d3-hero {
+      padding: 0 40px 48px;
+    }
+
+    .d3-img-strip {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    .d3-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .d3-headline {
+      font-family: 'Inter', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.05;
+      color: #111;
+      margin-bottom: 24px;
+    }
+
+    .d3-price-tag {
+      display: inline-block;
+      background: #111;
+      color: #fff;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      padding: 10px 20px;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+
+    .d3-cta {
+      display: block;
+      background: #111;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 16px 0;
+      text-align: center;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    .d3-right {
+      padding-top: 8px;
+      border-left: 2px solid #111;
+      padding-left: 32px;
+    }
+
+    .d3-feature-list {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .d3-feature-list li {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: #111;
+      padding: 10px 0;
+      border-bottom: 1px solid #e8e4de;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .d3-feature-list li:first-child { border-top: 1px solid #e8e4de; }
+
+    .d3-check { color: #111; font-size: 14px; }
+    .d3-cross { color: #ccc; font-size: 14px; }
+
+    .d3-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: #666;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── DESIGN 1 ───────────────────────────── -->
+  <div class="design-block">
+    <div class="section-title">Design 1 — Bold & Spacious</div>
+    <div class="d1">
+      <nav class="d1-nav">
+        <span class="d1-logo">PIV</span>
+        <div class="d1-nav-links">
+          <a href="#">How it works</a>
+          <a href="#">Pricing</a>
+          <a href="#">Order</a>
+        </div>
+      </nav>
+      <div class="d1-hero">
+        <div class="d1-hero-left">
+          <img src="f91-watch.png" alt="watch" />
+        </div>
+        <div class="d1-hero-right">
+          <div class="d1-eyebrow">Retrofit Service</div>
+          <h1 class="d1-headline">Wear less.<br><span>Track more.</span></h1>
+          <div class="d1-features">
+            <div class="d1-feature"><div class="d1-feature-dot"></div>Heart rate tracking</div>
+            <div class="d1-feature"><div class="d1-feature-dot"></div>Sleep tracking</div>
+            <div class="d1-feature off"><div class="d1-feature-dot off"></div>No touchscreen</div>
+            <div class="d1-feature off"><div class="d1-feature-dot off"></div>No notifications</div>
+            <div class="d1-feature off"><div class="d1-feature-dot off"></div>No distractions</div>
+          </div>
+          <a href="#" class="d1-cta">Order Now — $170</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── DESIGN 2 ───────────────────────────── -->
+  <div class="design-block">
+    <div class="section-title">Design 2 — Dark & Cinematic</div>
+    <div class="d2">
+      <nav class="d2-nav">
+        <span class="d2-logo">PIV</span>
+        <div class="d2-nav-links">
+          <a href="#">How it works</a>
+          <a href="#">Pricing</a>
+          <a href="#">Order</a>
+        </div>
+      </nav>
+      <div class="d2-hero">
+        <img src="f91-watch.png" alt="watch" />
+        <div class="d2-hero-overlay">
+          <h1 class="d2-headline">Wear less.<br><em>Track more.</em></h1>
+          <p class="d2-sub">Your Casio F-91W. Retrofitted with a Fitbit Air.<br>One wrist. No bulk.</p>
+          <div class="d2-features-row">
+            <span class="d2-feat on">Heart rate</span>
+            <span class="d2-feat on">Sleep tracking</span>
+            <span class="d2-feat">No screen</span>
+            <span class="d2-feat">No notifications</span>
+          </div>
+          <a href="#" class="d2-cta">Order Now — $170</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── DESIGN 3 ───────────────────────────── -->
+  <div class="design-block">
+    <div class="section-title">Design 3 — Editorial</div>
+    <div class="d3">
+      <nav class="d3-nav">
+        <span class="d3-logo">PIV</span>
+        <div class="d3-nav-links">
+          <a href="#">How it works</a>
+          <a href="#">Pricing</a>
+          <a href="#">Order</a>
+        </div>
+      </nav>
+      <div class="d3-hero">
+        <img src="f91-watch.png" alt="watch" class="d3-img-strip" />
+        <div class="d3-content">
+          <div class="d3-left">
+            <h1 class="d3-headline">Wear less.<br>Track more.</h1>
+            <a href="#" class="d3-cta">Order Now — $170</a>
+          </div>
+          <div class="d3-right">
+            <ul class="d3-feature-list">
+              <li>Heart rate tracking <span class="d3-check">✓</span></li>
+              <li>Sleep tracking <span class="d3-check">✓</span></li>
+              <li>No touchscreen <span class="d3-check">✓</span></li>
+              <li>No notifications <span class="d3-check">✓</span></li>
+              <li>No distractions <span class="d3-check">✓</span></li>
+            </ul>
+            <p class="d3-desc">We retrofit your Casio F-91W with a custom 3D-printed adapter that integrates the Fitbit Air into the band bracket. One wrist. No bulk.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
