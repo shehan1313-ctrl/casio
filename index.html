@@ -719,6 +719,21 @@
       margin-top: -2px;
     }
 
+    .addr-city-state {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .zip-status {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      margin-top: 5px;
+      min-height: 16px;
+    }
+    .zip-status.ok  { color: #2a7a2a; }
+    .zip-status.err { color: #c00; }
+
     /* ─── Confirmation ───────────────────────── */
     .confirm-wrap { padding: 8px 0; }
 
@@ -1180,17 +1195,49 @@
               <div class="form-error mono">Please enter your full name.</div>
             </div>
 
-            <div class="form-group" id="fg-email">
-              <label class="form-label" for="emailAddr">Email Address</label>
-              <input type="email" id="emailAddr" class="form-input" autocomplete="email" placeholder="jane@example.com" />
-              <div class="form-error mono">Please enter a valid email address.</div>
+            <div class="form-group" id="fg-street">
+              <label class="form-label" for="addrStreet">Street Address</label>
+              <input type="text" id="addrStreet" class="form-input" autocomplete="address-line1" placeholder="123 Main St" />
+              <div class="form-error mono">Please enter your street address.</div>
             </div>
 
-            <div class="form-group" id="fg-address">
-              <label class="form-label" for="returnAddr">Return Shipping Address</label>
-              <div class="form-hint">Where should we send your retrofitted watch?</div>
-              <textarea id="returnAddr" class="form-textarea" autocomplete="street-address" placeholder="Street, City, State, ZIP, Country"></textarea>
-              <div class="form-error mono">Please enter your return shipping address.</div>
+            <div class="form-group">
+              <label class="form-label" for="addrApt">Apt / Suite <span style="color:var(--txt-m);font-weight:300">(optional)</span></label>
+              <input type="text" id="addrApt" class="form-input" autocomplete="address-line2" placeholder="Apt 4B" />
+            </div>
+
+            <div class="form-group" id="fg-zip">
+              <label class="form-label" for="addrZip">ZIP Code</label>
+              <input type="text" id="addrZip" class="form-input" autocomplete="postal-code" placeholder="94103" maxlength="10" style="max-width:160px" onblur="lookupZip()" />
+              <div class="zip-status" id="zipStatus"></div>
+              <div class="form-error mono" id="zip-error">Please enter a valid ZIP code.</div>
+            </div>
+
+            <div class="addr-city-state">
+              <div class="form-group" id="fg-city" style="flex:1">
+                <label class="form-label" for="addrCity">City</label>
+                <input type="text" id="addrCity" class="form-input" autocomplete="address-level2" placeholder="San Francisco" />
+                <div class="form-error mono">Please enter your city.</div>
+              </div>
+              <div class="form-group" id="fg-state" style="width:100px">
+                <label class="form-label" for="addrState">State</label>
+                <input type="text" id="addrState" class="form-input" autocomplete="address-level1" placeholder="CA" maxlength="3" />
+                <div class="form-error mono">Required.</div>
+              </div>
+            </div>
+
+            <div class="form-group" id="fg-country">
+              <label class="form-label" for="addrCountry">Country</label>
+              <select id="addrCountry" class="form-input" autocomplete="country-name">
+                <option value="United States" selected>United States</option>
+                <option value="Canada">Canada</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Australia">Australia</option>
+                <option value="Germany">Germany</option>
+                <option value="France">France</option>
+                <option value="Japan">Japan</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
 
             <div class="form-group">
@@ -1386,46 +1433,98 @@
       }
     }
 
+    /* ── ZIP lookup (zippopotam.us) ──────────────────────────── */
+    let zipValid = false;
+
+    async function lookupZip() {
+      const zip     = document.getElementById('addrZip').value.trim();
+      const country = document.getElementById('addrCountry').value;
+      const status  = document.getElementById('zipStatus');
+      const fgZip   = document.getElementById('fg-zip');
+
+      if (!zip) { zipValid = false; status.textContent = ''; return; }
+
+      /* Only auto-lookup for US/CA/GB/AU — others skip silently */
+      const countryCode = { 'United States': 'us', 'Canada': 'ca',
+                            'United Kingdom': 'gb', 'Australia': 'au' }[country];
+      if (!countryCode) { zipValid = true; status.textContent = ''; return; }
+
+      status.textContent = 'Checking…';
+      status.className   = 'zip-status';
+
+      try {
+        const res  = await fetch('https://api.zippopotam.us/' + countryCode + '/' + encodeURIComponent(zip));
+        if (!res.ok) throw new Error('not found');
+        const data = await res.json();
+        const place = data.places[0];
+        document.getElementById('addrCity').value  = place['place name'];
+        document.getElementById('addrState').value = place['state abbreviation'] || place['state'];
+        status.textContent  = '✓ ' + place['place name'] + ', ' + (place['state abbreviation'] || place['state']);
+        status.className    = 'zip-status ok';
+        fgZip.classList.remove('has-error');
+        zipValid = true;
+      } catch {
+        status.textContent = 'ZIP not found — please check';
+        status.className   = 'zip-status err';
+        zipValid = false;
+      }
+    }
+
     /* ── Step 1: validate + proceed to pay ──────────────────── */
-    function validateStep1() {
+    async function validateStep1() {
       const name    = document.getElementById('fullName').value.trim();
-      const email   = document.getElementById('emailAddr').value.trim();
-      const address = document.getElementById('returnAddr').value.trim();
+      const street  = document.getElementById('addrStreet').value.trim();
+      const zip     = document.getElementById('addrZip').value.trim();
+      const city    = document.getElementById('addrCity').value.trim();
+      const state   = document.getElementById('addrState').value.trim();
       let valid = true;
 
       const fgName = document.getElementById('fg-name');
       if (!name) { fgName.classList.add('has-error'); valid = false; }
       else          fgName.classList.remove('has-error');
 
-      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      const fgEmail = document.getElementById('fg-email');
-      if (!email || !emailRe.test(email)) { fgEmail.classList.add('has-error'); valid = false; }
-      else                                  fgEmail.classList.remove('has-error');
+      const fgStreet = document.getElementById('fg-street');
+      if (!street) { fgStreet.classList.add('has-error'); valid = false; }
+      else           fgStreet.classList.remove('has-error');
 
-      const fgAddr = document.getElementById('fg-address');
-      if (!address) { fgAddr.classList.add('has-error'); valid = false; }
-      else            fgAddr.classList.remove('has-error');
+      /* If zip not yet looked up, do it now */
+      if (zip && !zipValid) await lookupZip();
+
+      const fgZip = document.getElementById('fg-zip');
+      if (!zip) { fgZip.classList.add('has-error'); valid = false; }
+      else        fgZip.classList.remove('has-error');
+
+      const fgCity = document.getElementById('fg-city');
+      if (!city) { fgCity.classList.add('has-error'); valid = false; }
+      else         fgCity.classList.remove('has-error');
+
+      const fgState = document.getElementById('fg-state');
+      if (!state) { fgState.classList.add('has-error'); valid = false; }
+      else          fgState.classList.remove('has-error');
 
       if (valid) {
-        const shortAddr = address.split('\n')[0] + (address.includes('\n') ? '…' : '');
-        document.getElementById('summaryReturnAddr').textContent = shortAddr;
+        const apt     = document.getElementById('addrApt').value.trim();
+        const country = document.getElementById('addrCountry').value;
+        const fullAddr = [street, apt, city + ', ' + state + ' ' + zip, country].filter(Boolean).join(', ');
+        document.getElementById('summaryReturnAddr').textContent = street + ', ' + city;
+        /* Store full address for email */
+        window._pivReturnAddr = fullAddr;
+        window._pivName       = name;
         goToStep(2, 'step2');
       }
     }
 
     /* ── Step 2: payment ─────────────────────────────────────── */
     function handlePayment() {
-      const name    = document.getElementById('fullName').value.trim();
-      const email   = document.getElementById('emailAddr').value.trim();
-      const address = document.getElementById('returnAddr').value.trim();
-      const notes   = document.getElementById('orderNotes').value.trim();
+      const name      = window._pivName       || document.getElementById('fullName').value.trim();
+      const address   = window._pivReturnAddr || '—';
+      const notes     = document.getElementById('orderNotes').value.trim();
       const flowLabel = currentFlow === 'need' ? 'Needs devices (Amazon direct ship)' : 'Already has devices (mailing in)';
 
       /* Email yourself the order details */
       const subject = 'New PIV order — ' + name;
       const body = [
         'Name: ' + name,
-        'Email: ' + email,
         'Flow: ' + flowLabel,
         'Return address: ' + address,
         notes ? 'Notes: ' + notes : '',
@@ -1439,9 +1538,8 @@
         + '&body='    + encodeURIComponent(body);
 
       /* Populate confirmation addresses */
-      const shortAddr = address.split('\n')[0] + (address.includes('\n') ? '…' : '');
-      document.getElementById('confirmAddrNeed').textContent = shortAddr;
-      document.getElementById('confirmAddrHave').textContent = shortAddr;
+      document.getElementById('confirmAddrNeed').textContent = address;
+      document.getElementById('confirmAddrHave').textContent = address;
 
       /* Trigger mailto via hidden link — most reliable cross-browser */
       const a = document.createElement('a');
