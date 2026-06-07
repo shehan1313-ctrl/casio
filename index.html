@@ -1062,7 +1062,7 @@
         </div>
         <a href="#checkout" class="btn-cta" id="hero-order-btn">Order Now — $170</a>
 
-        <!-- Waitlist form (hidden in live mode) -->
+        <!-- Waitlist form (hidden in live mode, replaces button) -->
         <div id="hero-waitlist" style="display:none">
           <form class="waitlist-inline-form" onsubmit="submitWaitlist(event)">
             <input type="email" id="waitlistEmail" class="waitlist-inline-input"
@@ -1359,15 +1359,20 @@
     /* ── Apply mode on load ──────────────────────────────────────── */
     (function applyMode() {
       if (MODE === 'waitlist') {
-        /* Hide checkout, show waitlist form in hero */
+        /* Hide checkout section */
         const checkout = document.getElementById('checkout');
         if (checkout) checkout.style.display = 'none';
+        /* Hide hero Order button, show inline email form instead */
+        const heroBtn = document.getElementById('hero-order-btn');
+        if (heroBtn) heroBtn.style.display = 'none';
         const heroWaitlist = document.getElementById('hero-waitlist');
         if (heroWaitlist) heroWaitlist.style.display = 'block';
-        /* Swap all Order CTAs to scroll to waitlist form */
-        document.querySelectorAll('a[href="#checkout"], a[href="#checkout"]').forEach(function(el) {
-          el.textContent = 'Join the waitlist →';
-          el.href = '#hero-waitlist';
+        /* Swap any other Order CTAs (e.g. product section) */
+        document.querySelectorAll('a[href="#checkout"]').forEach(function(el) {
+          if (el.id !== 'hero-order-btn') {
+            el.textContent = 'Join the waitlist →';
+            el.href = '#hero-waitlist';
+          }
         });
       }
     })();
