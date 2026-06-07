@@ -86,20 +86,22 @@
     }
 
     .logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: 18px;
-      letter-spacing: 10px;
+      font-family: 'DM Mono', monospace;
+      font-weight: 400;
+      font-size: 12px;
+      letter-spacing: 4px;
       text-transform: uppercase;
       color: var(--txt);
       text-decoration: none;
+      border: 1.5px solid var(--txt);
+      padding: 6px 12px;
     }
 
     nav { display: flex; gap: 28px; align-items: center; }
 
     nav a {
       font-family: 'DM Mono', monospace;
-      font-size: 9px;
+      font-size: 12px;
       letter-spacing: 1px;
       color: var(--txt-2);
       text-decoration: none;
@@ -109,14 +111,22 @@
 
     /* ─── Hero ───────────────────────────────────────────────── */
     #hero {
-      padding: 88px 0 80px;
+      padding: 48px 0 80px;
       border-bottom: 1px solid var(--border-in);
+    }
+
+    .hero-product-img {
+      width: 100%;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 56px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 160px;
-      gap: 40px;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
       align-items: start;
     }
 
@@ -142,12 +152,16 @@
 
     .hero-body {
       font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 17px;
+      font-size: 15px;
       font-weight: 300;
       color: var(--txt-2);
-      line-height: 2.0;
+      line-height: 2.2;
       margin-bottom: 32px;
-      max-width: 420px;
+    }
+
+    .hero-body strong {
+      color: var(--txt);
+      font-weight: 400;
     }
 
     .btn-cta {
@@ -878,23 +892,7 @@
     @media (max-width: 640px) {
       .hero-grid {
         grid-template-columns: 1fr;
-      }
-
-      .hero-rail {
-        border-left: none;
-        border-top: 1px solid var(--border-in);
-        padding-left: 0;
-        padding-top: 24px;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 20px;
-        align-items: flex-start;
-      }
-
-      .stat-stack {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 20px;
+        gap: 28px;
       }
 
       .hero-headline { font-size: 38px; }
@@ -937,6 +935,7 @@
   <!-- ─── HERO ───────────────────────────────────────────────── -->
   <section id="hero">
     <div class="container">
+      <img src="f91-watch.png" alt="Casio F-91W with Fitbit Air retrofit" class="hero-product-img" />
       <div class="hero-grid">
         <div class="hero-left">
           <div class="hero-eyebrow">Retrofit Service</div>
@@ -944,29 +943,19 @@
             Wear less.<br>
             <em>Track more.</em>
           </h1>
-          <p class="hero-body">
-            We retrofit your Casio F-91W with a custom 3D-printed adapter that integrates
-            the Fitbit Air seamlessly into the band bracket. One wrist. No bulk. No compromise.
-          </p>
           <a href="#checkout" class="btn-cta">Order Now — $170</a>
         </div>
-
-        <div class="hero-rail">
-          <span class="batch-badge">Batch 001</span>
-          <div class="stat-stack">
-            <div class="stat-item">
-              <div class="stat-number garamond">132k</div>
-              <div class="stat-label mono">tweet impressions</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number garamond">32</div>
-              <div class="stat-label mono">on waitlist</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number garamond">$170</div>
-              <div class="stat-label mono">service fee</div>
-            </div>
-          </div>
+        <div class="hero-right">
+          <p class="hero-body">
+            <strong>Heart rate tracking.</strong><br>
+            <strong>Sleep tracking.</strong><br>
+            <strong>No touchscreen.</strong><br>
+            <strong>No notifications.</strong><br>
+            <strong>No distractions.</strong><br>
+            <br>
+            We retrofit your Casio F-91W with a custom 3D-printed adapter that integrates
+            the Fitbit Air seamlessly into the band bracket. One wrist. No bulk.
+          </p>
         </div>
       </div>
     </div>
@@ -1006,8 +995,14 @@
           <div>
             <div class="step-title">Ship to us</div>
             <p class="step-desc">
-              Once your devices arrive, pack them together and ship to our address
-              (provided in your confirmation email).
+              Once your devices arrive, pack them together and ship to our address below.
+              Include your order number on the outside of the package.
+            </p>
+            <p class="step-desc" style="margin-top:12px; font-family:'DM Mono',monospace; font-size:12px; color:var(--txt); line-height:1.8;">
+              PIV HQ<br>
+              123 Placeholder Street<br>
+              San Francisco, CA 94103<br>
+              United States
             </p>
           </div>
         </div>
@@ -1281,8 +1276,11 @@
             <div class="confirm-order-num mono">PIV-2026-001</div>
             <h2 class="confirm-headline garamond">You're all set. Almost.</h2>
             <p class="confirm-body plex">
-              Check your email for shipping instructions. Once your devices arrive from Amazon,
-              pack them together and ship to us. We'll take it from there.
+              Once your devices arrive from Amazon, pack them together and ship to:<br><br>
+              <span style="font-family:'DM Mono',monospace; font-size:11px; color:var(--txt);">
+                PIV HQ · 123 Placeholder Street · San Francisco, CA 94103
+              </span><br><br>
+              Include your order number on the outside. We'll handle the rest.
             </p>
             <div class="confirm-summary" id="confirmSummary">
               <div class="confirm-row">
