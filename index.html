@@ -353,12 +353,15 @@
       padding: 8px 16px;
     }
 
-    .product-detail {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: start;
+    .product-hero-img {
+      width: 100%;
+      aspect-ratio: 16/7;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 40px;
     }
+
+    .product-specs { max-width: 600px; }
 
     .product-title {
       font-size: 28px;
@@ -946,6 +949,25 @@
       color: #444;
     }
 
+    .footer-link {
+      color: #888;
+      text-decoration: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+    }
+    .footer-link:hover { color: #fff; }
+
+    .footer-custom {
+      max-width: var(--max-w);
+      margin: 12px auto 0;
+      padding: 12px 32px 0;
+      border-top: 1px solid #222;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #444;
+      text-align: center;
+    }
+
     /* ─── Responsive ──────────────────────────── */
     @media (max-width: 720px) {
       .hero-split { grid-template-columns: 1fr; }
@@ -971,7 +993,6 @@
       <a href="#" class="logo">PIV</a>
       <nav>
         <a href="#how-it-works">How it works</a>
-        <a href="#pricing">Pricing</a>
         <a href="#checkout">Order</a>
       </nav>
     </div>
@@ -1099,106 +1120,19 @@
     <div class="container">
       <div class="section-label">The Retrofit</div>
 
-      <div class="photo-gallery">
-        <div class="photo-main">
-          <img src="f91-watch.png" alt="Casio F-91W with Fitbit Air retrofit" />
-        </div>
-        <div class="photo-sub">
-          <img src="casio-watch.png" alt="Casio calculator watch — coming soon" />
-          <div class="photo-sub-overlay">
-            <span class="coming-soon-label">Coming Soon</span>
-          </div>
-        </div>
-        <div class="photo-sub">
-          <img src="gshock-watch.png" alt="G-Shock — coming soon" />
-          <div class="photo-sub-overlay">
-            <span class="coming-soon-label">Coming Soon</span>
-          </div>
-        </div>
-      </div>
+      <img src="f91-watch.png" alt="Casio F-91W with Fitbit Air retrofit" class="product-hero-img" />
 
-      <div class="product-detail">
-        <div>
-          <h2 class="product-title">Casio F-91W × Fitbit Air</h2>
-          <p class="product-desc">
-            A custom 3D-printed adapter machined to fit the F-91W's band bracket exactly — not a hack, not a workaround. The Fitbit Air Performance Loop integrates flush with the watch, sitting cleanly under the wrist.
-          </p>
-        </div>
+      <div class="product-specs">
+        <h2 class="product-title">Casio F-91W × Fitbit Air</h2>
+        <p class="product-desc">A custom 3D-printed adapter machined to fit the F-91W's band bracket exactly. The Fitbit Air integrates flush with the watch, sitting cleanly under the wrist.</p>
         <ul class="feature-list">
           <li>Custom 3D-printed adapter <span class="feature-check">✓</span></li>
           <li>Fits F-91W band bracket exactly <span class="feature-check">✓</span></li>
           <li>Fitbit Air Performance Loop compatible <span class="feature-check">✓</span></li>
-          <li>7–10 day turnaround <span class="feature-check">✓</span></li>
-          <li>Return shipping included <span class="feature-check">✓</span></li>
+          <li>7–10 day turnaround · Return shipping included <span class="feature-check">✓</span></li>
+          <li>$170 service fee · Devices ~$125 separately <span class="feature-check">✓</span></li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section id="pricing">
-    <div class="container">
-      <div class="section-label">Pricing</div>
-      <div class="pricing-card">
-        <div class="pricing-top">
-          <div class="pricing-price">$170</div>
-          <div class="pricing-price-meta">
-            <span class="pricing-fee-label mono">Service Fee</span>
-            <span class="pricing-note">Devices purchased separately via Amazon (~$125).<br>All-in cost: ~$299.</span>
-          </div>
-        </div>
-        <div class="pricing-items">
-          <div class="pricing-row">
-            <span class="pricing-row-label">Custom 3D adapter</span>
-            <span class="pricing-row-val">Included</span>
-          </div>
-          <div class="pricing-row">
-            <span class="pricing-row-label">Installation &amp; QA</span>
-            <span class="pricing-row-val">Included</span>
-          </div>
-          <div class="pricing-row">
-            <span class="pricing-row-label">Return shipping</span>
-            <span class="pricing-row-val">Included</span>
-          </div>
-          <div class="pricing-row">
-            <span class="pricing-row-label">Turnaround</span>
-            <span class="pricing-row-val">7–10 business days</span>
-          </div>
-          <div class="pricing-row">
-            <span class="pricing-row-label">Supported model</span>
-            <span class="pricing-row-val">Casio F-91W only</span>
-          </div>
-        </div>
-        <div class="pricing-cta">
-          <a href="#checkout" class="btn-cta">Order Now</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CUSTOM -->
-  <section id="custom">
-    <div class="container">
-      <div class="section-label">Custom Work</div>
-      <div class="custom-inner">
-        <h2 class="custom-headline">Something specific in mind?</h2>
-        <p class="custom-sub">Different watch model, different tracker, bespoke adapter? Tell us — we read every message.</p>
-
-        <form id="customForm" onsubmit="submitCustom(event)">
-          <div class="form-group">
-            <label class="form-label" for="customEmail">Your email</label>
-            <input type="email" id="customEmail" class="form-input" placeholder="you@example.com" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="customIdea">Describe your idea</label>
-            <textarea id="customIdea" class="form-textarea" rows="4" placeholder="e.g. I have a G-Shock and want to integrate a Whoop band…" required></textarea>
-          </div>
-          <button type="submit" class="btn-cta">Send it →</button>
-        </form>
-
-        <div class="custom-confirm" id="customConfirm">
-          Got it. We'll be in touch.
-        </div>
+        <a href="#checkout" class="btn-cta" style="margin-top:28px">Order Now — $170</a>
       </div>
     </div>
   </section>
@@ -1209,11 +1143,10 @@
       <div class="section-label">Order</div>
       <div class="checkout-wrap">
 
-        <!-- Step 1: Flow + Notes -->
+        <!-- Step 1: Flow + Notes (direct to Stripe) -->
         <div class="checkout-step active" id="step1">
           <div class="step-header">
             <h2 class="step-title-co">One thing first</h2>
-            <span class="step-counter mono">Step 1 of 2</span>
           </div>
 
           <div class="co-flow-tabs">
@@ -1264,43 +1197,8 @@
             <textarea id="orderNotes" class="form-textarea" placeholder="Anything we should know?"></textarea>
           </div>
 
-          <button class="btn-cta" onclick="goToStep(2,'step2')">Pay $170 →</button>
-          <p class="pay-note" style="margin-top:10px">Stripe collects your address &amp; card on the next screen.</p>
-        </div>
-
-        <!-- Step 2: Pay -->
-        <div class="checkout-step" id="step2">
-          <div class="step-header">
-            <h2 class="step-title-co">Complete your order</h2>
-            <span class="step-counter mono">Step 2 of 2</span>
-          </div>
-
-          <div class="order-summary">
-            <div class="summary-row">
-              <span class="summary-label">Service</span>
-              <span class="summary-val">PIV Retrofit</span>
-            </div>
-            <div class="summary-row">
-              <span class="summary-label">Watch</span>
-              <span class="summary-val">Casio F-91W</span>
-            </div>
-            <div class="summary-row">
-              <span class="summary-label">Tracker</span>
-              <span class="summary-val">Fitbit Air</span>
-            </div>
-            <div class="summary-row">
-              <span class="summary-label">Return shipping</span>
-              <span class="summary-val">Included</span>
-            </div>
-            <div class="summary-row summary-total">
-              <span class="summary-label">Total</span>
-              <span class="summary-val">$170</span>
-            </div>
-          </div>
-
-          <div class="secure-note mono">Payment secured by Stripe</div>
           <button class="btn-cta" onclick="handlePayment()">Pay $170 →</button>
-          <p class="pay-note">Your card will be charged $170. Devices purchased separately.</p>
+          <p class="pay-note" style="margin-top:10px">Stripe collects your address &amp; card. Secured by Stripe.</p>
         </div>
 
         <!-- Step 3: Confirmation — Flow A (need devices) -->
@@ -1371,28 +1269,16 @@
     </div>
   </section>
 
-  <!-- WAITLIST -->
-  <section id="waitlist">
-    <div class="container">
-      <div class="section-label">Join the Waitlist</div>
-      <h2 class="waitlist-headline">Not ready yet?</h2>
-      <p class="waitlist-sub">We'll notify you when the next batch opens.</p>
-
-      <form class="waitlist-form" id="waitlistForm" onsubmit="submitWaitlist(event)">
-        <input type="email" class="waitlist-input" id="waitlistEmail" placeholder="your@email.com" required autocomplete="email" />
-        <button type="submit" class="waitlist-btn">Join waitlist</button>
-      </form>
-
-      <div class="waitlist-confirm" id="waitlistConfirm">You're on the list.</div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <span class="mono">PIV HQ</span>
       <span class="mono">pivhq.com</span>
+      <span class="mono"><a href="mailto:hello@pivhq.com" class="footer-link">hello@pivhq.com</a></span>
       <span class="mono">© 2026</span>
+    </div>
+    <div class="footer-custom">
+      Something specific in mind? <a href="mailto:hello@pivhq.com?subject=Custom inquiry" class="footer-link">Email us →</a>
     </div>
   </footer>
 
@@ -1406,8 +1292,7 @@
     }
 
     const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/6oU9AT1KC41ybf51w30co00';
-    const WAITLIST_FORM_URL   = 'https://docs.google.com/forms/PLACEHOLDER';
-    const ORDER_EMAIL         = 'hello@pivhq.com';
+    const ORDER_EMAIL = 'hello@pivhq.com';
 
     let currentStep = 1;
     let currentFlow = 'need'; // 'need' or 'have'
@@ -1421,104 +1306,11 @@
       document.getElementById('notice-have').style.display = flow === 'have' ? 'block' : 'none';
     }
 
-    /* ── Step navigation ─────────────────────────────────────── */
-    function goToStep(n, stepId) {
+    /* ── Show confirmation after Stripe (dev mode only) ─────── */
+    function showConfirm(stepId) {
       document.querySelector('.checkout-step.active').classList.remove('active');
-      const el = stepId ? document.getElementById(stepId) : document.getElementById('step' + n);
-      el.classList.add('active');
-      currentStep = n;
-      updateDots(n);
+      document.getElementById(stepId).classList.add('active');
       document.getElementById('checkout').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function updateDots(active) {
-      for (let i = 1; i <= 3; i++) {
-        const dot = document.getElementById('dot' + i);
-        dot.className = 'dot';
-        if (i < active)        dot.classList.add('done');
-        else if (i === active) dot.classList.add('active');
-      }
-    }
-
-    /* ── ZIP lookup (zippopotam.us) ──────────────────────────── */
-    let zipValid = false;
-
-    async function lookupZip() {
-      const zip     = document.getElementById('addrZip').value.trim();
-      const country = document.getElementById('addrCountry').value;
-      const status  = document.getElementById('zipStatus');
-      const fgZip   = document.getElementById('fg-zip');
-
-      if (!zip) { zipValid = false; status.textContent = ''; return; }
-
-      /* Only auto-lookup for US/CA/GB/AU — others skip silently */
-      const countryCode = { 'United States': 'us', 'Canada': 'ca',
-                            'United Kingdom': 'gb', 'Australia': 'au' }[country];
-      if (!countryCode) { zipValid = true; status.textContent = ''; return; }
-
-      status.textContent = 'Checking…';
-      status.className   = 'zip-status';
-
-      try {
-        const res  = await fetch('https://api.zippopotam.us/' + countryCode + '/' + encodeURIComponent(zip));
-        if (!res.ok) throw new Error('not found');
-        const data = await res.json();
-        const place = data.places[0];
-        document.getElementById('addrCity').value  = place['place name'];
-        document.getElementById('addrState').value = place['state abbreviation'] || place['state'];
-        status.textContent  = '✓ ' + place['place name'] + ', ' + (place['state abbreviation'] || place['state']);
-        status.className    = 'zip-status ok';
-        fgZip.classList.remove('has-error');
-        zipValid = true;
-      } catch {
-        status.textContent = 'ZIP not found — please check';
-        status.className   = 'zip-status err';
-        zipValid = false;
-      }
-    }
-
-    /* ── Step 1: validate + proceed to pay ──────────────────── */
-    async function validateStep1() {
-      const name    = document.getElementById('fullName').value.trim();
-      const street  = document.getElementById('addrStreet').value.trim();
-      const zip     = document.getElementById('addrZip').value.trim();
-      const city    = document.getElementById('addrCity').value.trim();
-      const state   = document.getElementById('addrState').value.trim();
-      let valid = true;
-
-      const fgName = document.getElementById('fg-name');
-      if (!name) { fgName.classList.add('has-error'); valid = false; }
-      else          fgName.classList.remove('has-error');
-
-      const fgStreet = document.getElementById('fg-street');
-      if (!street) { fgStreet.classList.add('has-error'); valid = false; }
-      else           fgStreet.classList.remove('has-error');
-
-      /* If zip not yet looked up, do it now */
-      if (zip && !zipValid) await lookupZip();
-
-      const fgZip = document.getElementById('fg-zip');
-      if (!zip) { fgZip.classList.add('has-error'); valid = false; }
-      else        fgZip.classList.remove('has-error');
-
-      const fgCity = document.getElementById('fg-city');
-      if (!city) { fgCity.classList.add('has-error'); valid = false; }
-      else         fgCity.classList.remove('has-error');
-
-      const fgState = document.getElementById('fg-state');
-      if (!state) { fgState.classList.add('has-error'); valid = false; }
-      else          fgState.classList.remove('has-error');
-
-      if (valid) {
-        const apt     = document.getElementById('addrApt').value.trim();
-        const country = document.getElementById('addrCountry').value;
-        const fullAddr = [street, apt, city + ', ' + state + ' ' + zip, country].filter(Boolean).join(', ');
-        document.getElementById('summaryReturnAddr').textContent = street + ', ' + city;
-        /* Store full address for email */
-        window._pivReturnAddr = fullAddr;
-        window._pivName       = name;
-        goToStep(2, 'step2');
-      }
     }
 
     /* ── Step 2: payment ─────────────────────────────────────── */
@@ -1538,8 +1330,7 @@
       document.body.removeChild(a);
 
       if (STRIPE_PAYMENT_LINK.includes('PLACEHOLDER')) {
-        const confirmId = currentFlow === 'need' ? 'step3-need' : 'step3-have';
-        goToStep(3, confirmId);
+        showConfirm(currentFlow === 'need' ? 'step3-need' : 'step3-have');
       } else {
         setTimeout(function() { window.location.href = STRIPE_PAYMENT_LINK; }, 300);
       }
@@ -1562,20 +1353,6 @@
       document.getElementById('customConfirm').style.display = 'block';
     }
 
-    function submitWaitlist(e) {
-      e.preventDefault();
-      const email = document.getElementById('waitlistEmail').value.trim();
-      if (!email) return;
-      if (WAITLIST_FORM_URL.includes('PLACEHOLDER')) {
-        window.location.href = 'mailto:hello@pivhq.com?subject=Waitlist&body=' + encodeURIComponent(email);
-      } else {
-        const fd = new FormData();
-        fd.append('entry.EMAIL', email);
-        fetch(WAITLIST_FORM_URL, { method: 'POST', mode: 'no-cors', body: fd });
-      }
-      document.getElementById('waitlistForm').style.display    = 'none';
-      document.getElementById('waitlistConfirm').style.display = 'block';
-    }
   </script>
 
 </body>
