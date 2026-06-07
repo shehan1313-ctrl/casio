@@ -142,10 +142,10 @@
 
     .hero-body {
       font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 12px;
+      font-size: 15px;
       font-weight: 300;
       color: var(--txt-2);
-      line-height: 1.8;
+      line-height: 2.0;
       margin-bottom: 32px;
       max-width: 420px;
     }
@@ -231,7 +231,7 @@
     .step-title {
       font-family: 'IBM Plex Sans', sans-serif;
       font-weight: 500;
-      font-size: 13px;
+      font-size: 15px;
       color: var(--txt);
       margin-bottom: 6px;
     }
@@ -239,9 +239,9 @@
     .step-desc {
       font-family: 'IBM Plex Sans', sans-serif;
       font-weight: 300;
-      font-size: 12px;
+      font-size: 14px;
       color: var(--txt-2);
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     .step-link {
@@ -278,6 +278,72 @@
       text-transform: uppercase;
     }
 
+    /* Photo gallery */
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 6px;
+      margin-bottom: 48px;
+    }
+
+    .photo-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-gallery .photo-main {
+      grid-column: 1 / -1;
+    }
+
+    .photo-gallery .photo-main img {
+      aspect-ratio: 16/9;
+    }
+
+    .photo-gallery .photo-sub img {
+      aspect-ratio: 1/1;
+    }
+
+    /* Custom section */
+    #custom { text-align: center; }
+
+    .custom-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .custom-sub {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--txt-2);
+      line-height: 1.8;
+      margin-bottom: 32px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .custom-form {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .custom-confirm {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--txt);
+      display: none;
+      text-align: center;
+    }
+
     .product-title {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
@@ -288,10 +354,10 @@
 
     .product-desc {
       font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 11px;
+      font-size: 14px;
       font-weight: 300;
       color: var(--txt-2);
-      line-height: 1.8;
+      line-height: 1.9;
       margin-bottom: 28px;
     }
 
@@ -299,10 +365,10 @@
 
     .feature-list li {
       font-family: 'DM Mono', monospace;
-      font-size: 9px;
+      font-size: 11px;
       letter-spacing: 1px;
       color: var(--txt-2);
-      padding: 10px 0;
+      padding: 11px 0;
       border-top: 1px solid var(--border-in);
     }
     .feature-list li:last-child { border-bottom: 1px solid var(--border-in); }
@@ -345,10 +411,10 @@
 
     .pricing-note {
       font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 10px;
+      font-size: 13px;
       font-weight: 300;
       color: #888;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .pricing-items { padding: 0 36px; }
@@ -936,13 +1002,24 @@
   <section id="product">
     <div class="container">
       <div class="section-label">The Retrofit</div>
+
+      <div class="photo-gallery">
+        <div class="photo-main">
+          <img src="casio-watch.png" alt="Casio F-91W with Fitbit Air retrofit — front view" />
+        </div>
+        <div class="photo-sub">
+          <img src="f91-watch.png" alt="Casio F-91W retrofit — side profile" />
+        </div>
+        <div class="photo-sub">
+          <img src="gshock-watch.png" alt="Casio F-91W retrofit — detail" />
+        </div>
+      </div>
+
       <div class="product-grid">
 
-        <div class="product-image-placeholder">
-          <span class="product-image-label">Product photo</span>
-        </div>
+        <div class="product-image-placeholder" style="display:none"></div>
 
-        <div class="product-details">
+        <div class="product-details" style="grid-column: 1 / -1; max-width: 480px;">
           <h2 class="product-title garamond">Casio F-91W × Fitbit Air</h2>
           <p class="product-desc">
             A custom 3D-printed adapter machined to fit the F-91W's band bracket exactly —
@@ -1000,6 +1077,31 @@
         <div class="pricing-cta">
           <a href="#checkout" class="btn-cta">Order Now</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CUSTOM ────────────────────────────────────────────── -->
+  <section id="custom">
+    <div class="container">
+      <div class="section-label">Custom Work</div>
+      <h2 class="custom-headline garamond">Something specific in mind?</h2>
+      <p class="custom-sub plex">Different watch model, different tracker, a bespoke adapter? Tell us what you're thinking — we read every message.</p>
+
+      <form class="custom-form" id="customForm" onsubmit="submitCustom(event)">
+        <div class="form-group">
+          <label class="form-label mono" for="customEmail">Your email</label>
+          <input type="email" id="customEmail" class="form-input" placeholder="you@example.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label mono" for="customIdea">Describe your idea</label>
+          <textarea id="customIdea" class="form-textarea" rows="4" placeholder="e.g. I have a G-Shock and want to integrate a Whoop band…" required></textarea>
+        </div>
+        <button type="submit" class="btn-cta">Send it →</button>
+      </form>
+
+      <div class="custom-confirm garamond" id="customConfirm">
+        <em>Got it. We'll be in touch.</em>
       </div>
     </div>
   </section>
@@ -1281,6 +1383,17 @@
         window.open(STRIPE_PAYMENT_LINK, '_blank');
         /* In production, rely on Stripe's redirect — handle confirmation server-side. */
       }
+    }
+
+    /* ── Custom inquiry form ─────────────────────────────────── */
+    function submitCustom(e) {
+      e.preventDefault();
+      const email = document.getElementById('customEmail').value.trim();
+      const idea  = document.getElementById('customIdea').value.trim();
+      window.location.href = 'mailto:hello@pivhq.com?subject=Custom inquiry&body='
+        + encodeURIComponent('Email: ' + email + '\n\n' + idea);
+      document.getElementById('customForm').style.display    = 'none';
+      document.getElementById('customConfirm').style.display = 'block';
     }
 
     /* ── Waitlist form ───────────────────────────────────────── */
