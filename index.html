@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PIV HQ — Wear less. Track more.</title>
+  <meta name="description" content="We retrofit your Casio F-91W with a custom 3D-printed adapter that integrates the Fitbit Air seamlessly into the band bracket. One wrist. No bulk. No compromise." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #faf9f6;
+      --surface:   #ffffff;
+      --border:    #e2ddd7;
+      --border-in: #eae6e0;
+      --txt:       #111111;
+      --txt-2:     #666666;
+      --txt-m:     #aaaaaa;
+      --txt-m2:    #bbbbbb;
+      --cta-bg:    #111111;
+      --cta-fg:    #ffffff;
+      --max-w:     720px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--txt);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeIn 400ms ease forwards;
+    }
+
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    /* ─── Typography helpers ──────────────────────────────────── */
+    .garamond   { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .mono       { font-family: 'DM Mono', 'Courier New', monospace; }
+    .plex       { font-family: 'IBM Plex Sans', sans-serif; }
+
+    /* ─── Layout ─────────────────────────────────────────────── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 80px 0; border-bottom: 1px solid var(--border-in); }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 4px;
+      color: var(--txt-m);
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    /* ─── Header ─────────────────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border-in);
+    }
+
+    .header-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 18px;
+      letter-spacing: 10px;
+      text-transform: uppercase;
+      color: var(--txt);
+      text-decoration: none;
+    }
+
+    nav { display: flex; gap: 28px; align-items: center; }
+
+    nav a {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: var(--txt-2);
+      text-decoration: none;
+      transition: color 200ms;
+    }
+    nav a:hover { color: var(--txt); }
+
+    /* ─── Hero ───────────────────────────────────────────────── */
+    #hero {
+      padding: 88px 0 80px;
+      border-bottom: 1px solid var(--border-in);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 160px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 4px;
+      color: var(--txt-m);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 52px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: var(--txt);
+    }
+
+    .hero-headline em { font-style: italic; }
+
+    .hero-body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--txt-2);
+      line-height: 1.8;
+      margin-bottom: 32px;
+      max-width: 420px;
+    }
+
+    .btn-cta {
+      display: block;
+      width: 100%;
+      background: var(--cta-bg);
+      color: var(--cta-fg);
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 14px 20px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: opacity 200ms;
+    }
+    .btn-cta:hover { opacity: 0.85; }
+
+    /* Hero right rail */
+    .hero-rail {
+      border-left: 1px solid var(--border-in);
+      padding-left: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding-top: 4px;
+    }
+
+    .batch-badge {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+      border: 1px solid var(--txt);
+      padding: 4px 10px;
+      color: var(--txt);
+    }
+
+    .stat-stack { display: flex; flex-direction: column; gap: 20px; }
+
+    .stat-item {}
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 28px;
+      line-height: 1;
+      color: var(--txt);
+    }
+
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 1px;
+      color: var(--txt-m);
+      margin-top: 2px;
+    }
+
+    /* ─── How It Works ───────────────────────────────────────── */
+    .steps { display: flex; flex-direction: column; }
+
+    .step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 0 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border-in);
+    }
+    .step:first-child { border-top: 1px solid var(--border-in); }
+
+    .step-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--txt-m);
+      padding-top: 2px;
+    }
+
+    .step-title {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      color: var(--txt);
+      margin-bottom: 6px;
+    }
+
+    .step-desc {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      color: var(--txt-2);
+      line-height: 1.7;
+    }
+
+    .step-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: var(--txt-2);
+      text-decoration: underline;
+      display: inline-block;
+      margin-top: 6px;
+    }
+    .step-link:hover { color: var(--txt); }
+
+    /* ─── Product Section ────────────────────────────────────── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .product-image-placeholder {
+      background: #f0ede8;
+      aspect-ratio: 4/5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-image-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--txt-m);
+      text-transform: uppercase;
+    }
+
+    .product-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 32px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .product-desc {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--txt-2);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .feature-list { list-style: none; }
+
+    .feature-list li {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: var(--txt-2);
+      padding: 10px 0;
+      border-top: 1px solid var(--border-in);
+    }
+    .feature-list li:last-child { border-bottom: 1px solid var(--border-in); }
+
+    /* ─── Pricing ────────────────────────────────────────────── */
+    #pricing { display: flex; flex-direction: column; align-items: center; }
+
+    #pricing .container { width: 100%; }
+
+    .pricing-card {
+      max-width: 480px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 2px;
+    }
+
+    .pricing-top {
+      padding: 40px 36px 32px;
+      border-bottom: 1px solid var(--border-in);
+      text-align: center;
+    }
+
+    .pricing-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 56px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .pricing-fee-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 2px;
+      color: var(--txt-m);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .pricing-note {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 300;
+      color: #888;
+      line-height: 1.6;
+    }
+
+    .pricing-items { padding: 0 36px; }
+
+    .pricing-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border-in);
+    }
+    .pricing-row:last-child { border-bottom: none; }
+
+    .pricing-row-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: var(--txt-2);
+    }
+
+    .pricing-row-val {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: var(--txt-m);
+    }
+
+    .pricing-cta {
+      padding: 24px 36px 36px;
+    }
+
+    .pricing-cta .btn-cta { font-size: 10px; }
+
+    /* ─── Checkout ───────────────────────────────────────────── */
+    #checkout { scroll-margin-top: 56px; }
+
+    .checkout-wrap {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .checkout-step { display: none; }
+    .checkout-step.active { display: block; }
+
+    /* Progress dots */
+    .progress-dots {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: background 200ms;
+    }
+    .dot.active  { background: var(--txt); }
+    .dot.done    { background: var(--txt-m); width: 4px; height: 4px; margin-top: 1px; }
+
+    .step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 28px;
+    }
+
+    .step-counter {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: var(--txt-m);
+      letter-spacing: 1px;
+    }
+
+    .step-title-co {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 26px;
+    }
+
+    /* Device cards */
+    .device-cards { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+
+    .device-card {
+      border: 1px solid #e8e4de;
+      background: var(--surface);
+      padding: 16px;
+      border-radius: 2px;
+    }
+
+    .device-name {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .device-price {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: var(--txt-m);
+      margin-bottom: 14px;
+    }
+
+    .device-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-amazon {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: var(--txt);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 2px;
+      transition: background 150ms;
+      white-space: nowrap;
+    }
+    .btn-amazon:hover { background: var(--bg); }
+
+    .device-check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .device-check input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      accent-color: var(--txt);
+      cursor: pointer;
+    }
+
+    .device-check-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: var(--txt-2);
+      cursor: pointer;
+    }
+
+    .notice-box {
+      border-left: 2px solid var(--txt);
+      background: #f5f3ee;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--txt-2);
+      line-height: 1.6;
+    }
+
+    /* Form fields */
+    .form-group { margin-bottom: 20px; }
+
+    .form-label {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 2px;
+      color: var(--txt-m);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .form-input,
+    .form-textarea {
+      display: block;
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 10px 12px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--txt);
+      outline: none;
+      transition: border-color 150ms;
+      min-height: 44px;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus { border-color: var(--txt); }
+
+    .form-textarea { min-height: 80px; resize: vertical; }
+
+    .form-error {
+      font-family: 'DM Mono', monospace;
+      font-size: 8px;
+      color: #c00;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .form-group.has-error .form-error { display: block; }
+    .form-group.has-error .form-input,
+    .form-group.has-error .form-textarea { border-color: #c00; }
+
+    /* Checkout summary */
+    .order-summary {
+      border: 1px solid var(--border-in);
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--border-in);
+    }
+    .summary-row:last-child { border-bottom: none; }
+
+    .summary-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: var(--txt-2);
+    }
+
+    .summary-val {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: var(--txt-m);
+    }
+
+    .summary-total .summary-label,
+    .summary-total .summary-val {
+      color: var(--txt);
+      font-size: 10px;
+    }
+
+    .secure-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 8px;
+      color: var(--txt-m);
+      text-align: right;
+      margin-bottom: 20px;
+    }
+
+    .pay-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 8px;
+      color: var(--txt-m);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* Confirmation */
+    .confirm-wrap {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .confirm-order-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: var(--txt-m);
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .confirm-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 32px;
+      font-style: italic;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .confirm-body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--txt-2);
+      line-height: 1.8;
+      max-width: 380px;
+      margin: 0 auto 32px;
+    }
+
+    .confirm-summary {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 0;
+      text-align: left;
+      border: 1px solid var(--border-in);
+      border-radius: 2px;
+      min-width: 280px;
+    }
+
+    .confirm-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 9px 16px;
+      border-bottom: 1px solid var(--border-in);
+    }
+    .confirm-row:last-child { border-bottom: none; }
+
+    .confirm-key,
+    .confirm-val {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+    }
+    .confirm-key { color: var(--txt-m); }
+    .confirm-val { color: var(--txt-2); }
+
+    /* Generic button secondary */
+    .btn-secondary {
+      display: block;
+      width: 100%;
+      background: transparent;
+      color: var(--txt);
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 13px 20px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      text-align: center;
+      border-radius: 2px;
+      transition: background 150ms;
+      margin-top: 10px;
+    }
+    .btn-secondary:hover { background: var(--bg); }
+
+    .btn-cta:disabled,
+    .btn-cta[disabled] {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    /* ─── Waitlist ───────────────────────────────────────────── */
+    #waitlist { text-align: center; }
+
+    .waitlist-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .waitlist-sub {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: #888;
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+
+    .waitlist-form {
+      display: flex;
+      gap: 0;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .waitlist-input {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-right: none;
+      border-radius: 2px 0 0 2px;
+      padding: 11px 14px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--txt);
+      outline: none;
+      transition: border-color 150ms;
+      min-height: 44px;
+    }
+    .waitlist-input:focus { border-color: var(--txt); }
+
+    .waitlist-btn {
+      background: var(--cta-bg);
+      color: var(--cta-fg);
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      padding: 11px 18px;
+      border: 1px solid var(--cta-bg);
+      border-radius: 0 2px 2px 0;
+      cursor: pointer;
+      transition: opacity 150ms;
+      white-space: nowrap;
+    }
+    .waitlist-btn:hover { opacity: 0.85; }
+
+    .waitlist-confirm {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--txt);
+      display: none;
+    }
+
+    /* ─── Footer ─────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border-in);
+      padding: 20px 0;
+    }
+
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-inner span {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: var(--txt-m2);
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-rail {
+        border-left: none;
+        border-top: 1px solid var(--border-in);
+        padding-left: 0;
+        padding-top: 24px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      .stat-stack {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .hero-headline { font-size: 38px; }
+
+      .product-grid { grid-template-columns: 1fr; gap: 28px; }
+
+      .pricing-top,
+      .pricing-items,
+      .pricing-cta { padding-left: 24px; padding-right: 24px; }
+
+      .step-header { flex-direction: column; gap: 6px; }
+
+      .footer-inner { flex-direction: column; gap: 6px; text-align: center; }
+
+      nav { gap: 16px; }
+      nav a { font-size: 8px; }
+
+      section { padding: 56px 0; }
+
+      .waitlist-form { flex-direction: column; }
+      .waitlist-input { border-right: 1px solid var(--border); border-radius: 2px; }
+      .waitlist-btn { border-radius: 2px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HEADER ─────────────────────────────────────────────── -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">Piv</a>
+      <nav>
+        <a href="#how-it-works">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#checkout">Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ─── HERO ───────────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="hero-eyebrow">Retrofit Service</div>
+          <h1 class="hero-headline garamond">
+            Wear less.<br>
+            <em>Track more.</em>
+          </h1>
+          <p class="hero-body">
+            We retrofit your Casio F-91W with a custom 3D-printed adapter that integrates
+            the Fitbit Air seamlessly into the band bracket. One wrist. No bulk. No compromise.
+          </p>
+          <a href="#checkout" class="btn-cta">Order Now — $170</a>
+        </div>
+
+        <div class="hero-rail">
+          <span class="batch-badge">Batch 001</span>
+          <div class="stat-stack">
+            <div class="stat-item">
+              <div class="stat-number garamond">132k</div>
+              <div class="stat-label mono">tweet impressions</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number garamond">32</div>
+              <div class="stat-label mono">on waitlist</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number garamond">$170</div>
+              <div class="stat-label mono">service fee</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HOW IT WORKS ───────────────────────────────────────── -->
+  <section id="how-it-works">
+    <div class="container">
+      <div class="section-label">The Process</div>
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num mono">01</div>
+          <div>
+            <div class="step-title">Order</div>
+            <p class="step-desc">Purchase via our links and pay the $170 service fee. Takes 5 minutes.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num mono">02</div>
+          <div>
+            <div class="step-title">Buy your devices</div>
+            <p class="step-desc">
+              Use our Amazon links to purchase the Casio F-91W (~$25) and Google Fitbit Air (~$100).
+              Ships to you directly.
+            </p>
+            <a href="https://amazon.com/Casio-F91W-1-Classic-Resin-Digital/dp/B000GAWSDG"
+               target="_blank" rel="noopener" class="step-link">Casio F-91W on Amazon →</a><br>
+            <a href="https://amazon.com/Google-Fitbit-Air-Screenless-Personalized/dp/B0GTMTZF3V"
+               target="_blank" rel="noopener" class="step-link">Fitbit Air on Amazon →</a>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num mono">03</div>
+          <div>
+            <div class="step-title">Ship to us</div>
+            <p class="step-desc">
+              Once your devices arrive, pack them together and ship to our address
+              (provided in your confirmation email).
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num mono">04</div>
+          <div>
+            <div class="step-title">Receive your retrofit</div>
+            <p class="step-desc">
+              We install the custom adapter, quality check it, and ship your watch back
+              within 7–10 business days. Return shipping included.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRODUCT ────────────────────────────────────────────── -->
+  <section id="product">
+    <div class="container">
+      <div class="section-label">The Retrofit</div>
+      <div class="product-grid">
+
+        <div class="product-image-placeholder">
+          <span class="product-image-label">Product photo</span>
+        </div>
+
+        <div class="product-details">
+          <h2 class="product-title garamond">Casio F-91W × Fitbit Air</h2>
+          <p class="product-desc">
+            A custom 3D-printed adapter machined to fit the F-91W's band bracket exactly —
+            not a hack, not a workaround. The Fitbit Air Performance Loop Band integrates
+            flush with the watch, sitting cleanly under the wrist.
+          </p>
+          <ul class="feature-list mono">
+            <li>Custom 3D-printed adapter</li>
+            <li>Fits F-91W band bracket exactly</li>
+            <li>Fitbit Air Performance Loop compatible</li>
+            <li>7–10 day turnaround</li>
+            <li>Return shipping included</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRICING ────────────────────────────────────────────── -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-label">Pricing</div>
+      <div class="pricing-card">
+        <div class="pricing-top">
+          <div class="pricing-price garamond">$170</div>
+          <div class="pricing-fee-label mono">Service Fee</div>
+          <p class="pricing-note plex">
+            Devices purchased separately via Amazon (~$125 total).<br>
+            All-in cost to you: ~$299.
+          </p>
+        </div>
+        <div class="pricing-items">
+          <div class="pricing-row">
+            <span class="pricing-row-label mono">Custom 3D adapter</span>
+            <span class="pricing-row-val mono">Included</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-row-label mono">Installation &amp; QA</span>
+            <span class="pricing-row-val mono">Included</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-row-label mono">Return shipping</span>
+            <span class="pricing-row-val mono">Included</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-row-label mono">Turnaround</span>
+            <span class="pricing-row-val mono">7–10 business days</span>
+          </div>
+          <div class="pricing-row">
+            <span class="pricing-row-label mono">Supported model</span>
+            <span class="pricing-row-val mono">Casio F-91W only</span>
+          </div>
+        </div>
+        <div class="pricing-cta">
+          <a href="#checkout" class="btn-cta">Order Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CHECKOUT ───────────────────────────────────────────── -->
+  <section id="checkout">
+    <div class="container">
+      <div class="section-label">Order</div>
+      <div class="checkout-wrap">
+
+        <!-- Progress dots -->
+        <div class="progress-dots" id="progressDots">
+          <div class="dot active" id="dot1"></div>
+          <div class="dot" id="dot2"></div>
+          <div class="dot" id="dot3"></div>
+        </div>
+
+        <!-- Step 1: Devices -->
+        <div class="checkout-step active" id="step1">
+          <div class="step-header">
+            <h2 class="step-title-co garamond">Get your devices</h2>
+            <span class="step-counter mono">Step 1 of 3</span>
+          </div>
+
+          <div class="device-cards">
+            <div class="device-card">
+              <div class="device-name plex">Casio F-91W</div>
+              <div class="device-price mono">~$25</div>
+              <div class="device-footer">
+                <a href="https://amazon.com/Casio-F91W-1-Classic-Resin-Digital/dp/B000GAWSDG"
+                   target="_blank" rel="noopener" class="btn-amazon">Buy on Amazon →</a>
+                <label class="device-check">
+                  <input type="checkbox" id="checkCasio" />
+                  <span class="device-check-label mono">I've ordered my Casio F-91W</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="device-card">
+              <div class="device-name plex">Google Fitbit Air</div>
+              <div class="device-price mono">~$100</div>
+              <div class="device-footer">
+                <a href="https://amazon.com/Google-Fitbit-Air-Screenless-Personalized/dp/B0GTMTZF3V"
+                   target="_blank" rel="noopener" class="btn-amazon">Buy on Amazon →</a>
+                <label class="device-check">
+                  <input type="checkbox" id="checkFitbit" />
+                  <span class="device-check-label mono">I've ordered my Fitbit Air</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="notice-box">
+            Already own both devices? Skip this step — just check both boxes and continue.
+          </div>
+
+          <button class="btn-cta" id="step1Btn" disabled onclick="goToStep(2)">
+            Continue
+          </button>
+        </div>
+
+        <!-- Step 2: Details -->
+        <div class="checkout-step" id="step2">
+          <div class="step-header">
+            <h2 class="step-title-co garamond">Your details</h2>
+            <span class="step-counter mono">Step 2 of 3</span>
+          </div>
+
+          <form id="detailsForm" novalidate>
+            <div class="form-group" id="fg-name">
+              <label class="form-label mono" for="fullName">Full Name</label>
+              <input type="text" id="fullName" class="form-input" autocomplete="name"
+                     placeholder="Jane Smith" />
+              <div class="form-error mono">Please enter your full name.</div>
+            </div>
+
+            <div class="form-group" id="fg-email">
+              <label class="form-label mono" for="emailAddr">Email Address</label>
+              <input type="email" id="emailAddr" class="form-input" autocomplete="email"
+                     placeholder="jane@example.com" />
+              <div class="form-error mono">Please enter a valid email address.</div>
+            </div>
+
+            <div class="form-group" id="fg-address">
+              <label class="form-label mono" for="shippingAddr">Shipping Address</label>
+              <textarea id="shippingAddr" class="form-textarea" autocomplete="street-address"
+                        placeholder="Street, City, State, ZIP, Country"></textarea>
+              <div class="form-error mono">Please enter your shipping address.</div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label mono" for="orderNotes">Order Notes</label>
+              <textarea id="orderNotes" class="form-textarea"
+                        placeholder="Anything we should know?"></textarea>
+            </div>
+
+            <button type="button" class="btn-cta" onclick="validateAndGoStep3()">
+              Continue
+            </button>
+          </form>
+        </div>
+
+        <!-- Step 3: Payment -->
+        <div class="checkout-step" id="step3">
+          <div class="step-header">
+            <h2 class="step-title-co garamond">Complete your order</h2>
+            <span class="step-counter mono">Step 3 of 3</span>
+          </div>
+
+          <div class="order-summary">
+            <div class="summary-row">
+              <span class="summary-label mono">Service</span>
+              <span class="summary-val mono">PIV Retrofit</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label mono">Watch</span>
+              <span class="summary-val mono">Casio F-91W</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label mono">Tracker</span>
+              <span class="summary-val mono">Fitbit Air</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label mono">Return shipping</span>
+              <span class="summary-val mono">Included</span>
+            </div>
+            <div class="summary-row summary-total">
+              <span class="summary-label mono">Total</span>
+              <span class="summary-val mono">$170</span>
+            </div>
+          </div>
+
+          <div class="secure-note mono">Payment secured by Stripe</div>
+
+          <button class="btn-cta" id="payBtn" onclick="handlePayment()">Pay $170 →</button>
+          <div class="pay-note mono">Your card will be charged $170. Devices are purchased separately on Amazon.</div>
+        </div>
+
+        <!-- Step 4: Confirmation -->
+        <div class="checkout-step" id="step4">
+          <div class="confirm-wrap">
+            <div class="confirm-order-num mono">PIV-2026-001</div>
+            <h2 class="confirm-headline garamond">You're all set. Almost.</h2>
+            <p class="confirm-body plex">
+              Check your email for shipping instructions. Once your devices arrive from Amazon,
+              pack them together and ship to us. We'll take it from there.
+            </p>
+            <div class="confirm-summary" id="confirmSummary">
+              <div class="confirm-row">
+                <span class="confirm-key mono">Paid</span>
+                <span class="confirm-val mono">$170</span>
+              </div>
+              <div class="confirm-row">
+                <span class="confirm-key mono">Turnaround</span>
+                <span class="confirm-val mono">7–10 days after devices received</span>
+              </div>
+              <div class="confirm-row" id="confirmAddress">
+                <span class="confirm-key mono">Ships back to</span>
+                <span class="confirm-val mono" id="confirmAddressVal">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.checkout-wrap -->
+    </div>
+  </section>
+
+  <!-- ─── WAITLIST ───────────────────────────────────────────── -->
+  <section id="waitlist">
+    <div class="container">
+      <div class="section-label">Join the Waitlist</div>
+      <h2 class="waitlist-headline garamond">Not ready yet?</h2>
+      <p class="waitlist-sub plex">Join the waitlist. We'll notify you when the next batch opens.</p>
+
+      <form class="waitlist-form" id="waitlistForm" onsubmit="submitWaitlist(event)">
+        <input
+          type="email"
+          class="waitlist-input"
+          id="waitlistEmail"
+          placeholder="your@email.com"
+          required
+          autocomplete="email"
+        />
+        <button type="submit" class="waitlist-btn mono">Join</button>
+      </form>
+
+      <div class="waitlist-confirm garamond" id="waitlistConfirm">
+        <em>You're on the list.</em>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <span class="mono">PIV HQ</span>
+      <span class="mono">pivhq.com</span>
+      <span class="mono">© 2026</span>
+    </div>
+  </footer>
+
+  <!-- ─── SCRIPTS ────────────────────────────────────────────── -->
+  <script>
+    /* ── Config ──────────────────────────────────────────────── */
+    const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/PLACEHOLDER';
+    const WAITLIST_FORM_URL   = 'https://docs.google.com/forms/PLACEHOLDER';
+
+    /* ── Checkout state ──────────────────────────────────────── */
+    let currentStep = 1;
+
+    /* ── Step 1: enable continue when both checked ───────────── */
+    const checkCasio  = document.getElementById('checkCasio');
+    const checkFitbit = document.getElementById('checkFitbit');
+    const step1Btn    = document.getElementById('step1Btn');
+
+    function updateStep1Btn() {
+      step1Btn.disabled = !(checkCasio.checked && checkFitbit.checked);
+    }
+
+    checkCasio.addEventListener('change', updateStep1Btn);
+    checkFitbit.addEventListener('change', updateStep1Btn);
+
+    /* ── Navigate to step ────────────────────────────────────── */
+    function goToStep(n) {
+      document.getElementById('step' + currentStep).classList.remove('active');
+      currentStep = n;
+      document.getElementById('step' + n).classList.add('active');
+      updateDots(n);
+      document.getElementById('checkout').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function updateDots(active) {
+      for (let i = 1; i <= 3; i++) {
+        const dot = document.getElementById('dot' + i);
+        dot.className = 'dot';
+        if (i < active)      dot.classList.add('done');
+        else if (i === active) dot.classList.add('active');
+      }
+    }
+
+    /* ── Step 2: validate form ───────────────────────────────── */
+    function validateAndGoStep3() {
+      const name    = document.getElementById('fullName').value.trim();
+      const email   = document.getElementById('emailAddr').value.trim();
+      const address = document.getElementById('shippingAddr').value.trim();
+
+      let valid = true;
+
+      const fgName = document.getElementById('fg-name');
+      if (!name) { fgName.classList.add('has-error'); valid = false; }
+      else          fgName.classList.remove('has-error');
+
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const fgEmail = document.getElementById('fg-email');
+      if (!email || !emailRe.test(email)) { fgEmail.classList.add('has-error'); valid = false; }
+      else                                  fgEmail.classList.remove('has-error');
+
+      const fgAddr = document.getElementById('fg-address');
+      if (!address) { fgAddr.classList.add('has-error'); valid = false; }
+      else            fgAddr.classList.remove('has-error');
+
+      if (valid) {
+        document.getElementById('confirmAddressVal').textContent =
+          address.split('\n')[0] + (address.includes('\n') ? '…' : '');
+        goToStep(3);
+      }
+    }
+
+    /* ── Step 3: payment ─────────────────────────────────────── */
+    function handlePayment() {
+      /* Open Stripe Payment Link in a new tab.
+         When a real link is set, this will take users to Stripe's hosted checkout.
+         After Stripe redirects back (success URL), call goToStep(4) instead. */
+      if (STRIPE_PAYMENT_LINK.includes('PLACEHOLDER')) {
+        /* Dev mode: simulate successful payment */
+        goToStep(4);
+      } else {
+        window.open(STRIPE_PAYMENT_LINK, '_blank');
+        /* In production, rely on Stripe's redirect — handle confirmation server-side. */
+      }
+    }
+
+    /* ── Waitlist form ───────────────────────────────────────── */
+    function submitWaitlist(e) {
+      e.preventDefault();
+
+      const email = document.getElementById('waitlistEmail').value.trim();
+      if (!email) return;
+
+      const form    = document.getElementById('waitlistForm');
+      const confirm = document.getElementById('waitlistConfirm');
+
+      if (WAITLIST_FORM_URL.includes('PLACEHOLDER')) {
+        /* Fallback: mailto */
+        window.location.href = 'mailto:hello@pivhq.com?subject=Waitlist&body=' + encodeURIComponent(email);
+      } else {
+        const fd = new FormData();
+        fd.append('entry.EMAIL', email); /* replace field key with real Google Form field name */
+        fetch(WAITLIST_FORM_URL, { method: 'POST', mode: 'no-cors', body: fd });
+      }
+
+      form.style.display    = 'none';
+      confirm.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
