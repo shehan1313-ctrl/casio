@@ -1034,18 +1034,53 @@
 
     /* ─── Responsive ──────────────────────────── */
     @media (max-width: 720px) {
+      /* ── Nav ── */
+      .header-inner { padding: 0 16px; height: 52px; }
+      nav { gap: 16px; }
+      nav a { font-size: 12px; }
+      /* Hide secondary nav links on very small screens, keep CTA */
+      @media (max-width: 420px) {
+        nav a:not(:last-child) { display: none; }
+      }
+
+      /* ── Hero ── */
       .hero-split { grid-template-columns: 1fr; }
-      .hero-img-col { height: 280px; }
-      .hero-content-col { padding: 40px 28px; }
-      .hero-headline { font-size: 36px; }
-      .product-detail { grid-template-columns: 1fr; gap: 32px; }
-      .pricing-top { flex-direction: column; gap: 8px; }
-      .pricing-items, .pricing-cta, .pricing-top { padding-left: 24px; padding-right: 24px; }
-      nav { gap: 20px; }
-      section { padding: 64px 0; }
-      .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
-      .waitlist-form { flex-direction: column; }
-      .waitlist-input { border-right: 1.5px solid #333; }
+      .hero-img-col { height: 260px; }
+      .hero-content-col { padding: 32px 20px; gap: 24px; }
+      .hero-headline { font-size: 32px; }
+      .hero-eyebrow { font-size: 9px; }
+      .hero-feature { font-size: 14px; }
+
+      /* ── Waitlist inline form ── */
+      .waitlist-inline-form { flex-direction: column; }
+      .waitlist-inline-input { border-right: 1.5px solid var(--border); }
+      .waitlist-inline-btn { text-align: center; }
+
+      /* ── How it works ── */
+      .container { padding: 0 16px; }
+      .process-tab { font-size: 10px; padding: 10px 16px 10px 0; }
+      .step { grid-template-columns: 36px 1fr; gap: 0 12px; padding: 20px 0; }
+      .address-box { padding: 12px 14px; font-size: 12px; }
+
+      /* ── Product ── */
+      .product-specs { max-width: 100%; }
+      .product-title { font-size: 22px; }
+      .product-desc { font-size: 14px; }
+      .feature-list li { font-size: 13px; }
+
+      /* ── Checkout ── */
+      .checkout-wrap { max-width: 100%; }
+      .co-flow-tab { font-size: 10px; padding: 9px 14px 9px 0; }
+      .co-notice { padding: 12px 14px; }
+      .co-notice-step { font-size: 13px; }
+      .step-title-co { font-size: 20px; }
+
+      /* ── Footer ── */
+      .footer-inner { flex-direction: column; gap: 6px; text-align: center; }
+      .footer-custom, .footer-disclosure { padding-left: 16px; padding-right: 16px; }
+
+      /* ── General ── */
+      section { padding: 56px 0; }
     }
   </style>
 </head>
