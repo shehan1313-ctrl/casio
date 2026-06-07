@@ -1549,8 +1549,15 @@
       e.preventDefault();
       const email = document.getElementById('customEmail').value.trim();
       const idea  = document.getElementById('customIdea').value.trim();
-      window.location.href = 'mailto:hello@pivhq.com?subject=Custom inquiry&body='
-        + encodeURIComponent('Email: ' + email + '\n\n' + idea);
+      if (!email || !idea) return;
+
+      const a = document.createElement('a');
+      a.href = 'mailto:hello@pivhq.com?subject=' + encodeURIComponent('Custom inquiry')
+             + '&body=' + encodeURIComponent('Email: ' + email + '\n\n' + idea);
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
       document.getElementById('customForm').style.display    = 'none';
       document.getElementById('customConfirm').style.display = 'block';
     }
