@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PIV HQ — Wear less. Track more.</title>
-  <meta name="description" content="We retrofit your Casio F-91W with a custom 3D-printed adapter that integrates the Fitbit Air seamlessly into the band bracket. One wrist. No bulk. No compromise." />
+  <meta name="description" content="PIV HQ builds custom Casio watches with a nylon band and Fitbit Air sensor bracket — shipped ready to wear. Pop in your Google Fitbit Air sensor and go." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -1032,6 +1032,76 @@
       margin-top: 12px;
     }
 
+    /* ─── SKU Selector ───────────────────────────── */
+    .sku-selector {
+      display: flex;
+      gap: 0;
+      border: 1.5px solid var(--border);
+    }
+    .sku-btn {
+      flex: 1;
+      padding: 12px 8px;
+      text-align: center;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--txt-2);
+      border-right: 1px solid var(--border);
+      transition: background 150ms, color 150ms;
+      line-height: 1.4;
+    }
+    .sku-btn:last-child { border-right: none; }
+    .sku-btn.active { background: var(--cta-bg); color: var(--cta-fg); }
+    .sku-btn .sku-name { font-weight: 600; display: block; font-size: 13px; }
+    .sku-btn .sku-price { font-family: 'DM Mono', monospace; font-size: 11px; }
+
+    /* ─── Product cards ───────────────────────────── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .prod-card {
+      border: 1.5px solid var(--border);
+    }
+    .prod-img-wrap {
+      height: 220px;
+      overflow: hidden;
+      background: #111;
+      position: relative;
+    }
+    .prod-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      opacity: 0.9;
+    }
+    .prod-img-wrap.coming-soon img {
+      filter: grayscale(20%) brightness(0.4);
+    }
+    .prod-cs-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .prod-cs-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: #fff;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 7px 14px;
+    }
+    .prod-body { padding: 20px; }
+    .prod-name { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .prod-price { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--txt-m); margin-bottom: 16px; }
+    .prod-desc { font-size: 14px; font-weight: 300; color: var(--txt-2); line-height: 1.7; margin-bottom: 20px; }
+
     /* ─── Responsive ──────────────────────────── */
     @media (max-width: 720px) {
       /* ── Nav ── */
@@ -1064,10 +1134,10 @@
       .address-box { padding: 12px 14px; font-size: 12px; }
 
       /* ── Product ── */
-      .product-specs { max-width: 100%; }
-      .product-title { font-size: 22px; }
-      .product-desc { font-size: 14px; }
-      .feature-list li { font-size: 13px; }
+      .products-grid { grid-template-columns: 1fr; }
+      .prod-img-wrap { height: 200px; }
+      .prod-name { font-size: 16px; }
+      .prod-desc { font-size: 13px; }
 
       /* ── Checkout ── */
       .checkout-wrap { max-width: 100%; }
@@ -1106,16 +1176,26 @@
         <img src="f91-watch.png" alt="Casio F-91W with Fitbit Air retrofit" />
       </div>
       <div class="hero-content-col">
-        <div class="hero-eyebrow">Retrofit Service</div>
+        <div class="hero-eyebrow">Ready to wear</div>
         <h1 class="hero-headline">Wear less.<br><span class="dim">Track more.</span></h1>
         <div class="hero-features">
-          <div class="hero-feature"><div class="feat-dot"></div>Heart rate tracking</div>
-          <div class="hero-feature"><div class="feat-dot"></div>Sleep tracking</div>
+          <div class="hero-feature"><div class="feat-dot"></div>Heart rate + sleep tracking</div>
+          <div class="hero-feature"><div class="feat-dot"></div>Ships ready to wear</div>
+          <div class="hero-feature"><div class="feat-dot"></div>Fits your Google Fitbit Air</div>
           <div class="hero-feature muted"><div class="feat-dot off"></div>No touchscreen</div>
           <div class="hero-feature muted"><div class="feat-dot off"></div>No notifications</div>
-          <div class="hero-feature muted"><div class="feat-dot off"></div>No distractions</div>
         </div>
-        <a href="#checkout" class="btn-cta" id="hero-order-btn">Order Now — $170</a>
+        <div class="sku-selector" id="hero-sku-selector">
+          <button class="sku-btn active" onclick="selectSKU('f91')">
+            <span class="sku-name">PIV F-91</span>
+            <span class="sku-price">$129.99</span>
+          </button>
+          <button class="sku-btn" onclick="selectSKU('ca53')">
+            <span class="sku-name">PIV CA-53W</span>
+            <span class="sku-price">$139.99</span>
+          </button>
+        </div>
+        <a href="#checkout" class="btn-cta" id="hero-order-btn">Order PIV F-91 — $129.99</a>
 
         <!-- Waitlist form (hidden in live mode, replaces button) -->
         <div id="hero-waitlist" style="display:none">
@@ -1138,87 +1218,82 @@
 
       <!-- Tab toggle -->
       <div class="process-tabs">
-        <button class="process-tab active" onclick="switchTab('need')" id="tab-need">I need devices</button>
-        <button class="process-tab" onclick="switchTab('have')" id="tab-have">I already have them</button>
+        <button class="process-tab active" onclick="switchTab('have')" id="tab-have">I have a Fitbit Air</button>
+        <button class="process-tab" onclick="switchTab('need')" id="tab-need">I need a Fitbit Air</button>
       </div>
 
-      <!-- Tab 1: I need devices -->
-      <div class="steps" id="steps-need">
+      <!-- Tab 1: I have a Fitbit Air -->
+      <div class="steps" id="steps-have">
 
         <div class="step">
           <div class="step-num mono">01</div>
           <div>
-            <div class="step-title">Order</div>
-            <p class="step-desc">Pay the $170 service fee. Takes 5 minutes.</p>
+            <div class="step-title">Select your model &amp; pay</div>
+            <p class="step-desc">Choose the PIV F-91 or PIV CA-53W and complete checkout. Takes 2 minutes.</p>
           </div>
         </div>
 
         <div class="step">
           <div class="step-num mono">02</div>
           <div>
-            <div class="step-title">Buy your devices &amp; ship directly to us</div>
+            <div class="step-title">We build &amp; ship your watch</div>
             <p class="step-desc">
-              Order the Casio F-91W (~$25) and Fitbit Air (~$100) on Amazon. When checking out, enter our address as the shipping address — Amazon ships straight to us. Easiest way to do it.
+              We source the watch, swap the strap to a custom nylon band with a Fitbit Air sensor bracket, and ship it to you within 7–10 business days. Shipping included.
             </p>
-            <div class="address-box">
-              <div class="address-name">PIV HQ</div>
-              <div class="address-line">123 Placeholder Street</div>
-              <div class="address-line">San Francisco, CA 94103</div>
-              <div class="address-line">United States</div>
-            </div>
-            <a href="https://amzn.to/4fwvc7A"
-               target="_blank" rel="noopener" class="step-link">Casio F-91W on Amazon →</a><br>
-            <a href="https://amzn.to/3PQjkTv"
-               target="_blank" rel="noopener" class="step-link">Fitbit Air on Amazon →</a>
-            <p class="band-note">We recommend the <strong>Classic Obsidian</strong> color — it looks the best with the F-91W. Other colors work too, just send whichever you pick.</p>
           </div>
         </div>
 
         <div class="step">
           <div class="step-num mono">03</div>
           <div>
-            <div class="step-title">Receive your retrofit</div>
+            <div class="step-title">Pop in your Fitbit Air sensor</div>
             <p class="step-desc">
-              We build your retrofit and ship it back within 7–10 business days. Return shipping included.
+              When your watch arrives, remove the sensor pebble from your Google Fitbit Air band and slide it into the bracket. Done.
             </p>
           </div>
         </div>
 
       </div>
 
-      <!-- Tab 2: I already have devices -->
-      <div class="steps" id="steps-have" style="display:none">
+      <!-- Tab 2: I need a Fitbit Air -->
+      <div class="steps" id="steps-need" style="display:none">
 
         <div class="step">
           <div class="step-num mono">01</div>
           <div>
-            <div class="step-title">Order</div>
-            <p class="step-desc">Pay the $170 service fee. Takes 5 minutes.</p>
+            <div class="step-title">Pick up a Google Fitbit Air</div>
+            <p class="step-desc">
+              You'll need a Google Fitbit Air — the sensor pebble clips into the bracket on your new watch.
+            </p>
+            <a href="https://amzn.to/3PQjkTv" target="_blank" rel="noopener" class="step-link">Google Fitbit Air on Amazon →</a>
+            <p class="band-note">We recommend the <strong>Classic Obsidian</strong> color — it looks the best. Other colors work too.</p>
           </div>
         </div>
 
         <div class="step">
           <div class="step-num mono">02</div>
           <div>
-            <div class="step-title">Mail your devices to us</div>
-            <p class="step-desc">
-              Pack your Casio F-91W and Fitbit Air together and ship them to our address below.
-            </p>
-            <div class="address-box">
-              <div class="address-name mono">PIV HQ</div>
-              <div class="address-line">123 Placeholder Street</div>
-              <div class="address-line">San Francisco, CA 94103</div>
-              <div class="address-line">United States</div>
-            </div>
+            <div class="step-title">Select your model &amp; pay</div>
+            <p class="step-desc">Choose the PIV F-91 or PIV CA-53W and complete checkout. Takes 2 minutes.</p>
           </div>
         </div>
 
         <div class="step">
           <div class="step-num mono">03</div>
           <div>
-            <div class="step-title">Receive your retrofit</div>
+            <div class="step-title">We build &amp; ship your watch</div>
             <p class="step-desc">
-              We build your retrofit and ship it back within 7–10 business days. Return shipping included.
+              We source the watch, swap the strap to a custom nylon band with a Fitbit Air sensor bracket, and ship it to you within 7–10 business days. Shipping included.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num mono">04</div>
+          <div>
+            <div class="step-title">Pop in your Fitbit Air sensor</div>
+            <p class="step-desc">
+              Remove the sensor pebble from your Fitbit Air band and slide it into the bracket. Done.
             </p>
           </div>
         </div>
@@ -1231,21 +1306,46 @@
   <!-- PRODUCT -->
   <section id="product">
     <div class="container">
-      <div class="section-label">The Retrofit</div>
+      <div class="section-label">The Watches</div>
 
-      <img src="f91-watch.png" alt="Casio F-91W with Fitbit Air retrofit" class="product-hero-img" />
+      <div class="products-grid">
 
-      <div class="product-specs">
-        <h2 class="product-title">Casio F-91W × Fitbit Air</h2>
-        <p class="product-desc">A custom 3D-printed adapter machined to fit the F-91W's band bracket exactly. The Fitbit Air integrates flush with the watch, sitting cleanly under the wrist.</p>
-        <ul class="feature-list">
-          <li>Custom 3D-printed adapter <span class="feature-check">✓</span></li>
-          <li>Fits F-91W band bracket exactly <span class="feature-check">✓</span></li>
-          <li>Fitbit Air Performance Loop compatible <span class="feature-check">✓</span></li>
-          <li>7–10 day turnaround · Return shipping included <span class="feature-check">✓</span></li>
-          <li>$170 service fee · Devices ~$125 separately <span class="feature-check">✓</span></li>
-        </ul>
-        <a href="#checkout" class="btn-cta" style="margin-top:28px">Order Now — $170</a>
+        <div class="prod-card">
+          <div class="prod-img-wrap">
+            <img src="f91-watch.png" alt="PIV F-91 — Casio F-91W with Fitbit Air bracket" />
+          </div>
+          <div class="prod-body">
+            <div class="prod-name">PIV F-91</div>
+            <div class="prod-price">$129.99</div>
+            <p class="prod-desc">The classic Casio F-91W fitted with a custom nylon band and Fitbit Air sensor bracket. Iconic look, hidden tracking.</p>
+            <ul class="feature-list">
+              <li>Casio F-91W base watch <span class="feature-check">✓</span></li>
+              <li>Custom nylon band + sensor bracket <span class="feature-check">✓</span></li>
+              <li>Ships ready to wear <span class="feature-check">✓</span></li>
+              <li>7–10 day turnaround · Shipping included <span class="feature-check">✓</span></li>
+            </ul>
+            <a href="#checkout" class="btn-cta" style="margin-top:24px" onclick="selectSKU('f91')">Order PIV F-91 — $129.99</a>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-img-wrap coming-soon">
+            <div class="prod-cs-overlay"><div class="prod-cs-label">Coming soon</div></div>
+          </div>
+          <div class="prod-body">
+            <div class="prod-name">PIV CA-53W</div>
+            <div class="prod-price">$139.99</div>
+            <p class="prod-desc">The Casio CA-53W calculator watch — same custom nylon band and Fitbit Air bracket. More character, same tracking.</p>
+            <ul class="feature-list">
+              <li>Casio CA-53W base watch <span class="feature-check">✓</span></li>
+              <li>Custom nylon band + sensor bracket <span class="feature-check">✓</span></li>
+              <li>Ships ready to wear <span class="feature-check">✓</span></li>
+              <li>7–10 day turnaround · Shipping included <span class="feature-check">✓</span></li>
+            </ul>
+            <a href="#checkout" class="btn-cta" style="margin-top:24px;opacity:0.4;pointer-events:none">Coming soon</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1256,127 +1356,44 @@
       <div class="section-label">Order</div>
       <div class="checkout-wrap">
 
-        <!-- Step 1: Flow + Notes (direct to Stripe) -->
         <div class="checkout-step active" id="step1">
           <div class="step-header">
-            <h2 class="step-title-co">One thing first</h2>
+            <h2 class="step-title-co">Select your model</h2>
           </div>
 
-          <div class="co-flow-tabs">
-            <button class="co-flow-tab active" id="co-tab-need" onclick="setFlow('need')">I need devices</button>
-            <button class="co-flow-tab" id="co-tab-have" onclick="setFlow('have')">I already have them</button>
+          <div class="sku-selector" style="margin-bottom:24px" id="checkout-sku-selector">
+            <button class="sku-btn active" id="co-sku-f91" onclick="selectSKU('f91')">
+              <span class="sku-name">PIV F-91</span>
+              <span class="sku-price">$129.99</span>
+            </button>
+            <button class="sku-btn" id="co-sku-ca53" onclick="selectSKU('ca53')">
+              <span class="sku-name">PIV CA-53W</span>
+              <span class="sku-price">$139.99</span>
+            </button>
           </div>
 
-          <!-- Notice: need devices -->
-          <div class="co-notice" id="notice-need">
-            <strong>Here's how it works after you pay:</strong>
-            <div class="co-notice-steps">
-              <div class="co-notice-step">
-                <span class="co-notice-num">01</span>
-                <span>Order your <a href="https://amzn.to/4fwvc7A" target="_blank" rel="noopener" class="co-notice-link">Casio F-91W (~$25)</a> and <a href="https://amzn.to/3PQjkTv" target="_blank" rel="noopener" class="co-notice-link">Fitbit Air (~$100)</a> on Amazon.</span>
-              </div>
-              <div class="co-notice-step">
-                <span class="co-notice-num">02</span>
-                <span>Use our address as the shipping address at Amazon checkout — they ship straight to us. We'll send you the address right after payment.</span>
-              </div>
-              <div class="co-notice-step">
-                <span class="co-notice-num">03</span>
-                <span>We retrofit and ship your watch back within 7–10 days.</span>
-              </div>
+          <div class="order-summary">
+            <div class="summary-row">
+              <span class="summary-label">Model</span>
+              <span class="summary-val" id="summary-model">PIV F-91</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Ships in</span>
+              <span class="summary-val">7–10 business days</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Shipping</span>
+              <span class="summary-val">Included</span>
+            </div>
+            <div class="summary-row summary-total">
+              <span class="summary-label">Total</span>
+              <span class="summary-val" id="summary-total">$129.99</span>
             </div>
           </div>
 
-          <!-- Notice: have devices -->
-          <div class="co-notice" id="notice-have" style="display:none">
-            <strong>Here's how it works after you pay:</strong>
-            <div class="co-notice-steps">
-              <div class="co-notice-step">
-                <span class="co-notice-num">01</span>
-                <span>Pack your Casio F-91W and Fitbit Air together in a box.</span>
-              </div>
-              <div class="co-notice-step">
-                <span class="co-notice-num">02</span>
-                <span>Ship them to our address — we'll send it to you right after payment.</span>
-              </div>
-              <div class="co-notice-step">
-                <span class="co-notice-num">03</span>
-                <span>We retrofit and ship your watch back within 7–10 days.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group" style="margin-top:20px">
-            <label class="form-label" for="orderNotes">Order Notes <span style="color:var(--txt-m);font-weight:300">(optional)</span></label>
-            <textarea id="orderNotes" class="form-textarea" placeholder="Anything we should know?"></textarea>
-          </div>
-
-          <button class="btn-cta" onclick="handlePayment()">Pay $170 →</button>
-          <p class="pay-note" style="margin-top:10px">Stripe collects your address &amp; card. Secured by Stripe.</p>
-        </div>
-
-        <!-- Step 3: Confirmation — Flow A (need devices) -->
-        <div class="checkout-step" id="step3-need">
-          <div class="confirm-wrap">
-            <div class="confirm-check">✓</div>
-            <h2 class="confirm-headline">Payment received.</h2>
-            <p class="confirm-body">Now order your devices on Amazon and ship them directly to us.</p>
-
-            <div class="confirm-next-label mono">Buy your devices</div>
-            <div class="confirm-device-links">
-              <a href="https://amzn.to/4fwvc7A"
-                 target="_blank" rel="noopener" class="btn-cta" style="margin-bottom:10px">Casio F-91W on Amazon →</a>
-              <a href="https://amzn.to/3PQjkTv"
-                 target="_blank" rel="noopener" class="btn-cta">Fitbit Air on Amazon →</a>
-            </div>
-            <p class="band-note">We recommend the <strong>Classic Obsidian</strong> color — it looks the best with the F-91W. Other colors work too.</p>
-
-            <div class="confirm-next-label mono" style="margin-top:28px">Ship to this address</div>
-            <div class="confirm-address-box">
-              <div class="address-name">PIV HQ</div>
-              <div class="address-line">123 Placeholder Street</div>
-              <div class="address-line">San Francisco, CA 94103</div>
-              <div class="address-line">United States</div>
-            </div>
-            <p class="confirm-address-note">Use this address when checking out on Amazon — they'll ship directly to us.</p>
-
-            <div class="confirm-summary">
-              <div class="confirm-row"><span class="confirm-key">Paid</span><span class="confirm-val">$170</span></div>
-              <div class="confirm-row"><span class="confirm-key">Turnaround</span><span class="confirm-val">7–10 days after devices arrive</span></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 3: Confirmation — Flow B (have devices) -->
-        <div class="checkout-step" id="step3-have">
-          <div class="confirm-wrap">
-            <div class="confirm-check">✓</div>
-            <h2 class="confirm-headline">Payment received.</h2>
-            <p class="confirm-body">Pack your devices and ship them to us at the address below.</p>
-
-            <div class="confirm-next-label mono">Ship your devices to</div>
-            <div class="confirm-address-box">
-              <div class="address-name">PIV HQ</div>
-              <div class="address-line">123 Placeholder Street</div>
-              <div class="address-line">San Francisco, CA 94103</div>
-              <div class="address-line">United States</div>
-            </div>
-            <p class="confirm-address-note">Pack your Casio F-91W and Fitbit Air together. We'll email you when we receive them.</p>
-
-            <div class="confirm-summary">
-              <div class="confirm-row">
-                <span class="confirm-key">Paid</span>
-                <span class="confirm-val">$170</span>
-              </div>
-              <div class="confirm-row">
-                <span class="confirm-key">Turnaround</span>
-                <span class="confirm-val">7–10 days after we receive devices</span>
-              </div>
-              <div class="confirm-row">
-                <span class="confirm-key">Ships back to</span>
-                <span class="confirm-val" id="confirmAddrHave">—</span>
-              </div>
-            </div>
-          </div>
+          <p class="secure-note">Secured by Stripe</p>
+          <button class="btn-cta" id="pay-btn" onclick="handlePayment()">Pay $129.99 →</button>
+          <p class="pay-note" style="margin-top:10px">Stripe collects your address &amp; card details.</p>
         </div>
 
       </div>
@@ -1400,115 +1417,103 @@
   </footer>
 
   <script>
-    /* ── Process tab toggle ─────────────────────────────────── */
-    function switchTab(tab) {
-      document.getElementById('steps-need').style.display = tab === 'need' ? 'flex' : 'none';
-      document.getElementById('steps-have').style.display = tab === 'have' ? 'flex' : 'none';
-      document.getElementById('tab-need').classList.toggle('active', tab === 'need');
-      document.getElementById('tab-have').classList.toggle('active', tab === 'have');
-    }
+    const MODE = 'live'; /* 'waitlist' | 'live' */
 
-    /* ── Mode: set to 'waitlist' to hide checkout, show email capture ── */
-    const MODE = 'waitlist'; /* 'waitlist' | 'live' */
-
-    const STRIPE_PAYMENT_LINK  = 'https://buy.stripe.com/6oU9AT1KC41ybf51w30co00';
+    const STRIPE_F91  = 'https://buy.stripe.com/6oU9AT1KC41ybf51w30co00';
+    const STRIPE_CA53 = 'https://buy.stripe.com/4gM7sLah8bu00ArdeL0co02';
     const ORDER_EMAIL          = 'hello@pivhq.com';
     const WAITLIST_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSc1KgZ6tzKXI0pUggTEAeHEca3yoYTLiqNB-YMGIbkWmhoueQ/formResponse';
     const WAITLIST_ENTRY_ID    = 'entry.67680948';
 
-    /* ── Apply mode on load ──────────────────────────────────────── */
+    const SKU_DATA = {
+      f91:  { name: 'PIV F-91',   price: '$129.99', stripe: STRIPE_F91  },
+      ca53: { name: 'PIV CA-53W', price: '$139.99', stripe: STRIPE_CA53 },
+    };
+
+    let selectedSKU = 'f91';
+
+    /* ── Apply mode on load ─────────────────────────────────── */
     (function applyMode() {
       if (MODE === 'waitlist') {
-        /* Hide checkout section */
         const checkout = document.getElementById('checkout');
         if (checkout) checkout.style.display = 'none';
-        /* Hide hero Order button, show inline email form instead */
         const heroBtn = document.getElementById('hero-order-btn');
         if (heroBtn) heroBtn.style.display = 'none';
+        const heroSkuSelector = document.getElementById('hero-sku-selector');
+        if (heroSkuSelector) heroSkuSelector.style.display = 'none';
         const heroWaitlist = document.getElementById('hero-waitlist');
         if (heroWaitlist) heroWaitlist.style.display = 'block';
-        /* Swap any other Order CTAs (e.g. product section) */
         document.querySelectorAll('a[href="#checkout"]').forEach(function(el) {
-          if (el.id !== 'hero-order-btn') {
-            el.textContent = 'Join the waitlist →';
-            el.href = '#hero-waitlist';
-          }
+          el.textContent = 'Join the waitlist →';
+          el.href = '#hero-waitlist';
+          el.style.pointerEvents = 'auto';
+          el.style.opacity = '1';
         });
       }
     })();
 
-    let currentStep = 1;
-    let currentFlow = 'need'; // 'need' or 'have'
+    /* ── SKU selector ───────────────────────────────────────── */
+    function selectSKU(sku) {
+      selectedSKU = sku;
+      var data = SKU_DATA[sku];
 
-    /* ── Flow toggle ─────────────────────────────────────────── */
-    function setFlow(flow) {
-      currentFlow = flow;
-      document.getElementById('co-tab-need').classList.toggle('active', flow === 'need');
-      document.getElementById('co-tab-have').classList.toggle('active', flow === 'have');
-      document.getElementById('notice-need').style.display = flow === 'need' ? 'block' : 'none';
-      document.getElementById('notice-have').style.display = flow === 'have' ? 'block' : 'none';
+      /* Hero selector */
+      document.querySelectorAll('#hero-sku-selector .sku-btn').forEach(function(btn) {
+        btn.classList.toggle('active', btn.getAttribute('onclick').includes("'" + sku + "'"));
+      });
+      var heroBtn = document.getElementById('hero-order-btn');
+      if (heroBtn) heroBtn.textContent = 'Order ' + data.name + ' — ' + data.price;
+
+      /* Checkout selector */
+      document.getElementById('co-sku-f91').classList.toggle('active', sku === 'f91');
+      document.getElementById('co-sku-ca53').classList.toggle('active', sku === 'ca53');
+      document.getElementById('summary-model').textContent = data.name;
+      document.getElementById('summary-total').textContent = data.price;
+      document.getElementById('pay-btn').textContent = 'Pay ' + data.price + ' →';
+
+      /* Scroll to checkout if triggered from product card */
+      if (document.activeElement && document.activeElement.closest('#product')) {
+        document.getElementById('checkout').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
 
-    /* ── Show confirmation after Stripe (dev mode only) ─────── */
-    function showConfirm(stepId) {
-      document.querySelector('.checkout-step.active').classList.remove('active');
-      document.getElementById(stepId).classList.add('active');
-      document.getElementById('checkout').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    /* ── Process tab toggle ─────────────────────────────────── */
+    function switchTab(tab) {
+      document.getElementById('steps-have').style.display = tab === 'have' ? 'flex' : 'none';
+      document.getElementById('steps-need').style.display = tab === 'need' ? 'flex' : 'none';
+      document.getElementById('tab-have').classList.toggle('active', tab === 'have');
+      document.getElementById('tab-need').classList.toggle('active', tab === 'need');
     }
 
-    /* ── Step 2: payment ─────────────────────────────────────── */
+    /* ── Payment ────────────────────────────────────────────── */
     function handlePayment() {
-      const notes     = document.getElementById('orderNotes').value.trim();
-      const flowLabel = currentFlow === 'need' ? 'Needs devices (Amazon direct ship)' : 'Already has devices (mailing in)';
+      var data = SKU_DATA[selectedSKU];
+      var subject = 'New PIV order — ' + data.name;
+      var body    = 'Model: ' + data.name + '\nAmount: ' + data.price;
+      var mailLink = 'mailto:' + ORDER_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 
-      /* Fire mailto to log flow + notes before Stripe redirect */
-      const subject = 'New PIV order';
-      const body    = ['Flow: ' + flowLabel, notes ? 'Notes: ' + notes : '', 'Amount: $170'].filter(Boolean).join('\n');
-      const mailLink = 'mailto:' + ORDER_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-
-      const a = document.createElement('a');
+      var a = document.createElement('a');
       a.href = mailLink;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
 
-      if (STRIPE_PAYMENT_LINK.includes('PLACEHOLDER')) {
-        showConfirm(currentFlow === 'need' ? 'step3-need' : 'step3-have');
-      } else {
-        setTimeout(function() { window.location.href = STRIPE_PAYMENT_LINK; }, 300);
-      }
+      setTimeout(function() { window.location.href = data.stripe; }, 300);
     }
 
     /* ── Waitlist form submission ────────────────────────────── */
     function submitWaitlist(e) {
       e.preventDefault();
-      const email = document.getElementById('waitlistEmail').value.trim();
+      var email = document.getElementById('waitlistEmail').value.trim();
       if (!email) return;
 
-      const fd = new FormData();
+      var fd = new FormData();
       fd.append(WAITLIST_ENTRY_ID, email);
       fetch(WAITLIST_FORM_ACTION, { method: 'POST', mode: 'no-cors', body: fd });
 
       document.querySelector('.waitlist-inline-form').style.display = 'none';
       document.getElementById('waitlistNote').style.display         = 'none';
       document.getElementById('waitlistConfirm').style.display      = 'block';
-    }
-
-    function submitCustom(e) {
-      e.preventDefault();
-      const email = document.getElementById('customEmail').value.trim();
-      const idea  = document.getElementById('customIdea').value.trim();
-      if (!email || !idea) return;
-
-      const a = document.createElement('a');
-      a.href = 'mailto:hello@pivhq.com?subject=' + encodeURIComponent('Custom inquiry')
-             + '&body=' + encodeURIComponent('Email: ' + email + '\n\n' + idea);
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-
-      document.getElementById('customForm').style.display    = 'none';
-      document.getElementById('customConfirm').style.display = 'block';
     }
 
   </script>
