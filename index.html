@@ -1097,6 +1097,18 @@
       border: 1px solid rgba(255,255,255,0.4);
       padding: 7px 14px;
     }
+    .prod-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+    .prod-gallery img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      display: block;
+    }
+
     .prod-body { padding: 20px; }
     .prod-name { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
     .prod-price { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--txt-m); margin-bottom: 16px; }
@@ -1173,7 +1185,7 @@
   <section id="hero">
     <div class="hero-split">
       <div class="hero-img-col">
-        <img src="f91-hero.png" alt="PIV F-91 — Casio F-91W with custom nylon band" />
+        <img src="f91-with-sensor.png" alt="PIV F-91 — Casio F-91W with Fitbit Air sensor installed" />
       </div>
       <div class="hero-content-col">
         <div class="hero-eyebrow">Ready to wear</div>
@@ -1314,6 +1326,10 @@
           <div class="prod-img-wrap">
             <img src="f91-product.png" alt="PIV F-91 — Casio F-91W with Fitbit Air bracket" style="object-position: center 45%;" />
           </div>
+          <div class="prod-gallery">
+            <img src="f91-with-sensor.png" alt="PIV F-91 with Fitbit Air sensor installed" style="object-position: center 40%;" />
+            <img src="f91-wrist.png" alt="PIV F-91 worn on wrist" style="object-position: center 60%;" />
+          </div>
           <div class="prod-body">
             <div class="prod-name">PIV F-91</div>
             <div class="prod-price">$129.99</div>
@@ -1330,7 +1346,11 @@
 
         <div class="prod-card">
           <div class="prod-img-wrap">
-            <img src="ca53-product.png" alt="PIV CA-53W — Casio calculator watch with Fitbit Air bracket" style="object-position: center 40%;" />
+            <img src="ca53-with-sensor.png" alt="PIV CA-53W — Casio calculator watch with Fitbit Air sensor installed" style="object-position: center 40%;" />
+          </div>
+          <div class="prod-gallery">
+            <img src="ca53-product.png" alt="PIV CA-53W product shot" style="object-position: center 30%;" />
+            <img src="ca53-wrist.png" alt="PIV CA-53W worn on wrist" style="object-position: left 40%;" />
           </div>
           <div class="prod-body">
             <div class="prod-name">PIV CA-53W (calculator watch)</div>
