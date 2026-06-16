@@ -1588,17 +1588,7 @@
     /* ── Payment ────────────────────────────────────────────── */
     function handlePayment() {
       var data = SKU_DATA[selectedSKU];
-      var subject = 'New PIV order — ' + data.name;
-      var body    = 'Model: ' + data.name + '\nAmount: ' + data.price;
-      var mailLink = 'mailto:' + ORDER_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-
-      var a = document.createElement('a');
-      a.href = mailLink;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-
-      setTimeout(function() { window.location.href = data.stripe; }, 300);
+      window.location.href = data.stripe;
     }
 
     /* ── Waitlist form submission ────────────────────────────── */
