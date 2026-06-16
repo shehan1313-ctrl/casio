@@ -1445,9 +1445,20 @@
       Something specific in mind? <a href="mailto:hello@pivhq.com?subject=Custom inquiry" class="footer-link">Email us →</a>
     </div>
     <div class="footer-disclosure">
-      As an Amazon Associate I earn from qualifying purchases.
+      As an Amazon Associate I earn from qualifying purchases. &nbsp;·&nbsp;
+      <a href="#" class="footer-link" onclick="openReturns(event)">Returns policy</a>
     </div>
   </footer>
+
+  <!-- RETURNS MODAL -->
+  <div id="returns-modal" style="display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.55); align-items:center; justify-content:center; padding:24px;">
+    <div style="background:#fff; max-width:480px; width:100%; padding:40px; position:relative;">
+      <button onclick="closeReturns()" style="position:absolute; top:16px; right:16px; background:none; border:none; font-size:20px; cursor:pointer; color:#999; line-height:1;">✕</button>
+      <p style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:4px; color:#999; text-transform:uppercase; margin-bottom:20px;">Returns &amp; Refunds</p>
+      <p style="font-size:15px; font-weight:400; color:#111; line-height:1.8; margin-bottom:16px;">All sales are final. We're a small team building each watch to order, so we're unable to accept returns or offer refunds.</p>
+      <p style="font-size:15px; font-weight:400; color:#555; line-height:1.8;">That said, if something arrives damaged or isn't what you ordered, email us at <a href="mailto:hello@pivhq.com" style="color:#111; font-weight:600;">hello@pivhq.com</a> and we'll make it right.</p>
+    </div>
+  </div>
 
   <script>
     const MODE = 'live'; /* 'waitlist' | 'live' */
@@ -1533,6 +1544,21 @@
 
       setTimeout(function() { window.location.href = data.stripe; }, 300);
     }
+
+    /* ── Returns modal ─────────────────────────────────────────── */
+    function openReturns(e) {
+      e.preventDefault();
+      var m = document.getElementById('returns-modal');
+      m.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeReturns() {
+      document.getElementById('returns-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    document.getElementById('returns-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeReturns();
+    });
 
     /* ── Waitlist form submission ────────────────────────────── */
     function submitWaitlist(e) {
