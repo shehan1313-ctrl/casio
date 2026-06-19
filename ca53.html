@@ -46,8 +46,8 @@
     .btn-cta { display: block; background: var(--txt); color: #fff; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; padding: 18px 32px; text-align: center; text-decoration: none; border: none; cursor: pointer; width: 100%; }
     .btn-cta:hover { background: #333; }
 
-    .testimonial-wrap { max-width: 1000px; margin: 0 auto; padding: 0 32px 64px; }
-    .testimonial { border: 1.5px solid var(--border); padding: 28px; max-width: 480px; }
+    .testimonial-wrap { max-width: 1000px; margin: 0 auto; padding: 0 32px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .testimonial { border: 1.5px solid var(--border); padding: 28px; }
     .stars { font-size: 14px; margin-bottom: 14px; }
     .quote { font-size: 15px; font-weight: 300; color: var(--txt-2); line-height: 1.8; font-style: italic; margin-bottom: 20px; }
     .reviewer { display: flex; align-items: center; gap: 12px; }
@@ -104,6 +104,17 @@
         <div class="avatar">M</div>
         <div>
           <div class="reviewer-name">Mohana</div>
+          <div class="reviewer-tag">Verified buyer</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="quote">"I was a bit skeptical when I saw it. But the watch fits perfectly fine. I feel the whole package is even lighter than the regular Google Fitbit Air strap."</p>
+      <div class="reviewer">
+        <div class="avatar">S</div>
+        <div>
+          <div class="reviewer-name">Shain</div>
           <div class="reviewer-tag">Verified buyer</div>
         </div>
       </div>
