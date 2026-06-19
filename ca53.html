@@ -32,7 +32,21 @@
     .back-link:hover { color: var(--txt); }
 
     .product { max-width: 1000px; margin: 0 auto; padding: 64px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-    .product-img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+
+    /* Carousel */
+    .carousel { display: flex; flex-direction: column; gap: 10px; }
+    .carousel-main { position: relative; aspect-ratio: 1; overflow: hidden; background: var(--surface); }
+    .carousel-main img { width: 100%; height: 100%; object-fit: cover; display: none; }
+    .carousel-main img.active { display: block; }
+    .carousel-arrows { position: absolute; bottom: 12px; right: 12px; display: flex; gap: 6px; }
+    .carousel-arrow { width: 32px; height: 32px; background: rgba(255,255,255,0.9); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 14px; color: var(--txt); user-select: none; }
+    .carousel-arrow:hover { background: #fff; }
+    .carousel-thumbs { display: flex; gap: 8px; }
+    .carousel-thumb { flex: 1; aspect-ratio: 1; overflow: hidden; cursor: pointer; border: 2px solid transparent; opacity: 0.55; transition: opacity 0.15s; }
+    .carousel-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .carousel-thumb.active { border-color: var(--txt); opacity: 1; }
+    .carousel-thumb:hover { opacity: 0.85; }
+
     .product-copy { display: flex; flex-direction: column; gap: 20px; }
     .eyebrow { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--txt-m); }
     .product-name { font-family: 'DM Mono', monospace; font-size: 32px; font-weight: 400; letter-spacing: 1px; line-height: 1.2; }
@@ -64,7 +78,7 @@
     @media (max-width: 640px) {
       .product { grid-template-columns: 1fr; gap: 32px; padding: 40px 20px; }
       .header-inner { padding: 0 20px; }
-      .testimonial-wrap { padding: 0 20px 48px; }
+      .testimonial-wrap { grid-template-columns: 1fr; padding: 0 20px 48px; }
       .footer-inner { padding: 20px; flex-direction: column; gap: 12px; text-align: center; }
     }
   </style>
@@ -79,7 +93,25 @@
   </header>
 
   <div class="product">
-    <img class="product-img" src="ca53-hero-1.png" alt="PIV CA-53W — Casio calculator watch with Fitbit Air sensor bracket" />
+    <div class="carousel" id="ca53-carousel">
+      <div class="carousel-main">
+        <img src="ca53-hero-1.png"      alt="PIV CA-53W hero" class="active" />
+        <img src="ca53-product.png"     alt="PIV CA-53W product shot" />
+        <img src="ca53-with-sensor.png" alt="PIV CA-53W with Fitbit Air sensor installed" />
+        <img src="ca53-wrist.png"       alt="PIV CA-53W worn on wrist" />
+        <div class="carousel-arrows">
+          <div class="carousel-arrow" onclick="moveCarousel('ca53-carousel',-1)">&#8592;</div>
+          <div class="carousel-arrow" onclick="moveCarousel('ca53-carousel', 1)">&#8594;</div>
+        </div>
+      </div>
+      <div class="carousel-thumbs">
+        <div class="carousel-thumb active" onclick="goToSlide('ca53-carousel',0)"><img src="ca53-hero-1.png"      alt="" /></div>
+        <div class="carousel-thumb"        onclick="goToSlide('ca53-carousel',1)"><img src="ca53-product.png"     alt="" /></div>
+        <div class="carousel-thumb"        onclick="goToSlide('ca53-carousel',2)"><img src="ca53-with-sensor.png" alt="" /></div>
+        <div class="carousel-thumb"        onclick="goToSlide('ca53-carousel',3)"><img src="ca53-wrist.png"       alt="" /></div>
+      </div>
+    </div>
+
     <div class="product-copy">
       <span class="eyebrow">Casio CA-53W</span>
       <h1 class="product-name">PIV CA-53W</h1>
@@ -132,5 +164,22 @@
     </div>
   </footer>
 
+  <script>
+    function goToSlide(id, index) {
+      var carousel = document.getElementById(id);
+      var imgs   = carousel.querySelectorAll('.carousel-main img');
+      var thumbs = carousel.querySelectorAll('.carousel-thumb');
+      imgs.forEach(function(el, i)   { el.classList.toggle('active', i === index); });
+      thumbs.forEach(function(el, i) { el.classList.toggle('active', i === index); });
+      carousel._current = index;
+    }
+    function moveCarousel(id, dir) {
+      var carousel = document.getElementById(id);
+      var total = carousel.querySelectorAll('.carousel-main img').length;
+      var next = ((carousel._current || 0) + dir + total) % total;
+      goToSlide(id, next);
+    }
+    document.getElementById('ca53-carousel')._current = 0;
+  </script>
 </body>
 </html>
