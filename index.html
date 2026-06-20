@@ -1267,25 +1267,32 @@
       <div class="hero-content-col">
         <div class="hero-eyebrow">Ready to wear</div>
         <h1 class="hero-headline">Wear less.<br><span class="dim">Track more.</span></h1>
-        <div class="hero-features">
-          <div class="hero-feature"><div class="feat-dot"></div>Heart rate + sleep tracking</div>
-          <div class="hero-feature"><div class="feat-dot"></div>Free shipping</div>
-          <div class="hero-feature"><div class="feat-dot"></div>Ships ready to wear</div>
-          <div class="hero-feature"><div class="feat-dot"></div>Fits your Google Fitbit Air</div>
-          <div class="hero-feature muted"><div class="feat-dot off"></div>No touchscreen</div>
-          <div class="hero-feature muted"><div class="feat-dot off"></div>No notifications</div>
+
+        <div style="margin-bottom:8px;">
+          <div style="font-family:'DM Mono',monospace; font-size:22px; color:var(--txt);">From $29.99 <span style="font-size:14px; color:var(--txt-m); text-decoration:line-through; margin-left:6px; font-weight:300;">$99.99</span></div>
+          <div style="font-size:13px; font-weight:300; color:var(--txt-m); margin-top:4px;">Band + bracket kit — fits any 18mm or 20mm watch you already own</div>
         </div>
-        <div class="sku-selector" id="hero-sku-selector">
-          <button class="sku-btn active" onclick="selectSKU('f91')">
-            <span class="sku-name">PIV F-91</span>
+
+        <div class="sku-selector" id="hero-sku-selector" style="flex-direction:column; gap:8px;">
+          <button class="sku-btn active" id="hero-sku-band-18" onclick="selectSKU('band-18')">
+            <span class="sku-name">Band + Bracket (18mm)</span>
+            <span class="sku-price">$29.99</span>
+          </button>
+          <button class="sku-btn" id="hero-sku-band-20" onclick="selectSKU('band-20')">
+            <span class="sku-name">Band + Bracket (20mm)</span>
+            <span class="sku-price">$29.99</span>
+          </button>
+          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--txt-m); padding:4px 0 2px;">Or get the full watch</div>
+          <button class="sku-btn" id="hero-sku-f91" onclick="selectSKU('f91')">
+            <span class="sku-name">PIV F-91 — full watch</span>
             <span class="sku-price">$99.99</span>
           </button>
-          <button class="sku-btn" onclick="selectSKU('ca53')">
-            <span class="sku-name">PIV CA-53W (calculator watch)</span>
+          <button class="sku-btn" id="hero-sku-ca53" onclick="selectSKU('ca53')">
+            <span class="sku-name">PIV CA-53W — full watch</span>
             <span class="sku-price">$99.99</span>
           </button>
         </div>
-        <a href="#checkout" class="btn-cta" id="hero-order-btn">Order PIV F-91 — $99.99</a>
+        <a href="#checkout" class="btn-cta" id="hero-order-btn" style="margin-top:16px;">Order Band + Bracket (18mm) — $29.99</a>
 
         <!-- Waitlist form (hidden in live mode, replaces button) -->
         <div id="hero-waitlist" style="display:none">
@@ -1527,7 +1534,7 @@
           </div>
 
           <div class="sku-selector" style="margin-bottom:24px" id="checkout-sku-selector">
-            <button class="sku-btn active" id="co-sku-f91" onclick="selectSKU('f91')">
+            <button class="sku-btn" id="co-sku-f91" onclick="selectSKU('f91')">
               <span class="sku-name">PIV F-91</span>
               <span class="sku-price">$99.99</span>
             </button>
@@ -1535,7 +1542,7 @@
               <span class="sku-name">PIV CA-53W (calculator watch)</span>
               <span class="sku-price">$99.99</span>
             </button>
-            <button class="sku-btn" id="co-sku-band-18" onclick="selectSKU('band-18')"><span class="sku-name">PIV Band + Bracket (18mm)</span><span class="sku-price">$29.99</span></button>
+            <button class="sku-btn active" id="co-sku-band-18" onclick="selectSKU('band-18')"><span class="sku-name">PIV Band + Bracket (18mm)</span><span class="sku-price">$29.99</span></button>
             <button class="sku-btn" id="co-sku-band-20" onclick="selectSKU('band-20')"><span class="sku-name">PIV Band + Bracket (20mm)</span><span class="sku-price">$29.99</span></button>
           </div>
 
@@ -1668,7 +1675,7 @@
       'band-20':{ name: 'PIV Band + Bracket (20mm)',      price: '$29.99',  stripe: STRIPE_BAND_20  },
     };
 
-    let selectedSKU = 'f91';
+    let selectedSKU = 'band-18';
 
     /* ── URL param: auto-select SKU on load ────────────────── */
     (function applySKUParam() {
