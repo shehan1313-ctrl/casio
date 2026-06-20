@@ -45,7 +45,7 @@
             "description": "Casio F-91W fitted with a custom nylon band and Fitbit Air sensor bracket.",
             "image": "https://pivhq.com/f91-hero-1.png",
             "brand": { "@type": "Brand", "name": "PIV HQ" },
-            "offers": { "@type": "Offer", "price": "129.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+            "offers": { "@type": "Offer", "price": "99.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
           }
         },
         {
@@ -56,7 +56,7 @@
             "description": "Casio CA-53W calculator watch fitted with a custom nylon band and Fitbit Air sensor bracket.",
             "image": "https://pivhq.com/ca53-hero-1.png",
             "brand": { "@type": "Brand", "name": "PIV HQ" },
-            "offers": { "@type": "Offer", "price": "139.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+            "offers": { "@type": "Offer", "price": "99.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
           }
         }
       ]
@@ -1127,7 +1127,7 @@
     /* ─── Product cards ───────────────────────────── */
     .products-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
     .prod-card {
@@ -1238,17 +1238,6 @@
 </head>
 <body>
 
-  <!-- FATHERS DAY BANNER -->
-  <div id="promo-banner" style="background:#A32D2D; color:#fff; padding:14px 32px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
-    <div style="display:flex; align-items:center; gap:14px;">
-      <span style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; border:1.5px solid rgba(255,255,255,0.5); padding:3px 8px; white-space:nowrap;">Father's Day</span>
-      <span style="font-family:'DM Mono',monospace; font-size:13px; letter-spacing:1px;">20% off all watches &mdash; use code <strong>DAD20</strong> at checkout</span>
-    </div>
-    <div style="display:flex; align-items:center; gap:16px;">
-      <span style="font-family:'DM Mono',monospace; font-size:11px; color:rgba(255,255,255,0.65);">Ends Sun Jun 22, midnight EST</span>
-      <button onclick="document.getElementById('promo-banner').style.display='none'" style="background:none; border:none; color:rgba(255,255,255,0.6); font-size:18px; cursor:pointer; line-height:1; padding:0;">&#x2715;</button>
-    </div>
-  </div>
 
   <!-- HEADER -->
   <header>
@@ -1289,14 +1278,14 @@
         <div class="sku-selector" id="hero-sku-selector">
           <button class="sku-btn active" onclick="selectSKU('f91')">
             <span class="sku-name">PIV F-91</span>
-            <span class="sku-price">$129.99</span>
+            <span class="sku-price">$99.99</span>
           </button>
           <button class="sku-btn" onclick="selectSKU('ca53')">
             <span class="sku-name">PIV CA-53W (calculator watch)</span>
-            <span class="sku-price">$139.99</span>
+            <span class="sku-price">$99.99</span>
           </button>
         </div>
-        <a href="#checkout" class="btn-cta" id="hero-order-btn">Order PIV F-91 — $129.99</a>
+        <a href="#checkout" class="btn-cta" id="hero-order-btn">Order PIV F-91 — $99.99</a>
 
         <!-- Waitlist form (hidden in live mode, replaces button) -->
         <div id="hero-waitlist" style="display:none">
@@ -1411,6 +1400,37 @@
 
       <div class="products-grid">
 
+        <!-- BAND + BRACKET CARD -->
+        <div class="prod-card">
+          <div class="prod-img-wrap">
+            <img src="band-detail.png" alt="PIV Band + Bracket — custom nylon band and Fitbit Air sensor bracket" />
+          </div>
+          <div class="prod-body">
+            <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; background:#111; color:#fff; display:inline-block; padding:3px 8px; margin-bottom:10px; text-transform:uppercase;">Entry</div>
+            <div class="prod-name">PIV Band + Bracket</div>
+            <div class="prod-price">$29.99</div>
+            <p class="prod-desc">The custom nylon band and Fitbit Air sensor bracket. Works with any 18mm or 20mm lug watch you already own.</p>
+            <ul class="feature-list">
+              <li>Custom nylon band <span class="feature-check">✓</span></li>
+              <li>Fitbit Air sensor bracket <span class="feature-check">✓</span></li>
+              <li>Ships ready to install <span class="feature-check">✓</span></li>
+              <li>Free shipping <span class="feature-check">✓</span></li>
+            </ul>
+            <div class="sku-selector" id="band-size-selector" style="margin-top:16px; margin-bottom:8px;">
+              <button class="sku-btn active" id="band-btn-18" onclick="selectBandSize('18mm')">
+                <span class="sku-name">18mm</span>
+              </button>
+              <button class="sku-btn" id="band-btn-20" onclick="selectBandSize('20mm')">
+                <span class="sku-name">20mm</span>
+              </button>
+            </div>
+            <div style="margin-bottom:16px;">
+              <a href="#" onclick="openCompatModal(); return false;" style="font-family:'DM Mono',monospace; font-size:11px; color:var(--txt-m); text-decoration:none;">See compatible watches →</a>
+            </div>
+            <a href="#checkout" class="btn-cta" style="margin-top:8px" id="band-cta-btn" onclick="selectSKU('band-18')">Order Band + Bracket — $29.99</a>
+          </div>
+        </div>
+
         <div class="prod-card">
           <div class="prod-img-wrap">
             <img src="f91-product.png" alt="PIV F-91 — Casio F-91W with Fitbit Air bracket" style="object-position: center 45%;" />
@@ -1421,7 +1441,7 @@
           </div>
           <div class="prod-body">
             <div class="prod-name">PIV F-91</div>
-            <div class="prod-price">$129.99</div>
+            <div class="prod-price">$99.99</div>
             <p class="prod-desc">The classic Casio F-91W fitted with a custom nylon band and Fitbit Air sensor bracket. Iconic look, hidden tracking.</p>
             <ul class="feature-list">
               <li>Casio F-91W base watch <span class="feature-check">✓</span></li>
@@ -1430,7 +1450,7 @@
               <li>7–10 day turnaround · Free shipping <span class="feature-check">✓</span></li>
               <li>Fitbit Air sensor pebble <span style="font-size:11px;font-weight:600;background:#faeeda;color:#633806;padding:2px 7px;border-radius:4px;margin-left:4px;">not included</span> <span class="feature-check" style="color:var(--txt-m);">✗</span></li>
             </ul>
-            <a href="#checkout" class="btn-cta" style="margin-top:24px" onclick="selectSKU('f91')">Order PIV F-91 — $129.99</a>
+            <a href="#checkout" class="btn-cta" style="margin-top:24px" onclick="selectSKU('f91')">Order PIV F-91 — $99.99</a>
           </div>
         </div>
 
@@ -1444,7 +1464,7 @@
           </div>
           <div class="prod-body">
             <div class="prod-name">PIV CA-53W (calculator watch)</div>
-            <div class="prod-price">$139.99</div>
+            <div class="prod-price">$99.99</div>
             <p class="prod-desc">The Casio CA-53W calculator watch — same custom nylon band and Fitbit Air bracket. More character, same tracking.</p>
             <ul class="feature-list">
               <li>Casio CA-53W base watch <span class="feature-check">✓</span></li>
@@ -1453,7 +1473,7 @@
               <li>7–10 day turnaround · Free shipping <span class="feature-check">✓</span></li>
               <li>Fitbit Air sensor pebble <span style="font-size:11px;font-weight:600;background:#faeeda;color:#633806;padding:2px 7px;border-radius:4px;margin-left:4px;">not included</span> <span class="feature-check" style="color:var(--txt-m);">✗</span></li>
             </ul>
-            <a href="#checkout" class="btn-cta" style="margin-top:24px" onclick="selectSKU('ca53')">Order PIV CA-53W — $139.99</a>
+            <a href="#checkout" class="btn-cta" style="margin-top:24px" onclick="selectSKU('ca53')">Order PIV CA-53W — $99.99</a>
           </div>
         </div>
 
@@ -1509,12 +1529,14 @@
           <div class="sku-selector" style="margin-bottom:24px" id="checkout-sku-selector">
             <button class="sku-btn active" id="co-sku-f91" onclick="selectSKU('f91')">
               <span class="sku-name">PIV F-91</span>
-              <span class="sku-price">$129.99</span>
+              <span class="sku-price">$99.99</span>
             </button>
             <button class="sku-btn" id="co-sku-ca53" onclick="selectSKU('ca53')">
               <span class="sku-name">PIV CA-53W (calculator watch)</span>
-              <span class="sku-price">$139.99</span>
+              <span class="sku-price">$99.99</span>
             </button>
+            <button class="sku-btn" id="co-sku-band-18" onclick="selectSKU('band-18')"><span class="sku-name">PIV Band + Bracket (18mm)</span><span class="sku-price">$29.99</span></button>
+            <button class="sku-btn" id="co-sku-band-20" onclick="selectSKU('band-20')"><span class="sku-name">PIV Band + Bracket (20mm)</span><span class="sku-price">$29.99</span></button>
           </div>
 
           <div class="order-summary">
@@ -1532,12 +1554,12 @@
             </div>
             <div class="summary-row summary-total">
               <span class="summary-label">Total</span>
-              <span class="summary-val" id="summary-total">$129.99</span>
+              <span class="summary-val" id="summary-total">$99.99</span>
             </div>
           </div>
 
           <p class="secure-note">Secured by Stripe</p>
-          <button class="btn-cta" id="pay-btn" onclick="handlePayment()">Pay $129.99 →</button>
+          <button class="btn-cta" id="pay-btn" onclick="handlePayment()">Pay $99.99 →</button>
           <p class="pay-note" style="margin-top:10px">Stripe collects your address &amp; card details.</p>
         </div>
 
@@ -1571,7 +1593,7 @@
           <div class="step-num mono">Q</div>
           <div>
             <div class="step-title">What watch models do you offer?</div>
-            <p class="step-desc">Two models: the PIV F-91 ($129.99) based on the Casio F-91W, and the PIV CA-53W ($139.99) based on the Casio CA-53W calculator watch.</p>
+            <p class="step-desc">Two models: the PIV F-91 ($99.99) based on the Casio F-91W, and the PIV CA-53W ($99.99) based on the Casio CA-53W calculator watch.</p>
           </div>
         </div>
 
@@ -1631,15 +1653,19 @@
   <script>
     const MODE = 'live'; /* 'waitlist' | 'live' */
 
-    const STRIPE_F91  = 'https://buy.stripe.com/6oU9AT1KC41ybf51w30co00';
-    const STRIPE_CA53 = 'https://buy.stripe.com/4gM7sLah8bu00ArdeL0co02';
+    const STRIPE_F91       = 'https://buy.stripe.com/28E3cvfBsdC8ab16Qn0co06';
+    const STRIPE_CA53      = 'https://buy.stripe.com/28E3cvfBsdC8ab16Qn0co06';
+    const STRIPE_BAND_18   = 'https://buy.stripe.com/7sYcN51KC2Xuerh7Ur0co04';
+    const STRIPE_BAND_20   = 'https://buy.stripe.com/7sYdR99d4eGc4QH0rZ0co03';
     const ORDER_EMAIL          = 'hello@pivhq.com';
     const WAITLIST_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSc1KgZ6tzKXI0pUggTEAeHEca3yoYTLiqNB-YMGIbkWmhoueQ/formResponse';
     const WAITLIST_ENTRY_ID    = 'entry.67680948';
 
     const SKU_DATA = {
-      f91:  { name: 'PIV F-91',   price: '$129.99', stripe: STRIPE_F91  },
-      ca53: { name: 'PIV CA-53W (calculator watch)', price: '$139.99', stripe: STRIPE_CA53 },
+      f91:      { name: 'PIV F-91',                      price: '$99.99',  stripe: STRIPE_F91      },
+      ca53:     { name: 'PIV CA-53W (calculator watch)',  price: '$99.99',  stripe: STRIPE_CA53     },
+      'band-18':{ name: 'PIV Band + Bracket (18mm)',      price: '$29.99',  stripe: STRIPE_BAND_18  },
+      'band-20':{ name: 'PIV Band + Bracket (20mm)',      price: '$29.99',  stripe: STRIPE_BAND_20  },
     };
 
     let selectedSKU = 'f91';
@@ -1690,6 +1716,10 @@
       /* Checkout selector */
       document.getElementById('co-sku-f91').classList.toggle('active', sku === 'f91');
       document.getElementById('co-sku-ca53').classList.toggle('active', sku === 'ca53');
+      if (document.getElementById('co-sku-band-18')) {
+        document.getElementById('co-sku-band-18').classList.toggle('active', sku === 'band-18');
+        document.getElementById('co-sku-band-20').classList.toggle('active', sku === 'band-20');
+      }
       document.getElementById('summary-model').textContent = data.name;
       document.getElementById('summary-total').textContent = data.price;
       document.getElementById('pay-btn').textContent = 'Pay ' + data.price + ' →';
@@ -1706,6 +1736,19 @@
       document.getElementById('steps-need').style.display = tab === 'need' ? 'flex' : 'none';
       document.getElementById('tab-have').classList.toggle('active', tab === 'have');
       document.getElementById('tab-need').classList.toggle('active', tab === 'need');
+    }
+
+    /* ── Band size selector ─────────────────────────────────── */
+    function selectBandSize(size) {
+      var sku = size === '20mm' ? 'band-20' : 'band-18';
+      document.getElementById('band-btn-18').classList.toggle('active', size === '18mm');
+      document.getElementById('band-btn-20').classList.toggle('active', size === '20mm');
+      var cta = document.getElementById('band-cta-btn');
+      if (cta) { cta.setAttribute('onclick', "selectSKU('" + sku + "')"); }
+    }
+
+    function openCompatModal() {
+      document.getElementById('watch-compat-modal').style.display = 'flex';
     }
 
     /* ── Payment ────────────────────────────────────────────── */
@@ -1730,6 +1773,40 @@
     }
 
   </script>
+
+  <div id="watch-compat-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:999; align-items:center; justify-content:center;">
+  <div style="background:#fff; max-width:560px; width:90%; max-height:80vh; overflow-y:auto; padding:40px; position:relative;">
+    <button onclick="document.getElementById('watch-compat-modal').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:#999;">&#x2715;</button>
+    <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:3px; color:#999; text-transform:uppercase; margin-bottom:24px;">Watch compatibility guide</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:2px; color:#111; margin-bottom:12px; border-bottom:1px solid #e0ddd8; padding-bottom:8px;">18mm lug width</div>
+        <ul style="list-style:none; font-size:13px; color:#555; font-family:'Inter',sans-serif; line-height:2;">
+          <li>Casio F-91W</li>
+          <li>Casio A158W</li>
+          <li>Casio A168W</li>
+          <li>Timex Weekender 38mm</li>
+          <li>Citizen Eco-Drive BM7355</li>
+          <li>Seiko SUR (select models)</li>
+          <li>Most 36mm dress watches</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:2px; color:#111; margin-bottom:12px; border-bottom:1px solid #e0ddd8; padding-bottom:8px;">20mm lug width</div>
+        <ul style="list-style:none; font-size:13px; color:#555; font-family:'Inter',sans-serif; line-height:2;">
+          <li>Casio CA-53W</li>
+          <li>Seiko SNK803 / SNK809</li>
+          <li>Seiko 5 Sports</li>
+          <li>Orient Bambino</li>
+          <li>Timex Marlin</li>
+          <li>Casio MQ24</li>
+          <li>Most 38-40mm watches</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:12px; color:#999; font-family:'Inter',sans-serif; margin-top:24px; border-top:1px solid #e0ddd8; padding-top:16px;">Not sure? Check the spec sheet for your watch and look for "lug width" or "band width". Most manufacturers list it.</p>
+  </div>
+</div>
 
 </body>
 </html>
