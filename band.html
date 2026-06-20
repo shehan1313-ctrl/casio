@@ -282,7 +282,9 @@
     }
 
     function handleBuy() {
-      gtag('event', 'begin_checkout', { sku: 'band-' + selectedSize, value: 29.99, currency: 'USD' });
+      var sku = 'band-' + selectedSize;
+      gtag('event', 'add_to_cart',    { sku: sku, value: 29.99, currency: 'USD', item_name: 'PIV Band + Bracket (' + selectedSize + 'mm)' });
+      gtag('event', 'begin_checkout', { sku: sku, value: 29.99, currency: 'USD', item_name: 'PIV Band + Bracket (' + selectedSize + 'mm)' });
       window.location.href = STRIPE[selectedSize];
     }
   </script>
