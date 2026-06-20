@@ -273,34 +273,6 @@
     .btn-cta:hover { opacity: 0.85; }
     .btn-cta:disabled, .btn-cta[disabled] { opacity: 0.3; cursor: not-allowed; }
 
-    /* ─── How It Works ────────────────────────── */
-    .process-tabs {
-      display: flex;
-      gap: 0;
-      margin-bottom: 40px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .process-tab {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 1px;
-      color: var(--txt-m);
-      background: none;
-      border: none;
-      padding: 12px 28px 12px 0;
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -1px;
-      transition: color 150ms, border-color 150ms;
-    }
-
-    .process-tab.active {
-      color: var(--txt);
-      border-bottom-color: var(--txt);
-    }
-
-    .process-tab:hover { color: var(--txt); }
 
     .address-box {
       margin-top: 16px;
@@ -1208,9 +1180,7 @@
       .waitlist-inline-input { border-right: 1.5px solid var(--border); }
       .waitlist-inline-btn { text-align: center; }
 
-      /* ── How it works ── */
       .container { padding: 0 16px; }
-      .process-tab { font-size: 10px; padding: 10px 16px 10px 0; }
       .step { grid-template-columns: 36px 1fr; gap: 0 12px; padding: 20px 0; }
       .address-box { padding: 12px 14px; font-size: 12px; }
 
@@ -1244,7 +1214,6 @@
     <div class="header-inner">
       <a href="#" class="logo">PIV</a>
       <nav>
-        <a href="#how-it-works">How it works</a>
         <a href="mailto:hello@pivhq.com">Contact</a>
         <a href="#checkout">Order</a>
       </nav>
@@ -1438,7 +1407,7 @@
 
         <div class="checkout-step active" id="step1">
           <div class="step-header">
-            <h2 class="step-title-co">Select your model</h2>
+            <h2 class="step-title-co">Select your product</h2>
           </div>
 
           <div class="sku-selector" style="margin-bottom:24px" id="checkout-sku-selector">
@@ -1461,7 +1430,7 @@
             </div>
             <div class="summary-row">
               <span class="summary-label">Ships in</span>
-              <span class="summary-val">7–10 business days</span>
+              <span class="summary-val" id="summary-ships">3–5 business days</span>
             </div>
             <div class="summary-row">
               <span class="summary-label">Shipping</span>
@@ -1507,8 +1476,8 @@
         <div class="step">
           <div class="step-num mono">Q</div>
           <div>
-            <div class="step-title">What watch models do you offer?</div>
-            <p class="step-desc">Two models: the PIV F-91 ($99.99) based on the Casio F-91W, and the PIV CA-53W ($99.99) based on the Casio CA-53W calculator watch.</p>
+            <div class="step-title">What do you sell?</div>
+            <p class="step-desc">Three products: the PIV Band + Bracket ($29.99) which fits any 18mm or 20mm lug watch you already own, the PIV F-91 ($99.99) based on the Casio F-91W, and the PIV CA-53W ($99.99) based on the Casio CA-53W calculator watch. All include a custom nylon band and Fitbit Air sensor bracket.</p>
           </div>
         </div>
 
@@ -1638,6 +1607,8 @@
       document.getElementById('summary-model').textContent = data.name;
       document.getElementById('summary-total').textContent = data.price;
       document.getElementById('pay-btn').textContent = 'Pay ' + data.price + ' →';
+      var ships = document.getElementById('summary-ships');
+      if (ships) ships.textContent = (sku === 'band-18' || sku === 'band-20') ? '3–5 business days' : '7–10 business days';
 
       /* Scroll to checkout if triggered from product card */
       if (document.activeElement && document.activeElement.closest('#product')) {
