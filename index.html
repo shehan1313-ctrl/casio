@@ -63,6 +63,7 @@
     }
   }
   </script>
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W63FKR42GV"></script>
   <script>
@@ -1430,9 +1431,13 @@
             </div>
           </div>
 
-          <p class="secure-note">Secured by Stripe</p>
-          <button class="btn-cta" id="pay-btn" onclick="handlePayment()">Pay $99.99 →</button>
-          <p class="pay-note" style="margin-top:10px">Stripe collects your address &amp; card details.</p>
+          <div id="buy-btn-wrap">
+            <stripe-buy-button id="bb-band-18" buy-button-id="buy_btn_1TkZBYGz4TDneThFK171EST3" publishable-key="pk_live_51TflP2Gz4TDneThFul1mWM50jBIrCxP8GB5wz84yP8Z9IxCFj2eXMgd0VTefaqvavBLQ4VEdcKp6PlhkcybzysLO00BRA51prn"></stripe-buy-button>
+            <stripe-buy-button id="bb-band-20" buy-button-id="buy_btn_1TkZCSGz4TDneThFo6CaJYaM" publishable-key="pk_live_51TflP2Gz4TDneThFul1mWM50jBIrCxP8GB5wz84yP8Z9IxCFj2eXMgd0VTefaqvavBLQ4VEdcKp6PlhkcybzysLO00BRA51prn" style="display:none"></stripe-buy-button>
+            <stripe-buy-button id="bb-f91"     buy-button-id="buy_btn_1TkZCxGz4TDneThFBksVpMAW" publishable-key="pk_live_51TflP2Gz4TDneThFul1mWM50jBIrCxP8GB5wz84yP8Z9IxCFj2eXMgd0VTefaqvavBLQ4VEdcKp6PlhkcybzysLO00BRA51prn" style="display:none"></stripe-buy-button>
+            <stripe-buy-button id="bb-ca53"    buy-button-id="buy_btn_1TkZDFGz4TDneThFOfsTHqbb" publishable-key="pk_live_51TflP2Gz4TDneThFul1mWM50jBIrCxP8GB5wz84yP8Z9IxCFj2eXMgd0VTefaqvavBLQ4VEdcKp6PlhkcybzysLO00BRA51prn" style="display:none"></stripe-buy-button>
+          </div>
+          <p class="pay-note" style="margin-top:10px">Secured by Stripe · Apple Pay &amp; Google Pay accepted</p>
         </div>
 
       </div>
@@ -1594,7 +1599,12 @@
       }
       document.getElementById('summary-model').textContent = data.name;
       document.getElementById('summary-total').textContent = data.price;
-      document.getElementById('pay-btn').textContent = 'Pay ' + data.price + ' →';
+      /* Show the matching buy button, hide the rest */
+      var bbMap = { 'band-18': 'bb-band-18', 'band-20': 'bb-band-20', 'f91': 'bb-f91', 'ca53': 'bb-ca53' };
+      Object.keys(bbMap).forEach(function(k) {
+        var el = document.getElementById(bbMap[k]);
+        if (el) el.style.display = (k === sku) ? '' : 'none';
+      });
       var ships = document.getElementById('summary-ships');
       if (ships) ships.textContent = (sku === 'band-18' || sku === 'band-20') ? '3–5 business days' : '7–10 business days';
 
