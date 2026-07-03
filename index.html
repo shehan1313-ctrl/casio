@@ -697,6 +697,16 @@
     .summary-total .summary-label,
     .summary-total .summary-val { font-weight: 600; font-size: 15px; }
 
+    .oos-badge { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:1px; background:#f0ece6; color:var(--txt-m); padding:2px 6px; border-radius:2px; text-transform:uppercase; margin-left:8px; vertical-align:middle; }
+    .sku-btn.oos { opacity:0.6; }
+
+    #notify-20mm-wrap { display:none; }
+    .notify-form { display:flex; gap:8px; margin-top:0; }
+    .notify-input { flex:1; border:1.5px solid var(--border); padding:10px 12px; font-family:'Inter',sans-serif; font-size:14px; background:var(--bg); color:var(--txt); outline:none; }
+    .notify-input:focus { border-color:var(--txt); }
+    .notify-submit { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:1px; text-transform:uppercase; background:var(--txt); color:var(--bg); border:none; padding:10px 16px; cursor:pointer; white-space:nowrap; }
+    .notify-confirm { font-family:'DM Mono',monospace; font-size:12px; color:var(--txt-2); margin-top:8px; display:none; }
+
     .secure-note {
       font-family: 'DM Mono', monospace;
       font-size: 10px;
@@ -1234,8 +1244,8 @@
             <span class="sku-name">Band + Pebble Holder (18mm)</span>
             <span class="sku-price">$29.99</span>
           </button>
-          <button class="sku-btn" id="hero-sku-band-20" onclick="selectSKU('band-20')">
-            <span class="sku-name">Band + Pebble Holder (20mm)</span>
+          <button class="sku-btn oos" id="hero-sku-band-20" onclick="selectSKU('band-20')">
+            <span class="sku-name">Band + Pebble Holder (20mm)<span class="oos-badge">Out of stock</span></span>
             <span class="sku-price">$29.99</span>
           </button>
           <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--txt-m); padding:4px 0 2px;">Or get the full watch</div>
@@ -1301,8 +1311,8 @@
               <button class="sku-btn active" id="band-btn-18" onclick="selectBandSize('18mm')">
                 <span class="sku-name">18mm</span>
               </button>
-              <button class="sku-btn" id="band-btn-20" onclick="selectBandSize('20mm')">
-                <span class="sku-name">20mm</span>
+              <button class="sku-btn oos" id="band-btn-20" onclick="selectBandSize('20mm')">
+                <span class="sku-name">20mm<span class="oos-badge">Out of stock</span></span>
               </button>
             </div>
             <div style="margin-bottom:16px;">
@@ -1409,7 +1419,7 @@
               <span class="sku-price">$99.99</span>
             </button>
             <button class="sku-btn active" id="co-sku-band-18" onclick="selectSKU('band-18')"><span class="sku-name">PIV Band + Pebble Holder (18mm)</span><span class="sku-price">$29.99</span></button>
-            <button class="sku-btn" id="co-sku-band-20" onclick="selectSKU('band-20')"><span class="sku-name">PIV Band + Pebble Holder (20mm)</span><span class="sku-price">$29.99</span></button>
+            <button class="sku-btn oos" id="co-sku-band-20" onclick="selectSKU('band-20')"><span class="sku-name">PIV Band + Pebble Holder (20mm)<span class="oos-badge">Out of stock</span></span><span class="sku-price">$29.99</span></button>
           </div>
 
           <div class="order-summary">
@@ -1434,6 +1444,15 @@
           <p class="secure-note">Secured by Stripe</p>
           <button class="btn-cta" id="pay-btn" onclick="handlePayment()">Pay $29.99 →</button>
           <p class="pay-note" style="margin-top:10px">Stripe collects your address &amp; card details.</p>
+
+          <div id="notify-20mm-wrap">
+            <p style="font-size:14px; font-weight:300; color:var(--txt-2); margin-bottom:14px; line-height:1.7;">The 20mm band is currently out of stock. Enter your email and we'll let you know when it's back.</p>
+            <form class="notify-form" id="notify-20mm-form" onsubmit="submitNotify20(event)">
+              <input type="email" class="notify-input" id="notify-20mm-email" placeholder="your@email.com" required autocomplete="email" />
+              <button type="submit" class="notify-submit">Notify me</button>
+            </form>
+            <p class="notify-confirm" id="notify-20mm-confirm">You're on the list. We'll email you when 20mm is back.</p>
+          </div>
         </div>
 
       </div>
@@ -1599,6 +1618,13 @@
       var ships = document.getElementById('summary-ships');
       if (ships) ships.textContent = (sku === 'band-18' || sku === 'band-20') ? '3–5 business days' : '7–10 business days';
 
+      /* 20mm out-of-stock: swap pay button for notify form */
+      var isOos = (sku === 'band-20');
+      document.getElementById('pay-btn').style.display        = isOos ? 'none' : '';
+      document.querySelector('.secure-note').style.display    = isOos ? 'none' : '';
+      document.querySelector('.pay-note').style.display       = isOos ? 'none' : '';
+      document.getElementById('notify-20mm-wrap').style.display = isOos ? '' : 'none';
+
       /* Scroll to checkout if triggered from product card */
       if (document.activeElement && document.activeElement.closest('#product')) {
         document.getElementById('checkout').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1636,6 +1662,19 @@
     function trackOrderClick(sku) {
       var data = SKU_DATA[sku];
       gtag('event', 'add_to_cart', { sku: sku, value: parseFloat(data.price.replace('$','')), currency: 'USD', item_name: data.name });
+    }
+
+    /* ── 20mm out-of-stock notify ───────────────────────────── */
+    function submitNotify20(e) {
+      e.preventDefault();
+      var email = document.getElementById('notify-20mm-email').value.trim();
+      if (!email) return;
+      var fd = new FormData();
+      fd.append(WAITLIST_ENTRY_ID, email);
+      fetch(WAITLIST_FORM_ACTION, { method: 'POST', mode: 'no-cors', body: fd });
+      gtag('event', 'notify_me', { sku: 'band-20', email: email });
+      document.getElementById('notify-20mm-form').style.display = 'none';
+      document.getElementById('notify-20mm-confirm').style.display = 'block';
     }
 
     /* ── Waitlist form submission ────────────────────────────── */
