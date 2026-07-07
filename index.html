@@ -1433,7 +1433,7 @@
             </div>
             <div class="summary-row">
               <span class="summary-label">Shipping</span>
-              <span class="summary-val">Free</span>
+              <span class="summary-val" id="summary-shipping">Free</span>
             </div>
             <div class="summary-row summary-total">
               <span class="summary-label">Total</span>
@@ -1612,11 +1612,15 @@
         document.getElementById('co-sku-band-18').classList.toggle('active', sku === 'band-18');
         document.getElementById('co-sku-band-20').classList.toggle('active', sku === 'band-20');
       }
+      var isBand = (sku === 'band-18' || sku === 'band-20');
+      var shipping = isBand ? '$9.99' : 'Free';
+      var total = isBand ? '$39.98' : data.price;
       document.getElementById('summary-model').textContent = data.name;
-      document.getElementById('summary-total').textContent = data.price;
-      document.getElementById('pay-btn').textContent = 'Pay ' + data.price + ' →';
+      document.getElementById('summary-shipping').textContent = shipping;
+      document.getElementById('summary-total').textContent = total;
+      document.getElementById('pay-btn').textContent = 'Pay ' + total + ' →';
       var ships = document.getElementById('summary-ships');
-      if (ships) ships.textContent = (sku === 'band-18' || sku === 'band-20') ? '3–5 business days' : '7–10 business days';
+      if (ships) ships.textContent = isBand ? '3–5 business days' : '7–10 business days';
 
       /* OOS SKUs: swap pay button for notify form */
       var OOS_SKUS = { 'band-20': 'The 20mm band', 'ca53': 'The PIV CA-53W' };
