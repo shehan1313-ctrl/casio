@@ -1199,7 +1199,8 @@
       </div>
       <div class="hero-content-col">
         <div class="hero-eyebrow">Ready to wear</div>
-        <h1 class="hero-headline">Wear less.<br><span class="dim">Track more.</span></h1>
+        <h1 class="hero-headline">The Casio F-91W + Fitbit Air.<br><span class="dim">Retro icon. Hidden tracker.</span></h1>
+        <p style="font-size:15px; color:var(--txt-2); line-height:1.7; margin-top:-8px;">The Fitbit Air sensor plus a watch that actually looks good. Skip the clunky fitness band. Slide your pebble into iconic Casio. Track everything. Look retro.</p>
         <div class="hero-features">
           <div class="hero-feature"><div class="feat-dot"></div>Heart rate + sleep tracking</div>
           <div class="hero-feature"><div class="feat-dot"></div>Free shipping</div>
@@ -1218,7 +1219,7 @@
             <span class="sku-price">$139.99</span>
           </button>
         </div>
-        <a href="#checkout" class="btn-cta" id="hero-order-btn">Order PIV F-91 — $129.99</a>
+        <a href="#checkout" class="btn-cta" id="hero-order-btn">Get F-91W - $129.99</a>
 
         <!-- Waitlist form (hidden in live mode, replaces button) -->
         <div id="hero-waitlist" style="display:none">
@@ -1352,7 +1353,7 @@
               <li>7–10 day turnaround · Free shipping <span class="feature-check">✓</span></li>
               <li>Fitbit Air sensor pebble <span style="font-size:11px;font-weight:600;background:#faeeda;color:#633806;padding:2px 7px;border-radius:4px;margin-left:4px;">not included</span> <span class="feature-check" style="color:var(--txt-m);">✗</span></li>
             </ul>
-            <a href="#checkout" class="btn-cta" style="margin-top:24px" onclick="selectSKU('f91')">Order PIV F-91 — $129.99</a>
+            <a href="#checkout" class="btn-cta" style="margin-top:24px" onclick="selectSKU('f91')">Get F-91W - $129.99</a>
           </div>
         </div>
 
@@ -1379,6 +1380,17 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section id="testimonial">
+    <div class="container">
+      <div class="section-label">From customers</div>
+      <div style="border-left: 3px solid var(--txt); padding: 20px 28px; background: var(--surface);">
+        <p style="font-size:17px; font-weight:400; color:var(--txt); line-height:1.75; margin-bottom:12px;">"The F-91W looks vintage Casio on the wrist, but it's tracking my steps, heart rate, and sleep. Perfect retro tech hybrid. My friends have no idea there's a Fitbit sensor in it."</p>
+        <span style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:2px; color:var(--txt-m); text-transform:uppercase;">PIV F-91 owner</span>
       </div>
     </div>
   </section>
@@ -1438,6 +1450,14 @@
     <div class="container">
       <div class="section-label">FAQ</div>
       <div class="steps">
+
+        <div class="step">
+          <div class="step-num mono">Q</div>
+          <div>
+            <div class="step-title">Why the F-91W?</div>
+            <p class="step-desc">It's the most iconic Casio ever made. Now with hidden fitness tracking.</p>
+          </div>
+        </div>
 
         <div class="step">
           <div class="step-num mono">Q</div>
@@ -1562,7 +1582,7 @@
         btn.classList.toggle('active', btn.getAttribute('onclick').includes("'" + sku + "'"));
       });
       var heroBtn = document.getElementById('hero-order-btn');
-      if (heroBtn) heroBtn.textContent = 'Order ' + data.name + ' — ' + data.price;
+      if (heroBtn) heroBtn.textContent = 'Get ' + data.name + ' - ' + data.price;
 
       /* Checkout selector */
       document.getElementById('co-sku-f91').classList.toggle('active', sku === 'f91');
