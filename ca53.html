@@ -54,6 +54,23 @@
   }
   </script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2151244228772113');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2151244228772113&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W63FKR42GV"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -172,7 +189,7 @@
         <li>7&#8211;10 day turnaround <span class="feature-check">&#10003;</span></li>
         <li>Fitbit Air sensor pebble <span class="not-included">not included</span></li>
       </ul>
-      <a class="btn-cta" href="https://buy.stripe.com/28E3cvfBsdC8ab16Qn0co06" onclick="gtag('event','begin_checkout',{sku:'ca53',value:99.99,currency:'USD'});">Order now &#8212; $99.99</a>
+      <a class="btn-cta" href="https://buy.stripe.com/28E3cvfBsdC8ab16Qn0co06" onclick="gtag('event','begin_checkout',{sku:'ca53',value:99.99,currency:'USD'});fbq('track','InitiateCheckout',{value:99.99,currency:'USD',content_ids:['ca53'],content_name:'PIV CA-53W'});">Order now &#8212; $99.99</a>
     </div>
   </div>
 
