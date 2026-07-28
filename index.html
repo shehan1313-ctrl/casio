@@ -75,11 +75,11 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window,document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2202700330581471');
+  fbq('init', '2151244228772113');
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2202700330581471&ev=PageView&noscript=1"/></noscript>
+  src="https://www.facebook.com/tr?id=2151244228772113&ev=PageView&noscript=1"/></noscript>
   <!-- End Meta Pixel Code -->
 
   <!-- Google tag (gtag.js) -->
@@ -1187,10 +1187,10 @@
 
       /* ── Hero ── */
       .hero-split { grid-template-columns: 1fr; }
-      .hero-split > div:last-child { grid-template-rows: unset; height: 300px; border-left: none; border-top: 1px solid var(--border); grid-template-columns: 1fr 1fr; }
+      .hero-split > div:last-child { order: -1; grid-template-rows: unset; height: 300px; border-left: none; border-bottom: 1px solid var(--border); grid-template-columns: 1fr 1fr; }
       .hero-split > div:last-child video { object-position: center top; }
       .hero-split > div:last-child video img { object-position: center top; }
-      .hero-img-col { height: 280px; }
+      .hero-img-col { height: 280px; order: 1; }
       .hero-img-col img { object-position: center; }
       .hero-content-col { padding: 32px 20px; gap: 24px; }
       .hero-headline { font-size: 32px; }
@@ -1358,7 +1358,7 @@
               <li>Custom nylon band <span class="feature-check">✓</span></li>
               <li>Fitbit Air pebble holder <span class="feature-check">✓</span></li>
               <li>Ships ready to install <span class="feature-check">✓</span></li>
-              <li>Free shipping <span class="feature-check">✓</span></li>
+              <li>$9.99 shipping <span class="feature-check">✓</span></li>
             </ul>
             <div class="sku-selector" id="band-size-selector" style="margin-top:16px; margin-bottom:8px;">
               <button class="sku-btn active" id="band-btn-18" onclick="selectBandSize('18mm')">
@@ -1692,12 +1692,14 @@
     function handlePayment() {
       var data = SKU_DATA[selectedSKU];
       gtag('event', 'begin_checkout', { sku: selectedSKU, value: parseFloat(data.price.replace('$','')), currency: 'USD', item_name: data.name });
+fbq('track', 'InitiateCheckout', { value: parseFloat(data.price.replace('$','')), currency: 'USD', content_ids: [selectedSKU], content_name: data.name });
       window.location.href = data.stripe;
     }
 
     function trackOrderClick(sku) {
       var data = SKU_DATA[sku];
       gtag('event', 'add_to_cart', { sku: sku, value: parseFloat(data.price.replace('$','')), currency: 'USD', item_name: data.name });
+fbq('track', 'AddToCart', { value: parseFloat(data.price.replace('$','')), currency: 'USD', content_ids: [sku], content_name: data.name });
     }
 
     /* ── Out-of-stock notify ────────────────────────────────── */
