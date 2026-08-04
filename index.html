@@ -293,8 +293,7 @@ footer .logo{font-size:15px;display:inline-block;margin-bottom:8px}
 
     <article class="card">
       <div class="gal" data-gal>
-        <span class="flag out">Sold out</span>
-        <span class="gal-count"><b>1</b>/4</span>
+>
         <div class="gal-track">
           <div class="gal-slide"><img src="ca53-hero-1.webp" alt="PIV CA-53W, a Casio calculator watch on the PIV nylon band" loading="lazy" decoding="async"></div>
           <div class="gal-slide"><img class="contain" src="ca53-wrist.webp" alt="The PIV CA-53W worn on the wrist" loading="lazy" decoding="async"></div>
@@ -309,10 +308,10 @@ footer .logo{font-size:15px;display:inline-block;margin-bottom:8px}
         <div class="kicker"><b>Watch + band</b> | Casio CA-53W</div>
         <h2 class="name">PIV CA-53W</h2>
         <div class="price">$99.99</div>
-        <div class="meta">The calculator watch. Same band, same holder, more character.</div>
-        <div class="rating">Next batch in production</div>
+        <div class="meta">The calculator watch. Same band, same holder, more character. Free shipping, ships in 7 to 10 days.</div>
+        <div class="rating">Back in stock</div>
         <div class="spacer"></div>
-        <button class="btn ghost" onclick="selectSKU('ca53')">Email me when it is back</button>
+        <button class="btn" onclick="selectSKU('ca53'); trackOrderClick('ca53')">Order CA-53W, $99.99</button>>
       </div>
     </article>
 
@@ -470,7 +469,7 @@ footer .logo{font-size:15px;display:inline-block;margin-bottom:8px}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ItemList","itemListElement":[
 {"@type":"Product","name":"PIV F-91","description":"Casio F-91W on the PIV nylon band with a Fitbit Air pebble holder. Ships ready to wear.","image":"https://pivhq.com/f91-hero-1.webp","brand":{"@type":"Brand","name":"PIV HQ"},"offers":{"@type":"Offer","price":"99.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://pivhq.com/"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"2"}},
-{"@type":"Product","name":"PIV CA-53W","description":"Casio CA-53W calculator watch on the PIV nylon band with a Fitbit Air pebble holder.","image":"https://pivhq.com/ca53-hero-1.webp","brand":{"@type":"Brand","name":"PIV HQ"},"offers":{"@type":"Offer","price":"99.99","priceCurrency":"USD","availability":"https://schema.org/OutOfStock","url":"https://pivhq.com/"}},
+{"@type":"Product","name":"PIV CA-53W","description":"Casio CA-53W calculator watch on the PIV nylon band with a Fitbit Air pebble holder.","image":"https://pivhq.com/ca53-hero-1.webp","brand":{"@type":"Brand","name":"PIV HQ"},"offers":{"@type":"Offer","price":"99.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://pivhq.com/"}},
 {"@type":"Product","name":"PIV Band + Pebble Holder","description":"The PIV nylon band with a Fitbit Air pebble holder, in 18mm and 20mm.","image":"https://pivhq.com/Strap%20with%20text.webp","brand":{"@type":"Brand","name":"PIV HQ"},"offers":{"@type":"Offer","price":"39.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://pivhq.com/"}}]}
 </script>
 
@@ -490,7 +489,7 @@ const SKU_DATA = {
   'band-18': { name:'PIV Band + Pebble Holder (18mm)', price:'$39.99', stripe:STRIPE_BAND_18 },
   'band-20': { name:'PIV Band + Pebble Holder (20mm)', price:'$39.99', stripe:STRIPE_BAND_20 }
 };
-const OOS_SKUS = { 'band-20':'The 20mm band', ca53:'The PIV CA-53W' };
+const OOS_SKUS = { 'band-20':'The 20mm band' };
 
 var selectedSKU = 'f91';
 
