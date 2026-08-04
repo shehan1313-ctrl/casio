@@ -1,1771 +1,607 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PIV HQ — Custom Casio Watches with Fitbit Air Pebble Holder</title>
-  <meta name="description" content="PIV HQ sells custom Casio F-91W and CA-53W watches fitted with a nylon band and Fitbit Air pebble holder. Ships ready to wear. Free shipping, $129.99." />
-  <meta name="keywords" content="custom casio watch, fitbit air pebble holder, casio f-91w, casio ca-53w, fitbit air sensor watch, casio fitbit" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://pivhq.com/" />
-
-  <!-- Open Graph (controls how the link looks when shared on social / iMessage) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="PIV HQ" />
-  <meta property="og:title" content="PIV HQ — Custom Casio Watches with Fitbit Air Pebble Holder" />
-  <meta property="og:description" content="Custom Casio F-91W and CA-53W watches with a Fitbit Air pebble holder. Ships ready to wear. Free shipping from $129.99." />
-  <meta property="og:url" content="https://pivhq.com/" />
-  <meta property="og:image" content="https://pivhq.com/f91-hero-1.png" />
-
-  <!-- Twitter / X card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="PIV HQ — Custom Casio Watches with Fitbit Air Pebble Holder" />
-  <meta name="twitter:description" content="Custom Casio F-91W and CA-53W watches with a Fitbit Air pebble holder. Ships ready to wear. Free shipping from $129.99." />
-  <meta name="twitter:image" content="https://pivhq.com/f91-hero-1.png" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Store",
-    "name": "PIV HQ",
-    "url": "https://pivhq.com",
-    "description": "PIV HQ sells custom Casio watches fitted with a nylon band and Fitbit Air pebble holder. Ships ready to wear.",
-    "image": "https://pivhq.com/f91-hero-1.png",
-    "priceRange": "$129 - $140",
-    "currenciesAccepted": "USD",
-    "paymentAccepted": "Credit Card",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "PIV Watches",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Product",
-            "name": "PIV F-91",
-            "description": "Casio F-91W fitted with a custom nylon band and Fitbit Air pebble holder.",
-            "image": "https://pivhq.com/f91-hero-1.png",
-            "brand": { "@type": "Brand", "name": "PIV HQ" },
-            "offers": { "@type": "Offer", "price": "99.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Product",
-            "name": "PIV CA-53W",
-            "description": "Casio CA-53W calculator watch fitted with a custom nylon band and Fitbit Air pebble holder.",
-            "image": "https://pivhq.com/ca53-hero-1.png",
-            "brand": { "@type": "Brand", "name": "PIV HQ" },
-            "offers": { "@type": "Offer", "price": "99.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
-          }
-        }
-      ]
-    }
-  }
-  </script>
-  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window,document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2151244228772113');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2151244228772113&ev=PageView&noscript=1"/></noscript>
-  <!-- End Meta Pixel Code -->
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W63FKR42GV"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-W63FKR42GV');
-  </script>
-
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:        #ffffff;
-      --surface:   #f7f6f3;
-      --border:    #e0ddd8;
-      --txt:       #111111;
-      --txt-2:     #555555;
-      --txt-m:     #999999;
-      --cta-bg:    #111111;
-      --cta-fg:    #ffffff;
-      --max-w:     1000px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--txt);
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      opacity: 0;
-      animation: fadeIn 300ms ease forwards;
-    }
-
-    @keyframes fadeIn { to { opacity: 1; } }
-
-    .mono { font-family: 'DM Mono', monospace; }
-
-    .container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-
-    section {
-      padding: 96px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    section:last-of-type { border-bottom: none; }
-
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 4px;
-      color: var(--txt-m);
-      text-transform: uppercase;
-      margin-bottom: 48px;
-    }
-
-    /* ─── Header ──────────────────────────────── */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 32px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-family: 'DM Mono', monospace;
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--txt);
-      text-decoration: none;
-      border: 1.5px solid var(--txt);
-      padding: 7px 14px;
-    }
-
-    nav { display: flex; gap: 32px; align-items: center; }
-
-    nav a {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--txt-2);
-      text-decoration: none;
-      transition: color 150ms;
-    }
-    nav a:hover { color: var(--txt); }
-
-    /* ─── Hero ────────────────────────────────── */
-    #hero { padding: 0; border-bottom: 1px solid var(--border); }
-
-    .hero-split {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr 0.65fr;
-      min-height: 560px;
-    }
-
-    .hero-img-col {
-      overflow: hidden;
-      background: #111;
-    }
-
-    .hero-img-col img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      opacity: 0.9;
-    }
-
-    .hero-content-col {
-      padding: 64px 56px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 32px;
-    }
-
-    .hero-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 4px;
-      color: var(--txt-m);
-      text-transform: uppercase;
-    }
-
-    .hero-headline {
-      font-family: 'Inter', sans-serif;
-      font-size: 52px;
-      font-weight: 700;
-      line-height: 1.05;
-      color: var(--txt);
-    }
-
-    .hero-headline .dim { color: #bbb; font-weight: 300; }
-
-    .hero-features {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .hero-feature {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 15px;
-      font-weight: 400;
-      color: var(--txt);
-    }
-
-    .hero-feature.muted { color: var(--txt-m); }
-
-    .feat-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--txt);
-      flex-shrink: 0;
-    }
-
-    .feat-dot.off {
-      background: transparent;
-      border: 1.5px solid var(--border);
-    }
-
-    .btn-cta {
-      display: block;
-      width: 100%;
-      background: var(--cta-bg);
-      color: var(--cta-fg);
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      padding: 18px 24px;
-      border: none;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      transition: opacity 150ms;
-    }
-    .btn-cta:hover { opacity: 0.85; }
-    .btn-cta:disabled, .btn-cta[disabled] { opacity: 0.3; cursor: not-allowed; }
-
-
-    .address-box {
-      margin-top: 16px;
-      font-family: 'DM Mono', monospace;
-      font-size: 13px;
-      color: var(--txt);
-      line-height: 1.9;
-      background: var(--surface);
-      padding: 16px 20px;
-      border-left: 3px solid var(--txt);
-    }
-
-    .address-box .address-name {
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
-
-    .address-box .address-line {
-      font-family: 'DM Mono', monospace;
-      font-size: 13px;
-      color: var(--txt-2);
-    }
-
-    .steps { display: flex; flex-direction: column; }
-
-    .step {
-      display: grid;
-      grid-template-columns: 64px 1fr;
-      gap: 0 24px;
-      padding: 36px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .step:first-child { border-top: 1px solid var(--border); }
-
-    .step-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--txt-m);
-      padding-top: 3px;
-    }
-
-    .step-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--txt);
-      margin-bottom: 8px;
-    }
-
-    .step-desc {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--txt-2);
-      line-height: 1.8;
-    }
-
-    .step-address {
-      margin-top: 16px;
-      font-family: 'DM Mono', monospace;
-      font-size: 13px;
-      color: var(--txt);
-      line-height: 1.9;
-      background: var(--surface);
-      padding: 16px 20px;
-      border-left: 3px solid var(--txt);
-    }
-
-    .step-link {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--txt-2);
-      text-decoration: underline;
-      display: inline-block;
-      margin-top: 8px;
-    }
-    .step-link:hover { color: var(--txt); }
-
-    /* ─── Product ─────────────────────────────── */
-    .photo-gallery {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 56px;
-    }
-
-    .photo-main { grid-column: 1 / -1; }
-
-    .photo-main img {
-      width: 100%;
-      aspect-ratio: 16/7;
-      object-fit: cover;
-      display: block;
-    }
-
-    .photo-sub { position: relative; overflow: hidden; }
-
-    .photo-sub img {
-      aspect-ratio: 1/1;
-      width: 100%;
-      object-fit: cover;
-      display: block;
-      filter: grayscale(20%) brightness(0.55);
-    }
-
-    .photo-sub-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .coming-soon-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 4px;
-      color: #fff;
-      text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,0.5);
-      padding: 8px 16px;
-    }
-
-    .product-hero-img {
-      width: 100%;
-      display: block;
-      margin-bottom: 40px;
-    }
-
-    .product-specs { max-width: 600px; }
-
-    .product-title {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    .product-desc {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--txt-2);
-      line-height: 1.9;
-    }
-
-    .feature-list { list-style: none; }
-
-    .feature-list li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--txt-2);
-      padding: 14px 0;
-      border-top: 1px solid var(--border);
-    }
-    .feature-list li:last-child { border-bottom: 1px solid var(--border); }
-
-    .feature-check {
-      font-size: 16px;
-      color: var(--txt);
-    }
-
-    /* ─── Pricing ─────────────────────────────── */
-    .pricing-card {
-      max-width: 520px;
-      margin: 0 auto;
-      border: 1.5px solid var(--txt);
-    }
-
-    .pricing-top {
-      padding: 48px 40px 36px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-    }
-
-    .pricing-price {
-      font-size: 64px;
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .pricing-price-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .pricing-fee-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 2px;
-      color: var(--txt-m);
-      text-transform: uppercase;
-    }
-
-    .pricing-note {
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--txt-2);
-      line-height: 1.6;
-    }
-
-    .pricing-items { padding: 0 40px; }
-
-    .pricing-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 14px;
-    }
-    .pricing-row:last-child { border-bottom: none; }
-
-    .pricing-row-label { color: var(--txt-2); font-weight: 400; }
-    .pricing-row-val { color: var(--txt); font-weight: 500; }
-
-    .pricing-cta { padding: 28px 40px 40px; }
-
-    /* ─── Custom ──────────────────────────────── */
-    #custom { background: var(--surface); }
-
-    .custom-inner {
-      max-width: 560px;
-    }
-
-    .custom-headline {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .custom-sub {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--txt-2);
-      line-height: 1.8;
-      margin-bottom: 36px;
-    }
-
-    .custom-confirm {
-      font-size: 20px;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--txt);
-      display: none;
-    }
-
-    /* ─── Forms ───────────────────────────────── */
-    .form-group { margin-bottom: 24px; }
-
-    .form-label {
-      display: block;
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 2px;
-      color: var(--txt-m);
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .form-input, .form-textarea {
-      display: block;
-      width: 100%;
-      background: var(--bg);
-      border: 1.5px solid var(--border);
-      padding: 12px 16px;
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--txt);
-      outline: none;
-      transition: border-color 150ms;
-      min-height: 48px;
-    }
-    .form-input:focus, .form-textarea:focus { border-color: var(--txt); }
-    .form-textarea { min-height: 100px; resize: vertical; }
-
-    .form-error {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: #c00;
-      margin-top: 6px;
-      display: none;
-    }
-    .form-group.has-error .form-error { display: block; }
-    .form-group.has-error .form-input,
-    .form-group.has-error .form-textarea { border-color: #c00; }
-
-    /* ─── Checkout ────────────────────────────── */
-    #checkout { scroll-margin-top: 64px; }
-
-    .checkout-wrap { max-width: 520px; margin: 0 auto; }
-
-    .checkout-step { display: none; }
-    .checkout-step.active { display: block; }
-
-    .progress-dots {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 48px;
-    }
-
-    .dot {
-      height: 3px;
-      flex: 1;
-      background: var(--border);
-      transition: background 200ms;
-    }
-    .dot.active { background: var(--txt); }
-    .dot.done { background: var(--txt-m); }
-
-    .step-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 32px;
-    }
-
-    .step-counter {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--txt-m);
-    }
-
-    .step-title-co {
-      font-size: 26px;
-      font-weight: 700;
-    }
-
-    .device-cards { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
-
-    .device-card {
-      border: 1.5px solid var(--border);
-      background: var(--bg);
-      padding: 20px;
-    }
-
-    .device-name {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .device-price {
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      color: var(--txt-m);
-      margin-bottom: 16px;
-    }
-
-    .device-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn-amazon {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 1px;
-      color: var(--txt);
-      text-decoration: none;
-      border: 1.5px solid var(--border);
-      padding: 9px 16px;
-      transition: background 150ms;
-      white-space: nowrap;
-    }
-    .btn-amazon:hover { background: var(--surface); }
-
-    .device-check {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-    }
-
-    .device-check input[type="checkbox"] {
-      width: 16px;
-      height: 16px;
-      accent-color: var(--txt);
-      cursor: pointer;
-    }
-
-    .device-check-label {
-      font-size: 13px;
-      color: var(--txt-2);
-      cursor: pointer;
-    }
-
-    .notice-box {
-      border-left: 3px solid var(--txt);
-      background: var(--surface);
-      padding: 14px 18px;
-      margin-bottom: 28px;
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--txt-2);
-      line-height: 1.7;
-    }
-
-    .order-summary {
-      border: 1.5px solid var(--border);
-      margin-bottom: 24px;
-    }
-
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 20px;
-      border-bottom: 1px solid var(--border);
-      font-size: 14px;
-    }
-    .summary-row:last-child { border-bottom: none; }
-    .summary-label { color: var(--txt-2); }
-    .summary-val { color: var(--txt); font-weight: 500; }
-    .summary-total .summary-label,
-    .summary-total .summary-val { font-weight: 600; font-size: 15px; }
-
-    .oos-badge { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:1px; background:#f0ece6; color:var(--txt-m); padding:2px 6px; border-radius:2px; text-transform:uppercase; margin-left:8px; vertical-align:middle; }
-    .sku-btn.oos { opacity:0.6; }
-
-    #notify-20mm-wrap { display:none; }
-    .notify-form { display:flex; gap:8px; margin-top:0; }
-    .notify-input { flex:1; border:1.5px solid var(--border); padding:10px 12px; font-family:'Inter',sans-serif; font-size:14px; background:var(--bg); color:var(--txt); outline:none; }
-    .notify-input:focus { border-color:var(--txt); }
-    .notify-submit { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:1px; text-transform:uppercase; background:var(--txt); color:var(--bg); border:none; padding:10px 16px; cursor:pointer; white-space:nowrap; }
-    .notify-confirm { font-family:'DM Mono',monospace; font-size:12px; color:var(--txt-2); margin-top:8px; display:none; }
-
-    .secure-note {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--txt-m);
-      text-align: right;
-      margin-bottom: 20px;
-    }
-
-    .pay-note {
-      font-size: 12px;
-      color: var(--txt-m);
-      text-align: center;
-      margin-top: 14px;
-      line-height: 1.6;
-    }
-
-    .btn-secondary {
-      display: block;
-      width: 100%;
-      background: transparent;
-      color: var(--txt);
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 15px 24px;
-      border: 1.5px solid var(--border);
-      cursor: pointer;
-      text-align: center;
-      transition: background 150ms;
-      margin-top: 12px;
-    }
-    .btn-secondary:hover { background: var(--surface); }
-
-    /* ─── Checkout notice box ───────────────── */
-    .co-notice {
-      border-left: 3px solid var(--txt);
-      background: var(--surface);
-      padding: 16px 18px;
-      margin-bottom: 4px;
-    }
-
-    .co-notice strong {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--txt);
-      display: block;
-      margin-bottom: 12px;
-    }
-
-    .co-notice-steps { display: flex; flex-direction: column; gap: 10px; }
-
-    .co-notice-step {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      font-size: 14px;
-      color: var(--txt-2);
-      line-height: 1.6;
-    }
-
-    .co-notice-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--txt-m);
-      padding-top: 3px;
-      flex-shrink: 0;
-    }
-
-    .co-notice-link {
-      color: var(--txt);
-      font-weight: 600;
-      text-decoration: underline;
-    }
-
-    /* ─── Checkout flow toggle ───────────────── */
-    .co-flow-tabs {
-      display: flex;
-      gap: 0;
-      margin-bottom: 32px;
-      border-bottom: 1.5px solid var(--border);
-    }
-
-    .co-flow-tab {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 1px;
-      color: var(--txt-m);
-      background: none;
-      border: none;
-      padding: 10px 24px 10px 0;
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -2px;
-      transition: color 150ms, border-color 150ms;
-    }
-
-    .co-flow-tab.active { color: var(--txt); border-bottom-color: var(--txt); }
-    .co-flow-tab:hover { color: var(--txt); }
-
-    .form-hint {
-      font-size: 12px;
-      color: var(--txt-m);
-      margin-bottom: 6px;
-      margin-top: -2px;
-    }
-
-    .addr-city-state {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .zip-status {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      margin-top: 5px;
-      min-height: 16px;
-    }
-    .zip-status.ok  { color: #2a7a2a; }
-    .zip-status.err { color: #c00; }
-
-    /* ─── Confirmation ───────────────────────── */
-    .confirm-wrap { padding: 8px 0; }
-
-    .confirm-check {
-      font-size: 28px;
-      margin-bottom: 16px;
-    }
-
-    .confirm-headline {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .confirm-body {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--txt-2);
-      line-height: 1.9;
-      max-width: 400px;
-      margin: 0 auto 36px;
-    }
-
-    .confirm-summary {
-      display: inline-flex;
-      flex-direction: column;
-      text-align: left;
-      border: 1.5px solid var(--border);
-      min-width: 300px;
-    }
-
-    .confirm-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 12px 20px;
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-    }
-    .confirm-row:last-child { border-bottom: none; }
-    .confirm-key { color: var(--txt-m); }
-    .confirm-val { color: var(--txt-2); font-weight: 500; }
-
-    .confirm-next-label {
-      font-size: 10px;
-      letter-spacing: 3px;
-      color: var(--txt-m);
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    .confirm-device-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-bottom: 8px;
-    }
-
-    .confirm-address-box {
-      border-left: 3px solid var(--txt);
-      background: var(--surface);
-      padding: 16px 20px;
-      margin-bottom: 12px;
-      font-family: 'DM Mono', monospace;
-      font-size: 13px;
-      line-height: 1.9;
-    }
-
-    .confirm-address-box .address-name { font-weight: 500; color: var(--txt); }
-    .confirm-address-box .address-line { color: var(--txt-2); }
-
-    .confirm-address-note {
-      font-size: 13px;
-      color: var(--txt-m);
-      margin-bottom: 32px;
-      line-height: 1.7;
-    }
-
-    .confirm-summary {
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-      border: 1.5px solid var(--border);
-      margin-top: 32px;
-    }
-
-    /* ─── Waitlist ────────────────────────────── */
-    #waitlist { background: var(--txt); }
-
-    #waitlist .section-label { color: #555; }
-
-    .waitlist-headline {
-      font-size: 36px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 12px;
-    }
-
-    .waitlist-sub {
-      font-size: 16px;
-      font-weight: 300;
-      color: #888;
-      margin-bottom: 36px;
-      line-height: 1.7;
-    }
-
-    .waitlist-form {
-      display: flex;
-      gap: 0;
-      max-width: 420px;
-    }
-
-    .waitlist-input {
-      flex: 1;
-      background: #1e1e1e;
-      border: 1.5px solid #333;
-      border-right: none;
-      padding: 14px 18px;
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 300;
-      color: #fff;
-      outline: none;
-      transition: border-color 150ms;
-      min-height: 52px;
-    }
-    .waitlist-input::placeholder { color: #555; }
-    .waitlist-input:focus { border-color: #fff; }
-
-    .waitlist-btn {
-      background: #fff;
-      color: #111;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      padding: 14px 24px;
-      border: 1.5px solid #fff;
-      cursor: pointer;
-      transition: opacity 150ms;
-      white-space: nowrap;
-    }
-    .waitlist-btn:hover { opacity: 0.85; }
-
-    .waitlist-confirm {
-      font-size: 20px;
-      font-weight: 300;
-      color: #fff;
-      display: none;
-    }
-
-    /* ─── Footer ──────────────────────────────── */
-    footer {
-      background: var(--txt);
-      padding: 24px 0;
-    }
-
-    .footer-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-inner span {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: #444;
-    }
-
-    .footer-link {
-      color: #888;
-      text-decoration: none;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-    }
-    .footer-link:hover { color: #fff; }
-
-    .footer-custom {
-      max-width: var(--max-w);
-      margin: 12px auto 0;
-      padding: 12px 32px 0;
-      border-top: 1px solid #222;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: #444;
-      text-align: center;
-    }
-
-    .footer-disclosure {
-      max-width: var(--max-w);
-      margin: 8px auto 0;
-      padding: 0 32px 8px;
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: #333;
-      text-align: center;
-    }
-
-    .band-note {
-      font-size: 13px;
-      color: var(--txt-m);
-      margin-top: 10px;
-      line-height: 1.6;
-    }
-    .band-note strong { color: var(--txt-2); font-weight: 600; }
-
-    /* ─── Waitlist inline form ───────────────── */
-    .waitlist-inline-form {
-      display: flex;
-      gap: 0;
-      margin-top: 4px;
-    }
-
-    .waitlist-inline-input {
-      flex: 1;
-      border: 1.5px solid var(--border);
-      border-right: none;
-      padding: 14px 16px;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: var(--txt);
-      background: var(--bg);
-      outline: none;
-      min-height: 52px;
-    }
-    .waitlist-inline-input:focus { border-color: var(--txt); }
-
-    .waitlist-inline-btn {
-      background: var(--cta-bg);
-      color: var(--cta-fg);
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      padding: 14px 22px;
-      border: 1.5px solid var(--cta-bg);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: opacity 150ms;
-    }
-    .waitlist-inline-btn:hover { opacity: 0.85; }
-
-    .waitlist-inline-note {
-      font-size: 12px;
-      color: var(--txt-m);
-      margin-top: 8px;
-    }
-
-    .waitlist-inline-confirm {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--txt);
-      margin-top: 12px;
-    }
-
-    /* ─── SKU Selector ───────────────────────────── */
-    .sku-selector {
-      display: flex;
-      gap: 0;
-      border: 1.5px solid var(--border);
-    }
-    .sku-btn {
-      flex: 1;
-      padding: 12px 8px;
-      text-align: center;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      color: var(--txt-2);
-      border-right: 1px solid var(--border);
-      transition: background 150ms, color 150ms;
-      line-height: 1.4;
-    }
-    .sku-btn:last-child { border-right: none; }
-    .sku-btn.active { background: var(--cta-bg); color: var(--cta-fg); }
-    .sku-btn .sku-name { font-weight: 600; display: block; font-size: 13px; }
-    .sku-btn .sku-price { font-family: 'DM Mono', monospace; font-size: 11px; }
-
-    /* ─── Product cards ───────────────────────────── */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .prod-card {
-      border: 1.5px solid var(--border);
-    }
-    .prod-img-wrap {
-      height: 280px;
-      overflow: hidden;
-      background: #111;
-      position: relative;
-    }
-    .prod-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-      display: block;
-      opacity: 0.9;
-    }
-    .prod-img-wrap.coming-soon img {
-      filter: grayscale(20%) brightness(0.4);
-    }
-    .prod-cs-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .prod-cs-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 4px;
-      color: #fff;
-      text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,0.4);
-      padding: 7px 14px;
-    }
-
-
-    .prod-body { padding: 20px; }
-    .prod-name { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
-    .prod-price { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--txt-m); margin-bottom: 16px; }
-    .prod-desc { font-size: 14px; font-weight: 300; color: var(--txt-2); line-height: 1.7; margin-bottom: 20px; }
-
-    /* ─── Responsive ──────────────────────────── */
-    @media (max-width: 720px) {
-      /* ── Nav ── */
-      .header-inner { padding: 0 16px; height: 52px; }
-      nav { gap: 16px; }
-      nav a { font-size: 12px; }
-      /* Hide secondary nav links on very small screens, keep CTA */
-      @media (max-width: 420px) {
-        nav a:not(:last-child) { display: none; }
-      }
-
-      /* ── Hero ── */
-      .hero-split { grid-template-columns: 1fr; }
-      .hero-split > div:last-child { order: -1; grid-template-rows: unset; height: 300px; border-left: none; border-bottom: 1px solid var(--border); grid-template-columns: 1fr 1fr; }
-      .hero-split > div:last-child video { object-position: center top; }
-      .hero-split > div:last-child video img { object-position: center top; }
-      .hero-img-col { height: 280px; order: 1; }
-      .hero-img-col img { object-position: center; }
-      .hero-content-col { padding: 32px 20px; gap: 24px; }
-      .hero-headline { font-size: 32px; }
-      .hero-eyebrow { font-size: 9px; }
-      .hero-feature { font-size: 14px; }
-
-      /* ── Waitlist inline form ── */
-      .waitlist-inline-form { flex-direction: column; }
-      .waitlist-inline-input { border-right: 1.5px solid var(--border); }
-      .waitlist-inline-btn { text-align: center; }
-
-      .container { padding: 0 16px; }
-      .step { grid-template-columns: 36px 1fr; gap: 0 12px; padding: 20px 0; }
-      .address-box { padding: 12px 14px; font-size: 12px; }
-
-      /* ── Product ── */
-      .products-grid { grid-template-columns: 1fr; }
-      .prod-img-wrap { height: 200px; }
-      .prod-name { font-size: 16px; }
-      .prod-desc { font-size: 13px; }
-
-      /* ── Checkout ── */
-      .checkout-wrap { max-width: 100%; }
-      .co-flow-tab { font-size: 10px; padding: 9px 14px 9px 0; }
-      .co-notice { padding: 12px 14px; }
-      .co-notice-step { font-size: 13px; }
-      .step-title-co { font-size: 20px; }
-
-      /* ── Footer ── */
-      .footer-inner { flex-direction: column; gap: 6px; text-align: center; }
-      .footer-custom, .footer-disclosure { padding-left: 16px; padding-right: 16px; }
-
-      /* ── General ── */
-      section { padding: 56px 0; }
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>PIV HQ: Casio watches that hide your Fitbit Air</title>
+<meta name="description" content="Casio F-91W and CA-53W rebuilt on the PIV nylon band, with a holder that hides your Fitbit Air pebble underneath. Ships ready to wear. Free US shipping. $99.99." />
+<link rel="canonical" href="https://pivhq.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PIV HQ" />
+<meta property="og:title" content="Looks like 1989. Tracks like 2026." />
+<meta property="og:description" content="Casio watches on the PIV nylon band, with your Fitbit Air pebble hidden underneath. Ships ready to wear. Free US shipping." />
+<meta property="og:image" content="https://pivhq.com/f91-hero-1.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="f91-hero-1.webp">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W63FKR42GV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-W63FKR42GV');
+</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2151244228772113');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2151244228772113&ev=PageView&noscript=1" /></noscript>
+
+<style>
+:root{
+  --bg:        #ffffff;
+  --surface:   #f7f6f3;
+  --border:    #e0ddd8;
+  --txt:       #111111;
+  --txt-2:     #555555;
+  --txt-m:     #999999;
+  --cta-bg:    #111111;
+  --cta-fg:    #ffffff;
+  --warm-bg:   #faeeda;
+  --warm-fg:   #633806;
+  --max-w:     1000px;
+  --pad:       20px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--txt);
+  font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+button{font:inherit;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--txt);outline-offset:3px}
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:'DM Mono',ui-monospace,monospace}
+
+/* ── promo ── */
+.promo{background:var(--cta-bg);color:var(--cta-fg);text-align:center;
+  font-family:'DM Mono',monospace;font-size:11px;font-weight:400;
+  letter-spacing:.08em;text-transform:uppercase;padding:9px 12px}
+
+/* ── header ── */
+header{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--border)}
+.hd{max-width:var(--max-w);margin:0 auto;padding:14px var(--pad);
+  display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:700;font-size:18px;letter-spacing:.22em;text-decoration:none}
+.hd nav{display:flex;gap:20px;align-items:center}
+.hd nav a{font-size:13.5px;color:var(--txt-2);text-decoration:none}
+.hd nav a:hover{color:var(--txt)}
+.hd nav a.order{background:var(--cta-bg);color:var(--cta-fg);padding:8px 16px;border-radius:4px;font-weight:500}
+
+/* ── collection head ── */
+.head{padding:30px 0 20px;max-width:520px}
+.head h1{margin:0;font-size:clamp(28px,6.6vw,40px);font-weight:600;
+  letter-spacing:-.03em;line-height:1.08}
+.head h1 span{color:var(--txt-m)}
+.head p{margin:14px 0 0;color:var(--txt-2);font-size:15.5px}
+.head p b{color:var(--txt);font-weight:600}
+
+
+/* ── product grid ── */
+.grid{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr);gap:22px}}
+.card{background:var(--bg);border:1px solid var(--border);border-radius:6px;
+  overflow:hidden;display:flex;flex-direction:column}
+/* ── gallery carousel ── */
+.gal{position:relative;background:var(--surface);border-bottom:1px solid var(--border)}
+.gal-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}
+.gal-track::-webkit-scrollbar{display:none}
+.gal-slide{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:1/1;background:var(--surface)}
+.gal-slide img{width:100%;height:100%;object-fit:cover}
+.gal-slide img.contain{object-fit:contain}
+.gal-nav{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;
+  border:1px solid var(--border);border-radius:99px;background:rgba(255,255,255,.92);
+  color:var(--txt);display:grid;place-items:center;font-size:15px;line-height:1;
+  padding:0;opacity:0;transition:opacity .15s}
+.gal-nav.prev{left:8px}
+.gal-nav.next{right:8px}
+.gal:hover .gal-nav,.gal-nav:focus-visible{opacity:1}
+@media(hover:none){.gal-nav{display:none}}
+.gal-dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:5px}
+.gal-dots i{width:5px;height:5px;border-radius:99px;background:var(--txt-m);opacity:.4;transition:opacity .15s,width .15s}
+.gal-dots i.on{opacity:1;width:14px;background:var(--txt)}
+.gal-count{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.92);
+  border:1px solid var(--border);border-radius:4px;font-family:'DM Mono',monospace;
+  font-size:10.5px;color:var(--txt-2);padding:3px 7px}
+.flag{position:absolute;top:10px;left:10px;z-index:2;background:var(--cta-bg);color:var(--cta-fg);
+  font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;padding:5px 9px;border-radius:4px}
+.flag.out{background:var(--bg);color:var(--txt-m);border:1px solid var(--border)}
+
+.body{padding:14px;display:flex;flex-direction:column;flex:1}
+.kicker{font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--txt-m)}
+.kicker b{color:var(--txt);font-weight:500}
+.name{margin:6px 0 0;font-size:17px;font-weight:600;letter-spacing:-.015em}
+.price{margin-top:6px;font-family:'DM Mono',monospace;font-size:15px}
+.price s{color:var(--txt-m);font-size:13px;margin-left:6px}
+.meta{margin-top:6px;font-size:13px;color:var(--txt-2)}
+.meta a{color:var(--txt-2)}
+.rating{margin-top:8px;font-size:12.5px;color:var(--txt-m)}
+.rating b{color:var(--txt);font-weight:500;letter-spacing:.12em}
+.spacer{flex:1;min-height:10px}
+
+.vars{display:flex;gap:8px;margin-top:14px}
+.vars button{flex:1;padding:10px;border:1px solid var(--border);background:transparent;
+  border-radius:4px;font-family:'DM Mono',monospace;font-size:12px;color:var(--txt-2)}
+.vars button.active{border-color:var(--txt);background:var(--txt);color:var(--cta-fg)}
+
+.btn{width:100%;margin-top:12px;border:0;border-radius:4px;background:var(--cta-bg);
+  color:var(--cta-fg);padding:15px;font-weight:500;font-size:15px;text-align:center;
+  text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:opacity .12s,transform .12s}
+.btn:hover{opacity:.85}
+.btn:active{transform:scale(.99)}
+.btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--txt)}
+.btn.ghost:hover{background:var(--surface);opacity:1}
+
+@media(max-width:559px){
+  .body{padding:11px}
+  .kicker{font-size:9px;letter-spacing:.08em}
+  .name{font-size:14.5px;margin-top:5px}
+  .price{font-size:13px;margin-top:4px}
+  .price s{display:none}
+  .meta{font-size:11.5px;margin-top:4px;line-height:1.4}
+  .rating{font-size:11px;margin-top:5px}
+  .btn{padding:11px;font-size:13px;margin-top:10px}
+  .vars{gap:6px;margin-top:10px}
+  .vars button{padding:8px;font-size:11px}
+  .gal-count,.gal-dots{display:none}
+  .flag{font-size:9px;padding:4px 7px;top:8px;left:8px}
+}
+
+/* ── trust ── */
+.trust{margin:30px 0 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:20px 0;display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  font-size:12.5px;color:var(--txt-2);text-align:center}
+@media(min-width:620px){.trust{grid-template-columns:repeat(4,1fr)}}
+.trust b{display:block;color:var(--txt);font-family:'DM Mono',monospace;
+  font-size:12.5px;letter-spacing:.06em;margin-bottom:2px}
+
+/* ── testimonials ── */
+.sec{padding:44px 0 0}
+.sec h2{margin:0 0 18px;font-size:clamp(21px,5vw,27px);font-weight:600;letter-spacing:-.025em}
+.revs{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:760px){.revs{grid-template-columns:1fr 1fr;gap:24px}}
+.rev{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:22px}
+.rev .s{letter-spacing:.14em;font-size:13px}
+.rev p{margin:10px 0 16px;font-size:15px}
+.rev .who{display:flex;align-items:center;gap:10px}
+.rev .av{width:30px;height:30px;border-radius:99px;background:var(--cta-bg);color:var(--cta-fg);
+  display:grid;place-items:center;font-family:'DM Mono',monospace;font-size:12px}
+.rev .who b{font-size:14px;font-weight:600}
+.rev .who span{display:block;font-size:11.5px;color:var(--txt-m)}
+
+/* ── checkout ── */
+#checkout{scroll-margin-top:68px;padding:44px 0 0}
+.co{max-width:520px;margin:0 auto;background:var(--surface);
+  border:1px solid var(--border);border-radius:6px;padding:24px}
+.co h2{margin:0 0 4px;font-size:22px;font-weight:600;letter-spacing:-.02em}
+.co .co-sub{margin:0 0 18px;font-size:13.5px;color:var(--txt-2)}
+.sku-selector{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+.sku-btn{background:var(--bg);border:1px solid var(--border);border-radius:4px;
+  padding:12px 10px;text-align:left;line-height:1.3}
+.sku-btn.active{border-color:var(--txt);box-shadow:inset 0 0 0 1px var(--txt)}
+.sku-btn .sku-name{display:block;font-size:13px;font-weight:500}
+.sku-btn .sku-price{font-family:'DM Mono',monospace;font-size:11px;color:var(--txt-m)}
+.summary{border-top:1px solid var(--border);padding-top:14px}
+.summary div{display:flex;justify-content:space-between;padding:5px 0;font-size:14px;color:var(--txt-2)}
+.summary div span:last-child{color:var(--txt)}
+.summary .g{border-top:1px solid var(--border);margin-top:8px;padding-top:12px;
+  font-size:18px;font-weight:600;color:var(--txt)}
+.summary .g span:last-child{font-family:'DM Mono',monospace}
+.pay-note,.secure-note{margin:10px 0 0;text-align:center;font-size:11.5px;color:var(--txt-m);line-height:1.55}
+#notify-oos-wrap{display:none}
+#notify-oos-msg{font-size:14px;color:var(--txt-2);margin:0 0 12px}
+#notify-oos-email{width:100%;padding:13px;border:1px solid var(--border);
+  border-radius:4px;font:inherit;background:var(--bg)}
+#notify-oos-confirm{display:none;font-size:15px;padding:8px 0}
+
+/* ── faq ── */
+.faq{padding:44px 0 10px;max-width:680px}
+.faq h2{margin:0 0 8px;font-size:clamp(21px,5vw,27px);font-weight:600;letter-spacing:-.025em}
+details{border-bottom:1px solid var(--border)}
+summary{list-style:none;cursor:pointer;padding:15px 0;padding-right:26px;position:relative;
+  font-weight:500;font-size:15px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:2px;top:13px;
+  font-family:'DM Mono',monospace;font-size:17px;color:var(--txt-m)}
+details[open] summary::after{content:"–"}
+details p{margin:0;padding:0 0 15px;font-size:14.5px;color:var(--txt-2)}
+.fit p{padding:0 0 10px}
+.tag{display:inline-block;background:var(--cta-bg);color:var(--cta-fg);
+  font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;
+  padding:5px 10px;border-radius:4px;margin-bottom:10px}
+.fit-note{font-size:13.5px;padding-bottom:8px!important}
+.fit-note b{color:var(--txt)}
+.byo{display:inline-block;background:var(--warm-bg);color:var(--warm-fg);
+  font-size:11.5px;font-weight:600;padding:3px 8px;border-radius:4px}
+
+footer{margin-top:34px;border-top:1px solid var(--border);padding:26px 0 44px;
+  font-size:13px;color:var(--txt-m)}
+footer .logo{font-size:15px;display:inline-block;margin-bottom:8px}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
 
+<div class="promo">Free US shipping · Built to order in the USA</div>
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <a href="#" class="logo">PIV</a>
-      <nav>
-        <a href="mailto:hello@pivhq.com">Contact</a>
-        <a href="#checkout">Order</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-split">
-      <div class="hero-img-col">
-        <img src="Strap with text.png" alt="PIV Band + Pebble Holder" style="width:100%; height:100%; object-fit:cover; display:block;" />
-      </div>
-      <div class="hero-content-col">
-        <div class="hero-eyebrow">Ready to wear</div>
-        <h1 class="hero-headline">The Casio F-91W + Fitbit Air.<br><span class="dim">Retro icon. Hidden tracker.</span></h1>
-
-        <p style="font-size:15px; color:var(--txt-2); line-height:1.7;">The Fitbit Air sensor plus a watch that actually looks good. Skip the clunky fitness band. Slide your pebble into iconic Casio. Track everything. Look retro.</p>
-
-        <div class="sku-selector" id="hero-sku-selector" style="flex-direction:column; gap:8px;">
-          <button class="sku-btn active" id="hero-sku-f91" onclick="selectSKU('f91')">
-            <span class="sku-name">PIV F-91 - full watch</span>
-            <span class="sku-price">$99.99</span>
-          </button>
-          <button class="sku-btn oos" id="hero-sku-ca53" onclick="selectSKU('ca53')">
-            <span class="sku-name">PIV CA-53W - full watch<span class="oos-badge">Out of stock</span></span>
-            <span class="sku-price">$99.99</span>
-          </button>
-          <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--txt-m); padding:4px 0 2px;">Already own a watch?</div>
-          <button class="sku-btn" id="hero-sku-band-18" onclick="selectSKU('band-18')">
-            <span class="sku-name">Band + Pebble Holder (18mm)</span>
-            <span class="sku-price">$29.99</span>
-          </button>
-          <button class="sku-btn oos" id="hero-sku-band-20" onclick="selectSKU('band-20')">
-            <span class="sku-name">Band + Pebble Holder (20mm)<span class="oos-badge">Out of stock</span></span>
-            <span class="sku-price">$29.99</span>
-          </button>
-        </div>
-        <a href="#checkout" class="btn-cta" id="hero-order-btn" style="margin-top:16px;" onclick="trackOrderClick(selectedSKU)">Get F-91W - $99.99</a>
-
-        <!-- Waitlist form (hidden in live mode, replaces button) -->
-        <div id="hero-waitlist" style="display:none">
-          <form class="waitlist-inline-form" onsubmit="submitWaitlist(event)">
-            <input type="email" id="waitlistEmail" class="waitlist-inline-input"
-                   placeholder="your@email.com" required autocomplete="email" />
-            <button type="submit" class="waitlist-inline-btn">Join waitlist →</button>
-          </form>
-          <p class="waitlist-inline-note" id="waitlistNote">We'll notify you when the next batch opens.</p>
-          <p class="waitlist-inline-confirm" id="waitlistConfirm" style="display:none">You're on the list.</p>
-        </div>
-      </div>
-      <div style="display:grid; grid-template-rows:1fr 1fr; overflow:hidden; border-left:1px solid var(--border);">
-        <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; display:block; border-bottom:1px solid var(--border);">
-          <source src="Videos/f91-retro-short.mp4" type="video/mp4" />
-          <img src="f91-hero-1.png" alt="PIV F-91" style="width:100%; height:100%; object-fit:cover;" />
-        </video>
-        <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; display:block;">
-          <source src="Videos/ca53-retro-short.mp4" type="video/mp4" />
-          <img src="ca53-hero-1.png" alt="PIV CA-53W" style="width:100%; height:100%; object-fit:cover;" />
-        </video>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCT -->
-  <section id="product">
-    <div class="container">
-      <div class="section-label">The Watches</div>
-
-      <div class="products-grid">
-
-        <div class="prod-card">
-          <div class="prod-img-wrap">
-            <img src="f91 clean.png" alt="PIV F-91 — Casio F-91W with Fitbit Air pebble holder" style="object-position: center;" />
-          </div>
-          <div class="prod-body">
-            <div class="prod-name">PIV F-91</div>
-            <div class="prod-price">$99.99</div>
-            <p class="prod-desc">The classic Casio F-91W fitted with a custom nylon band and Fitbit Air pebble holder. Iconic look, hidden tracking.</p>
-            <ul class="feature-list">
-              <li>Casio F-91W base watch <span class="feature-check">✓</span></li>
-              <li>Custom nylon band + pebble holder <span class="feature-check">✓</span></li>
-              <li>Ships ready to wear <span class="feature-check">✓</span></li>
-              <li>7–10 day turnaround · Free shipping <span class="feature-check">✓</span></li>
-              <li>Fitbit Air sensor pebble <span style="font-size:11px;font-weight:600;background:#faeeda;color:#633806;padding:2px 7px;border-radius:4px;margin-left:4px;">not included</span> <span class="feature-check" style="color:var(--txt-m);">✗</span></li>
-            </ul>
-            <a href="#checkout" class="btn-cta" style="margin-top:24px" onclick="selectSKU('f91'); trackOrderClick('f91')">Get F-91W - $99.99</a>
-          </div>
-        </div>
-
-        <div class="prod-card">
-          <div class="prod-img-wrap">
-            <img src="ca53-with-sensor.png" alt="PIV CA-53W — Casio calculator watch with Fitbit Air pebble holder" style="object-position: center 40%;" />
-          </div>
-          <div class="prod-body">
-            <div class="prod-name">PIV CA-53W</div>
-            <div class="prod-price">$99.99</div>
-            <p class="prod-desc">The Casio CA-53W calculator watch — same custom nylon band and Fitbit Air pebble holder. More character, same tracking.</p>
-            <ul class="feature-list">
-              <li>Casio CA-53W base watch <span class="feature-check">✓</span></li>
-              <li>Custom nylon band + pebble holder <span class="feature-check">✓</span></li>
-              <li>Ships ready to wear <span class="feature-check">✓</span></li>
-              <li>7–10 day turnaround · Free shipping <span class="feature-check">✓</span></li>
-              <li>Fitbit Air sensor pebble <span style="font-size:11px;font-weight:600;background:#faeeda;color:#633806;padding:2px 7px;border-radius:4px;margin-left:4px;">not included</span> <span class="feature-check" style="color:var(--txt-m);">✗</span></li>
-            </ul>
-            <a href="#checkout" class="btn-cta" style="margin-top:24px" onclick="selectSKU('ca53'); trackOrderClick('ca53')">Order CA-53W - $99.99</a>
-          </div>
-        </div>
-
-        <!-- BAND + BRACKET CARD -->
-        <div class="prod-card">
-          <div class="prod-img-wrap">
-            <img src="Strap with text.png" alt="PIV Band + Pebble Holder — custom nylon band and Fitbit Air pebble holder" style="object-position: center;" />
-          </div>
-          <div class="prod-body">
-            <div style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; background:#111; color:#fff; display:inline-block; padding:3px 8px; margin-bottom:10px; text-transform:uppercase;">Already own a watch?</div>
-            <div class="prod-name">PIV Band + Pebble Holder</div>
-            <div class="prod-price">$29.99</div>
-            <p class="prod-desc">The custom nylon band and Fitbit Air pebble holder. Works with any 18mm or 20mm lug watch you already own.</p>
-            <ul class="feature-list">
-              <li>Custom nylon band <span class="feature-check">✓</span></li>
-              <li>Fitbit Air pebble holder <span class="feature-check">✓</span></li>
-              <li>Ships ready to install <span class="feature-check">✓</span></li>
-              <li>$9.99 shipping <span class="feature-check">✓</span></li>
-            </ul>
-            <div class="sku-selector" id="band-size-selector" style="margin-top:16px; margin-bottom:8px;">
-              <button class="sku-btn active" id="band-btn-18" onclick="selectBandSize('18mm')">
-                <span class="sku-name">18mm</span>
-              </button>
-              <button class="sku-btn oos" id="band-btn-20" onclick="selectBandSize('20mm')">
-                <span class="sku-name">20mm<span class="oos-badge">Out of stock</span></span>
-              </button>
-            </div>
-            <div style="margin-bottom:16px;">
-              <a href="#" onclick="openCompatModal(); return false;" style="font-family:'DM Mono',monospace; font-size:11px; color:var(--txt-m); text-decoration:none;">See compatible watches →</a>
-            </div>
-            <a href="#checkout" class="btn-cta" style="margin-top:8px" id="band-cta-btn" onclick="selectSKU('band-18'); trackOrderClick('band-18')">Order Band + Pebble Holder - $29.99</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
-    <div class="container">
-      <div class="section-label">What customers say</div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-
-        <div style="border:1.5px solid var(--border); padding:28px;">
-          <div style="display:flex; gap:3px; margin-bottom:16px; font-size:14px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p style="font-size:15px; font-weight:300; color:var(--txt-2); line-height:1.8; margin-bottom:20px; font-style:italic;">"The F-91W looks vintage Casio on the wrist, but it's tracking my steps, heart rate, and sleep. Perfect retro tech hybrid. My friends have no idea there's a Fitbit sensor in it."</p>
-          <div style="display:flex; align-items:center; gap:12px;">
-            <div style="width:36px; height:36px; border-radius:50%; background:var(--surface); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:11px; color:var(--txt-m); flex-shrink:0;">S</div>
-            <div>
-              <div style="font-size:14px; font-weight:600; color:var(--txt);">Shain</div>
-              <div style="font-size:12px; color:var(--txt-m);">Verified buyer</div>
-            </div>
-          </div>
-        </div>
-
-        <div style="border:1.5px solid var(--border); padding:28px;">
-          <div style="display:flex; gap:3px; margin-bottom:16px; font-size:14px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p style="font-size:15px; font-weight:300; color:var(--txt-2); line-height:1.8; margin-bottom:20px; font-style:italic;">"I love the retro look, the design and the overall quality of the product! Got this as a gift for my boyfriend. He absolutely loves it!"</p>
-          <div style="display:flex; align-items:center; gap:12px;">
-            <div style="width:36px; height:36px; border-radius:50%; background:var(--surface); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:11px; color:var(--txt-m); flex-shrink:0;">M</div>
-            <div>
-              <div style="font-size:14px; font-weight:600; color:var(--txt);">Mohana</div>
-              <div style="font-size:12px; color:var(--txt-m);">Verified buyer</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CHECKOUT -->
-  <section id="checkout">
-    <div class="container">
-      <div class="section-label">Order</div>
-      <div class="checkout-wrap">
-
-        <div class="checkout-step active" id="step1">
-          <div class="step-header">
-            <h2 class="step-title-co">Select your product</h2>
-          </div>
-
-          <div class="sku-selector" style="margin-bottom:24px" id="checkout-sku-selector">
-            <button class="sku-btn" id="co-sku-f91" onclick="selectSKU('f91')">
-              <span class="sku-name">PIV F-91</span>
-              <span class="sku-price">$99.99</span>
-            </button>
-            <button class="sku-btn oos" id="co-sku-ca53" onclick="selectSKU('ca53')">
-              <span class="sku-name">PIV CA-53W (calculator watch)<span class="oos-badge">Out of stock</span></span>
-              <span class="sku-price">$99.99</span>
-            </button>
-            <button class="sku-btn active" id="co-sku-band-18" onclick="selectSKU('band-18')"><span class="sku-name">PIV Band + Pebble Holder (18mm)</span><span class="sku-price">$29.99 + shipping</span></button>
-            <button class="sku-btn oos" id="co-sku-band-20" onclick="selectSKU('band-20')"><span class="sku-name">PIV Band + Pebble Holder (20mm)<span class="oos-badge">Out of stock</span></span><span class="sku-price">$29.99 + shipping</span></button>
-          </div>
-
-          <div class="order-summary">
-            <div class="summary-row">
-              <span class="summary-label">Model</span>
-              <span class="summary-val" id="summary-model">PIV F-91</span>
-            </div>
-            <div class="summary-row">
-              <span class="summary-label">Ships in</span>
-              <span class="summary-val" id="summary-ships">3–5 business days</span>
-            </div>
-            <div class="summary-row">
-              <span class="summary-label">Shipping</span>
-              <span class="summary-val" id="summary-shipping">Free</span>
-            </div>
-            <div class="summary-row summary-total">
-              <span class="summary-label">Total</span>
-              <span class="summary-val" id="summary-total">$99.99</span>
-            </div>
-          </div>
-
-          <p class="secure-note">Secured by Stripe</p>
-          <button class="btn-cta" id="pay-btn" onclick="handlePayment()">Pay $29.99 →</button>
-          <p class="pay-note" style="margin-top:10px">Stripe collects your address &amp; card details.</p>
-
-          <div id="notify-oos-wrap">
-            <p id="notify-oos-msg" style="font-size:14px; font-weight:300; color:var(--txt-2); margin-bottom:14px; line-height:1.7;"></p>
-            <form class="notify-form" id="notify-oos-form" onsubmit="submitNotifyOos(event)">
-              <input type="email" class="notify-input" id="notify-oos-email" placeholder="your@email.com" required autocomplete="email" />
-              <button type="submit" class="notify-submit">Notify me</button>
-            </form>
-            <p class="notify-confirm" id="notify-oos-confirm">You're on the list. We'll email you when it's back in stock.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="container">
-      <div class="section-label">FAQ</div>
-      <div class="steps">
-
-        <div class="step">
-          <div class="step-num mono">Q</div>
-          <div>
-            <div class="step-title">Why the F-91W?</div>
-            <p class="step-desc">It's the most iconic Casio ever made. Now with hidden fitness tracking.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-num mono">Q</div>
-          <div>
-            <div class="step-title">Do I need a Google Fitbit Air?</div>
-            <p class="step-desc">Yes. The sensor pebble is not included with your PIV watch. You remove it from your existing Fitbit Air band and slide it into the pebble holder. It pops in and out easily, so you can swap back whenever you like.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-num mono">Q</div>
-          <div>
-            <div class="step-title">Does the Fitbit Air work the same way?</div>
-            <p class="step-desc">Yes, fully. Heart rate, sleep tracking, and steps all sync through the Google Fit app as normal. Nothing changes on the software side.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-num mono">Q</div>
-          <div>
-            <div class="step-title">What do you sell?</div>
-            <p class="step-desc">Three products: the PIV Band + Pebble Holder ($29.99) which fits any 18mm or 20mm lug watch you already own, the PIV F-91 ($99.99) based on the Casio F-91W, and the PIV CA-53W ($99.99) based on the Casio CA-53W calculator watch. All include a custom nylon band and Fitbit Air pebble holder.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-num mono">Q</div>
-          <div>
-            <div class="step-title">How long does shipping take?</div>
-            <p class="step-desc">7 to 10 business days. We build each watch to order, so there is a short lead time before it ships. Shipping is free.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-num mono">Q</div>
-          <div>
-            <div class="step-title">Do you ship internationally?</div>
-            <p class="step-desc">Not at the moment. US orders only.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-num mono">Q</div>
-          <div>
-            <div class="step-title">What wrist size does it fit?</div>
-            <p class="step-desc">It fits all wrist sizes. The nylon band is adjustable and works on both smaller and larger wrists.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-num mono">Q</div>
-          <div>
-            <div class="step-title">Can I return it?</div>
-            <p class="step-desc">All sales are final. We are a small team building each watch to order, so we are unable to accept returns. If something arrives damaged or is not what you ordered, email <a href="mailto:hello@pivhq.com" style="color:var(--txt);font-weight:600;">hello@pivhq.com</a> and we will make it right.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <span class="mono">PIV HQ</span>
-      <span class="mono">pivhq.com</span>
-      <span class="mono"><a href="mailto:hello@pivhq.com" class="footer-link">hello@pivhq.com</a></span>
-      <span class="mono">© 2026</span>
-    </div>
-    <div class="footer-custom">
-      Something specific in mind? <a href="mailto:hello@pivhq.com?subject=Custom inquiry" class="footer-link">Email us →</a>
-    </div>
-    <div class="footer-disclosure">
-      As an Amazon Associate I earn from qualifying purchases. &nbsp;·&nbsp;
-      <a href="#faq" class="footer-link">Returns policy</a>
-    </div>
-  </footer>
-
-  <script>
-    const MODE = 'live'; /* 'waitlist' | 'live' */
-
-    const STRIPE_F91       = 'https://buy.stripe.com/28E3cvfBsdC8ab16Qn0co06';
-    const STRIPE_CA53      = 'https://buy.stripe.com/4gM8wP3SKfKg0ArcaH0co07';
-    const STRIPE_BAND_18   = 'https://buy.stripe.com/7sYcN51KC2Xuerh7Ur0co04';
-    const STRIPE_BAND_20   = 'https://buy.stripe.com/7sYdR99d4eGc4QH0rZ0co03';
-    const ORDER_EMAIL          = 'hello@pivhq.com';
-    const WAITLIST_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSc1KgZ6tzKXI0pUggTEAeHEca3yoYTLiqNB-YMGIbkWmhoueQ/formResponse';
-    const WAITLIST_ENTRY_ID    = 'entry.67680948';
-
-    const SKU_DATA = {
-      f91:      { name: 'PIV F-91',                      price: '$99.99',  stripe: STRIPE_F91      },
-      ca53:     { name: 'PIV CA-53W (calculator watch)',  price: '$99.99',  stripe: STRIPE_CA53     },
-      'band-18':{ name: 'PIV Band + Pebble Holder (18mm)',      price: '$29.99',  stripe: STRIPE_BAND_18  },
-      'band-20':{ name: 'PIV Band + Pebble Holder (20mm)',      price: '$29.99',  stripe: STRIPE_BAND_20  },
-    };
-
-    let selectedSKU = 'band-18';
-
-    /* ── URL param: auto-select SKU on load ────────────────── */
-    (function applySKUParam() {
-      var params = new URLSearchParams(window.location.search);
-      var sku = params.get('sku');
-      if (sku && SKU_DATA[sku]) {
-        selectedSKU = sku;
-        gtag('event', 'landing_page_view', { sku: sku, page_path: window.location.pathname + window.location.search });
-        document.addEventListener('DOMContentLoaded', function() { selectSKU(sku); });
-      }
-    })();
-
-    /* ── Apply mode on load ─────────────────────────────────── */
-    (function applyMode() {
-      if (MODE === 'waitlist') {
-        const checkout = document.getElementById('checkout');
-        if (checkout) checkout.style.display = 'none';
-        const heroBtn = document.getElementById('hero-order-btn');
-        if (heroBtn) heroBtn.style.display = 'none';
-        const heroSkuSelector = document.getElementById('hero-sku-selector');
-        if (heroSkuSelector) heroSkuSelector.style.display = 'none';
-        const heroWaitlist = document.getElementById('hero-waitlist');
-        if (heroWaitlist) heroWaitlist.style.display = 'block';
-        document.querySelectorAll('a[href="#checkout"]').forEach(function(el) {
-          el.textContent = 'Join the waitlist →';
-          el.href = '#hero-waitlist';
-          el.style.pointerEvents = 'auto';
-          el.style.opacity = '1';
-        });
-      }
-    })();
-
-    /* ── SKU selector ───────────────────────────────────────── */
-    function selectSKU(sku) {
-      selectedSKU = sku;
-      var data = SKU_DATA[sku];
-
-      /* Hero selector */
-      document.querySelectorAll('#hero-sku-selector .sku-btn').forEach(function(btn) {
-        btn.classList.toggle('active', btn.getAttribute('onclick').includes("'" + sku + "'"));
-      });
-      var heroBtn = document.getElementById('hero-order-btn');
-      if (heroBtn) heroBtn.textContent = 'Order ' + data.name + ' — ' + data.price;
-
-      /* Checkout selector */
-      document.getElementById('co-sku-f91').classList.toggle('active', sku === 'f91');
-      document.getElementById('co-sku-ca53').classList.toggle('active', sku === 'ca53');
-      if (document.getElementById('co-sku-band-18')) {
-        document.getElementById('co-sku-band-18').classList.toggle('active', sku === 'band-18');
-        document.getElementById('co-sku-band-20').classList.toggle('active', sku === 'band-20');
-      }
-      var isBand = (sku === 'band-18' || sku === 'band-20');
-      var shipping = isBand ? '$9.99' : 'Free';
-      var total = isBand ? '$39.98' : data.price;
-      document.getElementById('summary-model').textContent = data.name;
-      document.getElementById('summary-shipping').textContent = shipping;
-      document.getElementById('summary-total').textContent = total;
-      document.getElementById('pay-btn').textContent = 'Pay ' + total + ' →';
-      var ships = document.getElementById('summary-ships');
-      if (ships) ships.textContent = isBand ? '3–5 business days' : '7–10 business days';
-
-      /* OOS SKUs: swap pay button for notify form */
-      var OOS_SKUS = { 'band-20': 'The 20mm band', 'ca53': 'The PIV CA-53W' };
-      var isOos = sku in OOS_SKUS;
-      document.getElementById('pay-btn').style.display        = isOos ? 'none' : '';
-      document.querySelector('.secure-note').style.display    = isOos ? 'none' : '';
-      document.querySelector('.pay-note').style.display       = isOos ? 'none' : '';
-      var notifyWrap = document.getElementById('notify-oos-wrap');
-      notifyWrap.style.display = isOos ? '' : 'none';
-      if (isOos) {
-        document.getElementById('notify-oos-msg').textContent = OOS_SKUS[sku] + ' is currently out of stock. Enter your email and we\'ll let you know when it\'s back.';
-        document.getElementById('notify-oos-form').style.display = '';
-        document.getElementById('notify-oos-confirm').style.display = 'none';
-        document.getElementById('notify-oos-email').value = '';
-        notifyWrap.dataset.sku = sku;
-      }
-
-      /* Scroll to checkout if triggered from product card */
-      if (document.activeElement && document.activeElement.closest('#product')) {
-        document.getElementById('checkout').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-
-    /* ── Process tab toggle ─────────────────────────────────── */
-    function switchTab(tab) {
-      document.getElementById('steps-have').style.display = tab === 'have' ? 'flex' : 'none';
-      document.getElementById('steps-need').style.display = tab === 'need' ? 'flex' : 'none';
-      document.getElementById('tab-have').classList.toggle('active', tab === 'have');
-      document.getElementById('tab-need').classList.toggle('active', tab === 'need');
-    }
-
-    /* ── Band size selector ─────────────────────────────────── */
-    function selectBandSize(size) {
-      var sku = size === '20mm' ? 'band-20' : 'band-18';
-      document.getElementById('band-btn-18').classList.toggle('active', size === '18mm');
-      document.getElementById('band-btn-20').classList.toggle('active', size === '20mm');
-      var cta = document.getElementById('band-cta-btn');
-      if (cta) { cta.setAttribute('onclick', "selectSKU('" + sku + "')"); }
-    }
-
-    function openCompatModal() {
-      document.getElementById('watch-compat-modal').style.display = 'flex';
-    }
-
-    /* ── Payment ────────────────────────────────────────────── */
-    function handlePayment() {
-      var data = SKU_DATA[selectedSKU];
-      gtag('event', 'begin_checkout', { sku: selectedSKU, value: parseFloat(data.price.replace('$','')), currency: 'USD', item_name: data.name });
-fbq('track', 'InitiateCheckout', { value: parseFloat(data.price.replace('$','')), currency: 'USD', content_ids: [selectedSKU], content_name: data.name });
-      window.location.href = data.stripe;
-    }
-
-    function trackOrderClick(sku) {
-      var data = SKU_DATA[sku];
-      gtag('event', 'add_to_cart', { sku: sku, value: parseFloat(data.price.replace('$','')), currency: 'USD', item_name: data.name });
-fbq('track', 'AddToCart', { value: parseFloat(data.price.replace('$','')), currency: 'USD', content_ids: [sku], content_name: data.name });
-    }
-
-    /* ── Out-of-stock notify ────────────────────────────────── */
-    function submitNotifyOos(e) {
-      e.preventDefault();
-      var email = document.getElementById('notify-oos-email').value.trim();
-      if (!email) return;
-      var sku = document.getElementById('notify-oos-wrap').dataset.sku || '';
-      var fd = new FormData();
-      fd.append(WAITLIST_ENTRY_ID, email);
-      fetch(WAITLIST_FORM_ACTION, { method: 'POST', mode: 'no-cors', body: fd });
-      gtag('event', 'notify_me', { sku: sku, email: email });
-      document.getElementById('notify-oos-form').style.display = 'none';
-      document.getElementById('notify-oos-confirm').style.display = 'block';
-    }
-
-    /* ── Waitlist form submission ────────────────────────────── */
-    function submitWaitlist(e) {
-      e.preventDefault();
-      var email = document.getElementById('waitlistEmail').value.trim();
-      if (!email) return;
-
-      var fd = new FormData();
-      fd.append(WAITLIST_ENTRY_ID, email);
-      fetch(WAITLIST_FORM_ACTION, { method: 'POST', mode: 'no-cors', body: fd });
-
-      document.querySelector('.waitlist-inline-form').style.display = 'none';
-      document.getElementById('waitlistNote').style.display         = 'none';
-      document.getElementById('waitlistConfirm').style.display      = 'block';
-    }
-
-  </script>
-
-  <div id="watch-compat-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:999; align-items:center; justify-content:center;">
-  <div style="background:#fff; max-width:560px; width:90%; max-height:80vh; overflow-y:auto; padding:40px; position:relative;">
-    <button onclick="document.getElementById('watch-compat-modal').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:#999;">&#x2715;</button>
-    <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:3px; color:#999; text-transform:uppercase; margin-bottom:24px;">Watch compatibility guide</div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-      <div>
-        <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:2px; color:#111; margin-bottom:12px; border-bottom:1px solid #e0ddd8; padding-bottom:8px;">18mm lug width</div>
-        <ul style="list-style:none; font-size:13px; color:#555; font-family:'Inter',sans-serif; line-height:2;">
-          <li>Casio F-91W</li>
-          <li>Casio A158W</li>
-          <li>Casio A168W</li>
-          <li>Timex Weekender 38mm</li>
-          <li>Citizen Eco-Drive BM7355</li>
-          <li>Seiko SUR (select models)</li>
-          <li>Most 36mm dress watches</li>
-        </ul>
-      </div>
-      <div>
-        <div style="font-family:'DM Mono',monospace; font-size:11px; letter-spacing:2px; color:#111; margin-bottom:12px; border-bottom:1px solid #e0ddd8; padding-bottom:8px;">20mm lug width</div>
-        <ul style="list-style:none; font-size:13px; color:#555; font-family:'Inter',sans-serif; line-height:2;">
-          <li>Casio CA-53W</li>
-          <li>Seiko SNK803 / SNK809</li>
-          <li>Seiko 5 Sports</li>
-          <li>Orient Bambino</li>
-          <li>Timex Marlin</li>
-          <li>Casio MQ24</li>
-          <li>Most 38-40mm watches</li>
-        </ul>
-      </div>
-    </div>
-    <p style="font-size:12px; color:#999; font-family:'Inter',sans-serif; margin-top:24px; border-top:1px solid #e0ddd8; padding-top:16px;">Not sure? Check the spec sheet for your watch and look for "lug width" or "band width". Most manufacturers list it.</p>
+<header>
+  <div class="hd">
+    <a class="logo" href="/">PIV</a>
+    <nav>
+      <a href="#faq">FAQ</a>
+      <a href="#checkout" class="order">Order</a>
+    </nav>
   </div>
-</div>
+</header>
 
+<main class="wrap">
+
+  <div class="head">
+    <h1>Looks like 1989.<br><span>Tracks like 2026.</span></h1>
+    <p>Your <b>Fitbit Air pebble</b> sits in a moulded holder under the band. The watch stays a watch.</p>
+  </div>
+
+
+  <!-- ============ PRODUCTS ============ -->
+  <div class="grid" id="product">
+
+    <article class="card">
+      <div class="gal" data-gal>
+        <span class="flag">Best seller</span>
+        <span class="gal-count"><b>1</b>/5</span>
+        <div class="gal-track">
+          <div class="gal-slide"><img src="f91-hero-1.webp" alt="PIV F-91, a Casio F-91W on the PIV nylon band" fetchpriority="high"></div>
+          <div class="gal-slide"><img class="contain" src="f91-with-sensor.webp" alt="The F-91 beside the Fitbit Air pebble, and worn on the wrist" loading="lazy" decoding="async"></div>
+          <div class="gal-slide"><img src="f91-wrist.webp" alt="The PIV F-91 worn on the wrist" loading="lazy" decoding="async"></div>
+          <div class="gal-slide"><img class="contain" src="f91-watch.webp" alt="Detail views of the F-91 band, buckle and underside" loading="lazy" decoding="async"></div>
+          <div class="gal-slide"><img src="f91-hero.webp" alt="The PIV F-91 on a stand" loading="lazy" decoding="async"></div>
+        </div>
+        <button class="gal-nav prev" aria-label="Previous image">&#8249;</button>
+        <button class="gal-nav next" aria-label="Next image">&#8250;</button>
+        <div class="gal-dots" aria-hidden="true"></div>
+      </div>
+      <div class="body">
+        <div class="kicker"><b>Watch + band</b> | Casio F-91W</div>
+        <h2 class="name">PIV F-91</h2>
+        <div class="price">$99.99</div>
+        <div class="meta">One size, fits 5.7 to 8.6 in wrists. Free shipping, ships in 7 to 10 days.</div>
+        <div class="rating"><b>&#9733;&#9733;&#9733;&#9733;&#9733;</b> 2 reviews</div>
+        <div class="spacer"></div>
+        <button class="btn" onclick="selectSKU('f91'); trackOrderClick('f91')">Order F-91W, $99.99</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="gal" data-gal>
+        <span class="flag out">Sold out</span>
+        <span class="gal-count"><b>1</b>/4</span>
+        <div class="gal-track">
+          <div class="gal-slide"><img src="ca53-hero-1.webp" alt="PIV CA-53W, a Casio calculator watch on the PIV nylon band" loading="lazy" decoding="async"></div>
+          <div class="gal-slide"><img class="contain" src="ca53-wrist.webp" alt="The PIV CA-53W worn on the wrist" loading="lazy" decoding="async"></div>
+          <div class="gal-slide"><img class="contain" src="casio-watch.webp" alt="Detail views of the CA-53W band, buckle and underside" loading="lazy" decoding="async"></div>
+          <div class="gal-slide"><img src="ca53-product.webp" alt="The PIV CA-53W on a stone plinth" loading="lazy" decoding="async"></div>
+        </div>
+        <button class="gal-nav prev" aria-label="Previous image">&#8249;</button>
+        <button class="gal-nav next" aria-label="Next image">&#8250;</button>
+        <div class="gal-dots" aria-hidden="true"></div>
+      </div>
+      <div class="body">
+        <div class="kicker"><b>Watch + band</b> | Casio CA-53W</div>
+        <h2 class="name">PIV CA-53W</h2>
+        <div class="price">$99.99</div>
+        <div class="meta">The calculator watch. Same band, same holder, more character.</div>
+        <div class="rating">Next batch in production</div>
+        <div class="spacer"></div>
+        <button class="btn ghost" onclick="selectSKU('ca53')">Email me when it is back</button>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="gal" data-gal>
+        <span class="flag">18 &amp; 20 mm</span>
+        <span class="gal-count"><b>1</b>/3</span>
+        <div class="gal-track">
+          <div class="gal-slide"><img class="contain" src="Strap with text.webp" alt="The PIV nylon band, labelled: breathable nylon weave, velcro adjustment loop, snug-fit pebble holder, secure buckle" loading="lazy" decoding="async"></div>
+          <div class="gal-slide"><img src="band-detail.webp" alt="The PIV band laid flat, showing the pebble holder" loading="lazy" decoding="async"></div>
+          <div class="gal-slide"><img class="contain" src="f91-with-sensor.webp" alt="The band fitted to a watch, beside the Fitbit Air pebble" loading="lazy" decoding="async"></div>
+        </div>
+        <button class="gal-nav prev" aria-label="Previous image">&#8249;</button>
+        <button class="gal-nav next" aria-label="Next image">&#8250;</button>
+        <div class="gal-dots" aria-hidden="true"></div>
+      </div>
+      <div class="body">
+        <div class="kicker"><b>Band only</b> | 18 &amp; 20 mm</div>
+        <h2 class="name">PIV Band + Pebble Holder</h2>
+        <div class="price">$29.99 <s>+ $9.99 shipping</s></div>
+        <div class="meta">Double-layer nylon, quick-release, no tools. <a href="#fit">See the fit list</a></div>
+        <div class="rating">2 widths, ships in 3 to 5 days</div>
+        <div class="vars" role="group" aria-label="Lug width">
+          <button class="active" id="band-btn-18" onclick="setBand('18mm')">18 MM</button>
+          <button id="band-btn-20" onclick="setBand('20mm')">20 MM</button>
+        </div>
+        <button class="btn" id="band-cta-btn" onclick="selectSKU('band-18'); trackOrderClick('band-18')">Order band, $29.99</button>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- ============ TRUST ============ -->
+  <div class="trust">
+    <div><b>FREE</b>US shipping on watches</div>
+    <div><b>7-10 DAYS</b>Built to order</div>
+    <div><b>STRIPE</b>Secure checkout</div>
+    <div><b>USA</b>Designed and made here</div>
+  </div>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="sec" id="testimonials">
+    <h2>What buyers say</h2>
+    <div class="revs">
+      <div class="rev">
+        <div class="s">★★★★★</div>
+        <p>The F-91W looks vintage Casio on the wrist, but it is tracking my steps, heart rate and sleep. My friends have no idea there is a Fitbit sensor in it.</p>
+        <div class="who"><span class="av">S</span><div><b>Shain</b><span>Verified buyer</span></div></div>
+      </div>
+      <div class="rev">
+        <div class="s">★★★★★</div>
+        <p>I love the retro look, the design and the overall quality. Got this as a gift for my boyfriend, and he absolutely loves it.</p>
+        <div class="who"><span class="av">M</span><div><b>Mohana</b><span>Verified buyer</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CHECKOUT ============ -->
+  <section id="checkout">
+    <div class="co">
+      <h2>Order</h2>
+      <p class="co-sub">Pick your model, then pay securely on Stripe.</p>
+
+      <div class="sku-selector" id="checkout-sku-selector">
+        <button class="sku-btn active" id="co-sku-f91" onclick="selectSKU('f91')">
+          <span class="sku-name">PIV F-91</span><span class="sku-price">$99.99</span></button>
+        <button class="sku-btn" id="co-sku-ca53" onclick="selectSKU('ca53')">
+          <span class="sku-name">PIV CA-53W</span><span class="sku-price">$99.99</span></button>
+        <button class="sku-btn" id="co-sku-band-18" onclick="selectSKU('band-18')">
+          <span class="sku-name">Band, 18mm</span><span class="sku-price">$29.99</span></button>
+        <button class="sku-btn" id="co-sku-band-20" onclick="selectSKU('band-20')">
+          <span class="sku-name">Band, 20mm</span><span class="sku-price">$29.99</span></button>
+      </div>
+
+      <div class="summary">
+        <div><span>Model</span><span id="summary-model">PIV F-91</span></div>
+        <div><span>Ships in</span><span id="summary-ships">7 to 10 business days</span></div>
+        <div><span>Shipping</span><span id="summary-shipping">Free</span></div>
+        <div class="g"><span>Total</span><span id="summary-total">$99.99</span></div>
+      </div>
+
+      <button class="btn" id="pay-btn" onclick="handlePayment()">Pay $99.99</button>
+      <p class="pay-note">You bring your own Fitbit Air pebble. <span class="byo">not included</span></p>
+      <p class="secure-note">🔒 Secured by Stripe. Card details are entered on Stripe's page and PIV never sees your card number.</p>
+
+      <div id="notify-oos-wrap">
+        <p id="notify-oos-msg"></p>
+        <form id="notify-oos-form" onsubmit="submitNotifyOos(event)">
+          <input id="notify-oos-email" type="email" placeholder="you@email.com" required>
+          <button class="btn" type="submit">Join the list</button>
+        </form>
+        <p id="notify-oos-confirm"><b>You are on the list.</b><br>We will email you first when it is back.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <div class="faq" id="faq">
+    <h2>FAQs</h2>
+
+    <details open><summary>What comes with your order?</summary>
+      <p>The watch and the PIV nylon band with the pebble holder, already fitted together. Nothing to assemble, so you can take it out and put it on. The original Casio straps come in the box too, so you can always put the watch back to stock.</p></details>
+
+    <details><summary>Do I need my own Fitbit Air?</summary>
+      <p>Yes. The sensor pebble is the one part we do not ship. You lift it out of the Fitbit band you already own and slide it into the PIV holder. It pops in and out in seconds, so you can move it back whenever you like.</p></details>
+
+    <details><summary>Does the tracking still work the same?</summary>
+      <p>Fully. Heart rate, sleep and steps all sync through Google Fit exactly as before. Nothing changes on the software side. You are just wearing the pebble somewhere better looking.</p></details>
+
+    <details><summary>Will it fit my wrist?</summary>
+      <p>It fits wrists from 14.5 to 22cm (5.7 to 8.6 inches), which covers most people. The hook-and-loop closure adjusts anywhere in that range in a couple of seconds. No holes, and no size to pick at checkout.</p></details>
+
+    <details><summary>What is the band made of?</summary>
+      <p>Double-layer woven nylon over a soft cotton weave: light, breathable, and closer to a sport loop than a stiff military nylon. It is one continuous piece that passes under the watch, so there is no hardware sitting against your wrist.</p></details>
+
+    <details><summary>Can I wash it?</summary>
+      <p>Yes. The colour is permanent ink and will not fade, so you can wash the band whenever it needs it. It is built for sweat and daily wear.</p></details>
+
+    <details><summary>Do I need tools to change it?</summary>
+      <p>Not for the PIV band. It sits on quick-release spring bars, so you slide the knob with your finger and it comes off. Swapping it between watches takes seconds.</p>
+      <p>Taking the <b>original Casio strap</b> off is the fiddly part, since those are not quick-release. That needs basic watch tools, or household ones will do: a pair of pliers and a pin is enough. Your order arrives with the PIV band already fitted, so you only run into this if you decide to go back to stock.</p></details>
+
+    <details id="fit"><summary>Which watches does the band fit?</summary>
+      <div class="fit">
+        <p>Two things have to be true: the lug width has to match, <b>and</b> the case has to be flat and open where the band meets it. A flat one-piece band on quick-release bars needs clean, exposed lugs. On a round case, a hooded lug or a wide flared shoulder, it will not sit right and you may not be able to get it off again.</p>
+
+        <div><span class="tag">18 MM</span></div>
+        <p>Casio F-91W · F-93W · F-94WA · F-105W · F-106W · W-59</p>
+
+        <div style="margin-top:14px"><span class="tag">20 MM</span></div>
+        <p>Casio CA-53W · CA-61W · FT-100W · W-520U · W-720 · W-741 · WL-100 · MAP-100</p>
+
+        <p class="fit-note"><b>Will not fit.</b> Hooded-lug models, where the case overhangs the lugs, which includes the Casio A168 and A169. Round watches with downward-curving lugs: Seiko SNK, Orient Bambino, Timex Marlin, Casio MDV-106 and the MTP dress line. The Casio AE-1200 "Royale" family (AE-1300, AE-1000W, AQ-S810W, SGW-300/400/500H, MRW-200H, W-800H, W-216H, F-108WH), which is 18mm at the lugs but flares to 25.5mm at the shoulders. The W-96H, which uses screws rather than spring bars. And G-Shocks, which use proprietary integrated bands.</p>
+
+        <p class="fit-note"><b>Checking your own watch.</b> Measure the gap between the lugs. That is your width. Then look at it side-on: the lugs should be fully exposed with nothing overhanging them, the case flat-backed and squared off, and the shoulders no more than about 4mm wider than the lug gap.</p>
+      </div></details>
+
+    <details><summary>How long does shipping take?</summary>
+      <p>Watches are built to order and ship in 7 to 10 business days. The band on its own ships in 3 to 5. US shipping is free on watches, and $9.99 for the band by itself.</p></details>
+
+    <details><summary>Do you ship outside the US?</summary>
+      <p>Not yet. US orders only for now.</p></details>
+
+    <details><summary>What if something is wrong with my order?</summary>
+      <p>If it arrives damaged or is not what you ordered, email <a href="mailto:hello@pivhq.com">hello@pivhq.com</a> and we will make it right. Beyond that, all sales are final, because each piece is built to order by a small team.</p></details>
+  </div>
+
+  <footer>
+    <span class="logo">PIV HQ</span>
+    <p>Designed and made in the USA. Not affiliated with Casio, Google or Fitbit.<br>
+    <a href="mailto:hello@pivhq.com">hello@pivhq.com</a> · © 2026</p>
+  </footer>
+</main>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","itemListElement":[
+{"@type":"Product","name":"PIV F-91","description":"Casio F-91W on the PIV nylon band with a Fitbit Air pebble holder. Ships ready to wear.","image":"https://pivhq.com/f91-hero-1.png","brand":{"@type":"Brand","name":"PIV HQ"},"offers":{"@type":"Offer","price":"99.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://pivhq.com/"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"2"}},
+{"@type":"Product","name":"PIV CA-53W","description":"Casio CA-53W calculator watch on the PIV nylon band with a Fitbit Air pebble holder.","image":"https://pivhq.com/ca53-hero-1.png","brand":{"@type":"Brand","name":"PIV HQ"},"offers":{"@type":"Offer","price":"99.99","priceCurrency":"USD","availability":"https://schema.org/OutOfStock","url":"https://pivhq.com/"}},
+{"@type":"Product","name":"PIV Band + Pebble Holder","description":"The PIV nylon band with a Fitbit Air pebble holder, in 18mm and 20mm.","image":"https://pivhq.com/Strap%20with%20text.png","brand":{"@type":"Brand","name":"PIV HQ"},"offers":{"@type":"Offer","price":"29.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://pivhq.com/"}}]}
+</script>
+
+<script>
+/* ── Stripe Payment Links (unchanged) ───────────────────── */
+const STRIPE_F91     = 'https://buy.stripe.com/28E3cvfBsdC8ab16Qn0co06';
+const STRIPE_CA53    = 'https://buy.stripe.com/4gM8wP3SKfKg0ArcaH0co07';
+const STRIPE_BAND_18 = 'https://buy.stripe.com/7sYcN51KC2Xuerh7Ur0co04';
+const STRIPE_BAND_20 = 'https://buy.stripe.com/7sYdR99d4eGc4QH0rZ0co03';
+
+const WAITLIST_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSc1KgZ6tzKXI0pUggTEAeHEca3yoYTLiqNB-YMGIbkWmhoueQ/formResponse';
+const WAITLIST_ENTRY_ID    = 'entry.67680948';
+
+const SKU_DATA = {
+  f91:       { name:'PIV F-91',                        price:'$99.99', stripe:STRIPE_F91     },
+  ca53:      { name:'PIV CA-53W (calculator watch)',   price:'$99.99', stripe:STRIPE_CA53    },
+  'band-18': { name:'PIV Band + Pebble Holder (18mm)', price:'$29.99', stripe:STRIPE_BAND_18 },
+  'band-20': { name:'PIV Band + Pebble Holder (20mm)', price:'$29.99', stripe:STRIPE_BAND_20 }
+};
+const OOS_SKUS = { 'band-20':'The 20mm band', ca53:'The PIV CA-53W' };
+
+var selectedSKU = 'f91';
+
+function selectSKU(sku){
+  selectedSKU = sku;
+  var data = SKU_DATA[sku];
+
+  ['f91','ca53','band-18','band-20'].forEach(function(s){
+    var el = document.getElementById('co-sku-' + s);
+    if (el) el.classList.toggle('active', s === sku);
+  });
+
+  var isBand = (sku === 'band-18' || sku === 'band-20');
+  document.getElementById('summary-model').textContent    = data.name;
+  document.getElementById('summary-ships').textContent    = isBand ? '3 to 5 business days' : '7 to 10 business days';
+  document.getElementById('summary-shipping').textContent = isBand ? '$9.99' : 'Free';
+  document.getElementById('summary-total').textContent    = isBand ? '$39.98' : data.price;
+
+  var isOos = sku in OOS_SKUS;
+  var payBtn = document.getElementById('pay-btn');
+  payBtn.textContent = 'Pay ' + (isBand ? '$39.98' : data.price);
+  payBtn.style.display = isOos ? 'none' : '';
+  document.querySelector('.secure-note').style.display = isOos ? 'none' : '';
+  document.querySelector('.pay-note').style.display    = isOos ? 'none' : '';
+
+  var wrap = document.getElementById('notify-oos-wrap');
+  wrap.style.display = isOos ? 'block' : 'none';
+  if (isOos){
+    document.getElementById('notify-oos-msg').textContent =
+      OOS_SKUS[sku] + ' is currently out of stock. Enter your email and we will let you know when it is back.';
+    document.getElementById('notify-oos-form').style.display = '';
+    document.getElementById('notify-oos-confirm').style.display = 'none';
+    document.getElementById('notify-oos-email').value = '';
+    wrap.dataset.sku = sku;
+  }
+
+  document.getElementById('checkout').scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+/* band width toggle, keeps the card button and quick-add in sync */
+function setBand(size){
+  var sku = size === '20mm' ? 'band-20' : 'band-18';
+  document.getElementById('band-btn-18').classList.toggle('active', size === '18mm');
+  document.getElementById('band-btn-20').classList.toggle('active', size === '20mm');
+  document.getElementById('band-cta-btn').setAttribute('onclick', "selectSKU('" + sku + "'); trackOrderClick('" + sku + "')");
+}
+
+function handlePayment(){
+  var data = SKU_DATA[selectedSKU];
+  var val  = (selectedSKU.indexOf('band') === 0) ? 39.98 : parseFloat(data.price.replace('$',''));
+  gtag('event','begin_checkout',{ sku:selectedSKU, value:val, currency:'USD', item_name:data.name });
+  fbq('track','InitiateCheckout',{ value:val, currency:'USD', content_ids:[selectedSKU], content_name:data.name });
+  window.location.href = data.stripe;
+}
+
+function trackOrderClick(sku){
+  var data = SKU_DATA[sku];
+  gtag('event','add_to_cart',{ sku:sku, value:parseFloat(data.price.replace('$','')), currency:'USD', item_name:data.name });
+  fbq('track','AddToCart',{ value:parseFloat(data.price.replace('$','')), currency:'USD', content_ids:[sku], content_name:data.name });
+}
+
+function submitNotifyOos(e){
+  e.preventDefault();
+  var email = document.getElementById('notify-oos-email').value.trim();
+  if (!email) return;
+  var sku = document.getElementById('notify-oos-wrap').dataset.sku || '';
+  var fd = new FormData();
+  fd.append(WAITLIST_ENTRY_ID, email);
+  fetch(WAITLIST_FORM_ACTION, { method:'POST', mode:'no-cors', body:fd });
+  gtag('event','notify_me',{ sku:sku, email:email });
+  document.getElementById('notify-oos-form').style.display = 'none';
+  document.getElementById('notify-oos-confirm').style.display = 'block';
+}
+
+/* ── product galleries ─────────────────────────────────── */
+document.querySelectorAll('[data-gal]').forEach(function(gal){
+  var track = gal.querySelector('.gal-track');
+  var dots  = gal.querySelector('.gal-dots');
+  var count = gal.querySelector('.gal-count b');
+  var n     = track.children.length;
+
+  for (var i = 0; i < n; i++) dots.appendChild(document.createElement('i'));
+  var pips = dots.children;
+
+  function current(){ return Math.round(track.scrollLeft / track.clientWidth); }
+  function paint(){
+    var i = Math.min(Math.max(current(), 0), n - 1);
+    for (var k = 0; k < n; k++) pips[k].classList.toggle('on', k === i);
+    if (count) count.textContent = i + 1;
+  }
+  function go(step){
+    var i = Math.min(Math.max(current() + step, 0), n - 1);
+    track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+  }
+
+  gal.querySelector('.gal-nav.prev').addEventListener('click', function(){ go(-1); });
+  gal.querySelector('.gal-nav.next').addEventListener('click', function(){ go(1); });
+
+  var t;
+  track.addEventListener('scroll', function(){ clearTimeout(t); t = setTimeout(paint, 60); }, { passive: true });
+  window.addEventListener('resize', paint);
+  paint();
+});
+
+/* deep links into a collapsed FAQ item should open it */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(){
+    var t = document.querySelector(a.getAttribute('href'));
+    if (t && t.tagName === 'DETAILS') t.open = true;
+  });
+});
+</script>
 </body>
 </html>
