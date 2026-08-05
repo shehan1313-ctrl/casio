@@ -522,6 +522,14 @@ const SKU_DATA = {
 const OOS_SKUS = { 'band-20':'The 20mm band' };
 const SMALL_ITEMS = ['band-18','band-20'];
 
+/* Meta catalog Content IDs — from Commerce Manager > Catalog > Items > (product) > Content ID */
+const CATALOG_IDS = {
+  f91:       'avp1dm4a0j',
+  ca53:      '66v4swecp0',
+  'band-18': '3xk3y5jntp',
+  'band-20': 'nggncwj162'
+};
+
 var selectedSKU = 'f91';
 
 function selectSKU(sku){
@@ -572,14 +580,14 @@ function handlePayment(){
   var data = SKU_DATA[selectedSKU];
   var val  = parseFloat(data.price.replace('$',''));
   gtag('event','begin_checkout',{ sku:selectedSKU, value:val, currency:'USD', item_name:data.name });
-  fbq('track','InitiateCheckout',{ value:val, currency:'USD', content_ids:[selectedSKU], content_name:data.name });
+  fbq('track','InitiateCheckout',{ value:val, currency:'USD', content_type:'product', content_ids:[CATALOG_IDS[selectedSKU]], content_name:data.name });
   window.location.href = data.stripe;
 }
 
 function trackOrderClick(sku){
   var data = SKU_DATA[sku];
   gtag('event','add_to_cart',{ sku:sku, value:parseFloat(data.price.replace('$','')), currency:'USD', item_name:data.name });
-  fbq('track','AddToCart',{ value:parseFloat(data.price.replace('$','')), currency:'USD', content_ids:[sku], content_name:data.name });
+  fbq('track','AddToCart',{ value:parseFloat(data.price.replace('$','')), currency:'USD', content_type:'product', content_ids:[CATALOG_IDS[sku]], content_name:data.name });
 }
 
 function submitNotifyOos(e){

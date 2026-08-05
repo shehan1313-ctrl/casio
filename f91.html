@@ -39,6 +39,11 @@ document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '2151244228772113');
 fbq('track', 'PageView');
 </script>
+<script>
+/* Meta catalog Content ID for this product — from Commerce Manager > Catalog > Items > Content ID */
+var PIV_CATALOG_ID_F91 = 'avp1dm4a0j';
+fbq('track', 'ViewContent', { content_type:'product', content_ids:[PIV_CATALOG_ID_F91], content_name:'PIV F-91', value:99.99, currency:'USD' });
+</script>
 <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=2151244228772113&ev=PageView&noscript=1" /></noscript>
 
@@ -415,6 +420,13 @@ const SKU_DATA = {
 };
 const OOS_SKUS = { 'band-20':'The 20mm band' };
 
+const CATALOG_IDS = {
+  f91:       PIV_CATALOG_ID_F91,
+  ca53:      '66v4swecp0',
+  'band-18': '3xk3y5jntp',
+  'band-20': 'nggncwj162'
+};
+
 var selectedSKU = 'f91';
 
 function selectSKU(sku){
@@ -457,14 +469,14 @@ function handlePayment(){
   var data = SKU_DATA[selectedSKU];
   var val  = parseFloat(data.price.replace('$',''));
   gtag('event','begin_checkout',{ sku:selectedSKU, value:val, currency:'USD', item_name:data.name });
-  fbq('track','InitiateCheckout',{ value:val, currency:'USD', content_ids:[selectedSKU], content_name:data.name });
+  fbq('track','InitiateCheckout',{ value:val, currency:'USD', content_type:'product', content_ids:[CATALOG_IDS[selectedSKU]], content_name:data.name });
   window.location.href = data.stripe;
 }
 
 function trackOrderClick(sku){
   var data = SKU_DATA[sku];
   gtag('event','add_to_cart',{ sku:sku, value:parseFloat(data.price.replace('$','')), currency:'USD', item_name:data.name });
-  fbq('track','AddToCart',{ value:parseFloat(data.price.replace('$','')), currency:'USD', content_ids:[sku], content_name:data.name });
+  fbq('track','AddToCart',{ value:parseFloat(data.price.replace('$','')), currency:'USD', content_type:'product', content_ids:[CATALOG_IDS[sku]], content_name:data.name });
 }
 
 function submitNotifyOos(e){

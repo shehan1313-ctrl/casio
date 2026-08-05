@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Order confirmed | PIV HQ</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W63FKR42GV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-W63FKR42GV');
+</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2151244228772113');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2151244228772113&ev=PageView&noscript=1" /></noscript>
+
+<style>
+:root{
+  --bg:        #ffffff;
+  --surface:   #f7f6f3;
+  --border:    #e0ddd8;
+  --txt:       #111111;
+  --txt-2:     #555555;
+  --txt-m:     #999999;
+  --cta-bg:    #111111;
+  --cta-fg:    #ffffff;
+  --max-w:     560px;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);
+  font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;display:flex;min-height:100vh;align-items:center}
+.wrap{max-width:var(--max-w);margin:0 auto;padding:40px 20px;text-align:center}
+.mono{font-family:'DM Mono',ui-monospace,monospace}
+.check{width:56px;height:56px;border-radius:99px;background:var(--cta-bg);color:var(--cta-fg);
+  display:grid;place-items:center;margin:0 auto 20px;font-size:26px}
+h1{margin:0;font-size:clamp(24px,5vw,32px);font-weight:600;letter-spacing:-.02em}
+p{color:var(--txt-2);font-size:15.5px;margin:14px 0 0}
+.order-detail{margin:28px auto 0;background:var(--surface);border:1px solid var(--border);
+  border-radius:6px;padding:18px;max-width:340px;font-family:'DM Mono',monospace;font-size:13.5px;color:var(--txt-2)}
+.order-detail b{display:block;color:var(--txt);font-size:16px;margin-bottom:4px}
+a.home{display:inline-block;margin-top:28px;color:var(--txt);font-weight:500;text-decoration:none;
+  border-bottom:1px solid var(--txt)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="check">&#10003;</div>
+  <h1>Order confirmed</h1>
+  <p>Thanks for your order — a confirmation has been sent to your email. We'll notify you once it ships.</p>
+  <div class="order-detail" id="order-detail" style="display:none">
+    <b id="order-name"></b>
+    <span id="order-price"></span>
+  </div>
+  <a class="home" href="/">Back to PIV HQ</a>
+</div>
+
+<script>
+const CATALOG_IDS = {
+  f91:       'avp1dm4a0j',
+  ca53:      '66v4swecp0',
+  'band-18': '3xk3y5jntp',
+  'band-20': 'nggncwj162'
+};
+const SKU_DATA = {
+  f91:       { name:'PIV F-91',                        price:99.99 },
+  ca53:      { name:'PIV CA-53W (calculator watch)',   price:99.99 },
+  'band-18': { name:'PIV Band + Pebble Holder (18mm)', price:39.99 },
+  'band-20': { name:'PIV Band + Pebble Holder (20mm)', price:39.99 }
+};
+
+const params = new URLSearchParams(window.location.search);
+const sku = params.get('sku');
+const data = SKU_DATA[sku];
+
+if (data) {
+  document.getElementById('order-name').textContent = data.name;
+  document.getElementById('order-price').textContent = '$' + data.price.toFixed(2);
+  document.getElementById('order-detail').style.display = 'block';
+
+  fbq('track', 'Purchase', {
+    value: data.price,
+    currency: 'USD',
+    content_type: 'product',
+    content_ids: [CATALOG_IDS[sku]],
+    content_name: data.name
+  });
+  gtag('event', 'purchase', { sku: sku, value: data.price, currency: 'USD', item_name: data.name });
+}
+</script>
+</body>
+</html>
