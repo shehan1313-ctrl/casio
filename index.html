@@ -84,13 +84,28 @@ header{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px s
 .hd nav a:hover{color:var(--txt)}
 .hd nav a.order{background:var(--cta-bg);color:var(--cta-fg);padding:8px 16px;border-radius:4px;font-weight:500}
 
-/* ── collection head ── */
-.head{padding:30px 0 20px;max-width:520px}
-.head h1{margin:0;font-size:clamp(28px,6.6vw,40px);font-weight:600;
-  letter-spacing:-.03em;line-height:1.08}
-.head h1 span{color:var(--txt-m)}
-.head p{margin:14px 0 0;color:var(--txt-2);font-size:15.5px}
-.head p b{color:var(--txt);font-weight:600}
+/* ── hero ── */
+.hero{position:relative;margin:22px 0 8px;border-radius:8px;overflow:hidden;
+  aspect-ratio:16/9;background:#111}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:65% center}
+.hero-overlay{position:absolute;inset:0;
+  background:linear-gradient(90deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.78) 32%, rgba(0,0,0,.15) 60%, rgba(0,0,0,0) 78%);
+  display:flex;align-items:center}
+.hero-copy{max-width:480px;padding:0 6% 0 5%}
+.hero-copy h1{margin:0;color:#fff;font-size:clamp(26px,4.6vw,42px);font-weight:600;
+  letter-spacing:-.03em;line-height:1.1;text-wrap:balance}
+.hero-copy h1 span{color:rgba(255,255,255,.62)}
+.hero-copy p{margin:14px 0 0;color:rgba(255,255,255,.82);font-size:15px;line-height:1.5}
+.hero-copy p b{color:#fff;font-weight:600}
+@media(max-width:680px){
+  .hero{aspect-ratio:4/3}
+  .hero img{object-position:center 25%}
+  .hero-overlay{background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 60%, rgba(0,0,0,.75) 82%, rgba(0,0,0,.92) 100%);
+    align-items:flex-end}
+  .hero-copy{max-width:none;padding:0 18px 16px}
+  .hero-copy h1{font-size:clamp(19px,5.8vw,24px)}
+  .hero-copy p{font-size:12px;margin-top:6px;line-height:1.4}
+}
 
 
 /* ── product grid ── */
@@ -197,6 +212,8 @@ header{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px s
   border:1px solid var(--border);border-radius:6px;padding:24px}
 .co h2{margin:0 0 4px;font-size:22px;font-weight:600;letter-spacing:-.02em}
 .co .co-sub{margin:0 0 18px;font-size:13.5px;color:var(--txt-2)}
+.addon-note{background:var(--bg);border:1px solid var(--border);border-radius:4px;
+  padding:11px 14px;margin-bottom:16px;font-size:13px;color:var(--txt-2)}
 .sku-selector{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
 .sku-btn{background:var(--bg);border:1px solid var(--border);border-radius:4px;
   padding:12px 10px;text-align:left;line-height:1.3}
@@ -258,11 +275,15 @@ footer .logo{font-size:15px;display:inline-block;margin-bottom:8px}
 
 <main class="wrap">
 
-  <div class="head">
-    <h1>Looks like 1989.<br><span>Tracks like 2026.</span></h1>
-    <p>Your <b>Fitbit Air pebble</b> sits in a moulded holder under the band. The watch stays a watch.</p>
+  <div class="hero">
+    <img src="header-banner.webp" alt="PIV CA-53W and PIV F-91 side by side on a workbench, with the Fitbit Air pebble visible under the band" fetchpriority="high">
+    <div class="hero-overlay">
+      <div class="hero-copy">
+        <h1>Looks like 1989.<br><span>Tracks like 2026.</span></h1>
+        <p>Your <b>Fitbit Air pebble</b> sits in a moulded holder under the band. The watch stays a watch.</p>
+      </div>
+    </div>
   </div>
-
 
   <!-- ============ PRODUCTS ============ -->
   <div class="grid" id="product">
@@ -273,7 +294,8 @@ footer .logo{font-size:15px;display:inline-block;margin-bottom:8px}
         <span class="gal-count"><b>1</b>/7</span>
         <div class="gal-track">
           <div class="gal-slide"><video autoplay muted loop playsinline><source src="f91-retro-short.mp4" type="video/mp4"></video></div>
-          <div class="gal-slide"><img src="f91-hero-1.webp" alt="PIV F-91, a Casio F-91W on the PIV nylon band" fetchpriority="high"></div>         <div class="gal-slide"><img class="contain" src="f91-with-sensor.webp" alt="The F-91 beside the Fitbit Air pebble, and worn on the wrist" loading="lazy" decoding="async"></div>
+          <div class="gal-slide"><img src="f91-hero-1.webp" alt="PIV F-91, a Casio F-91W on the PIV nylon band" fetchpriority="high"></div>
+          <div class="gal-slide"><img class="contain" src="f91-with-sensor.webp" alt="The F-91 beside the Fitbit Air pebble, and worn on the wrist" loading="lazy" decoding="async"></div>
           <div class="gal-slide"><img src="f91-wrist.webp" alt="The PIV F-91 worn on the wrist" loading="lazy" decoding="async"></div>
           <div class="gal-slide"><img src="wrist-band-1.webp" alt="The PIV F-91 worn on the wrist outdoors" loading="lazy" decoding="async"></div>
           <div class="gal-slide"><img src="wrist-band-2.webp" alt="Side view of the PIV F-91 worn on the wrist outdoors" loading="lazy" decoding="async"></div>
@@ -287,7 +309,7 @@ footer .logo{font-size:15px;display:inline-block;margin-bottom:8px}
         <div class="kicker"><b>Watch + band</b> | Casio F-91W</div>
         <h2 class="name"><a href="f91.html" style="text-decoration:none">PIV F-91</a></h2>
         <div class="price">$99.99</div>
-        <div class="meta">One size, fits 5.7 to 8.6 in wrists. Free shipping, ships in 7 to 10 days.</div>
+        <div class="meta">The most worn digital watch on Earth, made a little smarter.</div>
         <div class="rating"><b>&#9733;&#9733;&#9733;&#9733;&#9733;</b> 2 reviews</div>
         <div class="spacer"></div>
         <button class="btn" onclick="selectSKU('f91'); trackOrderClick('f91')">Order F-91W, $99.99</button>
@@ -295,7 +317,7 @@ footer .logo{font-size:15px;display:inline-block;margin-bottom:8px}
     </article>
 
     <article class="card">
-            <div class="gal" data-gal>
+      <div class="gal" data-gal>
         <span class="gal-count"><b>1</b>/6</span>
         <div class="gal-track">
           <div class="gal-slide"><video autoplay muted loop playsinline><source src="ca53-retro-short.mp4" type="video/mp4"></video></div>
@@ -313,7 +335,7 @@ footer .logo{font-size:15px;display:inline-block;margin-bottom:8px}
         <div class="kicker"><b>Watch + band</b> | Casio CA-53W</div>
         <h2 class="name"><a href="ca53.html" style="text-decoration:none">PIV CA-53W</a></h2>
         <div class="price">$99.99</div>
-        <div class="meta">The calculator watch. Same band, same holder, more character. Free shipping, ships in 7 to 10 days.</div>
+        <div class="meta">Bring back the calculator watch. Same fit as the F-91, twice the personality.</div>
         <div class="rating">Back in stock</div>
         <div class="spacer"></div>
         <button class="btn" onclick="selectSKU('ca53'); trackOrderClick('ca53')">Order CA-53W, $99.99</button>
@@ -380,6 +402,8 @@ footer .logo{font-size:15px;display:inline-block;margin-bottom:8px}
       <h2>Order</h2>
       <p class="co-sub">Pick your model, then pay securely on Stripe.</p>
 
+      <div class="addon-note">🔧 Want an easy way to swap straps? Add the PIV Tool Kit for $9.99 at checkout.</div>
+
       <div class="sku-selector" id="checkout-sku-selector">
         <button class="sku-btn active" id="co-sku-f91" onclick="selectSKU('f91')">
           <span class="sku-name">PIV F-91</span><span class="sku-price">$99.99</span></button>
@@ -437,7 +461,8 @@ footer .logo{font-size:15px;display:inline-block;margin-bottom:8px}
 
     <details><summary>Do I need tools to change it?</summary>
       <p>Not for the PIV band. It sits on quick-release spring bars, so you slide the knob with your finger and it comes off. Swapping it between watches takes seconds.</p>
-      <p>Taking the <b>original Casio strap</b> off is the fiddly part, since those are not quick-release. That needs basic watch tools, or household ones will do: a pair of pliers and a pin is enough. Your order arrives with the PIV band already fitted, so you only run into this if you decide to go back to stock.</p></details>
+      <p>Taking the <b>original Casio strap</b> off is the fiddly part, since those are not quick-release. That needs basic watch tools, or household ones will do: a pair of pliers and a pin is enough. Your order arrives with the PIV band already fitted, so you only run into this if you decide to go back to stock.</p>
+      <p>Want an easy way to swap straps? We sell the exact tool kit as an add-on — see it in the order box above.</p></details>
 
     <details id="fit"><summary>Which watches does the band fit?</summary>
       <div class="fit">
@@ -495,6 +520,7 @@ const SKU_DATA = {
   'band-20': { name:'PIV Band + Pebble Holder (20mm)', price:'$39.99', stripe:STRIPE_BAND_20 }
 };
 const OOS_SKUS = { 'band-20':'The 20mm band' };
+const SMALL_ITEMS = ['band-18','band-20'];
 
 var selectedSKU = 'f91';
 
@@ -507,9 +533,9 @@ function selectSKU(sku){
     if (el) el.classList.toggle('active', s === sku);
   });
 
-  var isBand = (sku === 'band-18' || sku === 'band-20');
+  var isSmallItem = SMALL_ITEMS.indexOf(sku) !== -1;
   document.getElementById('summary-model').textContent    = data.name;
-  document.getElementById('summary-ships').textContent    = isBand ? '3 to 5 business days' : '7 to 10 business days';
+  document.getElementById('summary-ships').textContent    = isSmallItem ? '3 to 5 business days' : '7 to 10 business days';
   document.getElementById('summary-shipping').textContent = 'Free';
   document.getElementById('summary-total').textContent    = data.price;
 
